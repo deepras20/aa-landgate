@@ -1,0 +1,7 @@
+DirectoryIndex index.html index.php
+Options -Indexes
+
+# Force www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
