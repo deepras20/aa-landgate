@@ -21,8 +21,8 @@ jobs:
           port: 21
           protocol: ftps
           local-dir: ./
-          server-dir: /public_html/aalandgate.com/
-          dangerous-clean-slate: true
+          server-dir: /domains/aalandgate.com/public_html/
+          dangerous-clean-slate: false
           exclude: |
             **/.git*
             **/.git*/**
