@@ -136,8 +136,30 @@ nav {
 .nav-links { display: flex; gap: 0; list-style: none; }
 .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 11px; font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 14px; transition: color .2s; cursor: pointer; display: block; }
 .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-right { display: flex; align-items: center; gap: 10px; }
+.nav-search-btn { background: none; border: 1px solid rgba(201,168,76,0.4); color: rgba(255,255,255,0.75); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: border-color .2s, color .2s, background .2s; flex-shrink: 0; }
+.nav-search-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.08); }
 .nav-cta { background: var(--gold); color: var(--navy); padding: 8px 18px; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer; font-family: 'Cinzel', serif; transition: background .2s; }
 .nav-cta:hover { background: var(--gold-light); }
+
+/* SEARCH OVERLAY */
+#search-overlay { position: fixed; inset: 0; z-index: 2000; background: rgba(4,16,30,0.92); backdrop-filter: blur(16px); display: none; align-items: flex-start; justify-content: center; padding-top: 120px; }
+#search-overlay.open { display: flex; }
+.search-box { width: 100%; max-width: 680px; margin: 0 1.5rem; }
+.search-input-row { display: flex; align-items: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.5); border-radius: 4px; padding: 0 16px; gap: 12px; }
+.search-icon-inline { color: var(--gold); flex-shrink: 0; }
+#search-input { flex: 1; background: none; border: none; outline: none; color: #fff; font-size: 1.15rem; font-family: 'Cormorant Garamond', serif; letter-spacing: 0.5px; padding: 18px 0; }
+#search-input::placeholder { color: rgba(255,255,255,0.3); }
+.search-close-btn { background: none; border: none; color: rgba(255,255,255,0.4); font-size: 18px; cursor: pointer; padding: 4px 0 4px 8px; transition: color .2s; flex-shrink: 0; }
+.search-close-btn:hover { color: var(--gold); }
+#search-results { margin-top: 8px; max-height: 60vh; overflow-y: auto; }
+.search-result-item { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: background .15s; border-radius: 3px; }
+.search-result-item:hover { background: rgba(201,168,76,0.08); }
+.search-result-tag { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); background: rgba(201,168,76,0.1); padding: 3px 8px; border-radius: 2px; flex-shrink: 0; min-width: 60px; text-align: center; }
+.search-result-title { color: #fff; font-size: 0.95rem; font-family: 'Cormorant Garamond', serif; }
+.search-result-sub { color: rgba(255,255,255,0.4); font-size: 0.78rem; margin-top: 2px; }
+.search-no-result { color: rgba(255,255,255,0.35); text-align: center; padding: 2.5rem 1rem; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; }
+.search-hint { color: rgba(255,255,255,0.2); font-size: 11px; letter-spacing: 1px; text-align: center; padding: 2rem 1rem; }
 
 /* HERO */
 .hero { min-height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; padding: 9rem 3rem 4rem; margin-top: 0; }
@@ -488,6 +510,7 @@ footer { padding-bottom: 6rem; }
   nav { padding: 0 1.25rem; }
   .nav-toggle { display: flex; }
   .nav-cta { display: none; }
+  .nav-search-btn { width: 30px; height: 30px; }
   .nav-links {
     position: fixed; top: 112px; left: 0; right: 0;
     flex-direction: column; gap: 0;
@@ -572,9 +595,26 @@ footer { padding-bottom: 6rem; }
     <li><a onclick="showPage('faq')">FAQ</a></li>
     <li><a onclick="showPage('contact')">Contact Us</a></li>
   </ul>
-  <button class="nav-cta" onclick="showPage('contact')">Consult Now</button>
+  <div class="nav-right">
+    <button class="nav-search-btn" onclick="openSearch()" aria-label="Search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+    <button class="nav-cta" onclick="showPage('contact')">Consult Now</button>
+  </div>
   <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
 </nav>
+
+<!-- SEARCH OVERLAY -->
+<div id="search-overlay" onclick="closeSearchOverlay(event)">
+  <div class="search-box">
+    <div class="search-input-row">
+      <svg class="search-icon-inline" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="search-input" placeholder="Search listings, pages, topics…" oninput="runSearch(this.value)" autocomplete="off" spellcheck="false">
+      <button class="search-close-btn" onclick="closeSearch()" aria-label="Close search">✕</button>
+    </div>
+    <div id="search-results"></div>
+  </div>
+</div>
 
 
 <!-- ============================================================ HOME PAGE ============================================================ -->
@@ -2071,6 +2111,82 @@ function filterListings(type, btn) {
 function enquireListing(propertyRef) {
   var text = '*Property Enquiry — A&A Landgate*\n─────────────────────\n*Property:* ' + propertyRef + '\n\nHello, I am interested in this property. Please get in touch with me.\n─────────────────────\n_Via www.aalandgate.com_';
   window.open('https://wa.me/' + WHATSAPP_FALLBACK + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
+}
+
+/* ============================================================ SEARCH ============================================================ */
+var SEARCH_INDEX = [
+  { tag: 'Page', title: 'Home', sub: 'Overview, services, featured listings', page: 'home' },
+  { tag: 'Page', title: 'Property Listings', sub: 'Browse 1BHK, 2BHK, 3BHK, plots, commercial', page: 'listings' },
+  { tag: 'Page', title: 'About Us', sub: 'Our team, mission, MahaRERA registration', page: 'about' },
+  { tag: 'Page', title: 'Sell Property', sub: 'List your flat, plot, shop for sale', page: 'sell' },
+  { tag: 'Page', title: 'Blog & Insights', sub: 'Mumbai market trends, stamp duty, NRI guide', page: 'blog' },
+  { tag: 'Page', title: 'FAQ', sub: 'Brokerage, process, NRI, documents, timelines', page: 'faq' },
+  { tag: 'Page', title: 'Contact Us', sub: 'Call, WhatsApp, or fill enquiry form', page: 'contact' },
+  { tag: 'Listing', title: 'Spacious 2 BHK Apartment', sub: 'Thane West · Residential', page: 'listings' },
+  { tag: 'Listing', title: 'Cosy 1 BHK Starter Home', sub: 'Mira Road · Residential', page: 'listings' },
+  { tag: 'Listing', title: 'Premium 3 BHK Family Residence', sub: 'Kharghar, Navi Mumbai · Residential', page: 'listings' },
+  { tag: 'Listing', title: 'Prime Commercial Office Space', sub: 'Andheri East · Commercial', page: 'listings' },
+  { tag: 'Listing', title: 'Residential Plot', sub: 'Alibaug Coastal Zone · Plot', page: 'listings' },
+  { tag: 'Listing', title: 'Luxury 4 BHK Penthouse', sub: 'Powai · Residential', page: 'listings' },
+  { tag: 'Blog', title: 'Mumbai Real Estate Prices: Q1 2025 Report', sub: 'Market trends & analysis', page: 'blog' },
+  { tag: 'Blog', title: '10 Things to Check Before Buying a Flat in Mumbai', sub: 'Buyer guide', page: 'blog' },
+  { tag: 'Blog', title: 'Is 2025 a Good Time to Invest in Mumbai Property?', sub: 'Investment insights', page: 'blog' },
+  { tag: 'Blog', title: 'Understanding Stamp Duty and Registration Charges', sub: 'Maharashtra property taxes', page: 'blog' },
+  { tag: 'Blog', title: 'Complete NRI Guide to Buying Property in India', sub: 'FEMA, NRE/NRO, process', page: 'blog' },
+  { tag: 'Blog', title: 'How AI Is Transforming Real Estate Valuation in India', sub: 'PropTech insights', page: 'blog' },
+  { tag: 'Service', title: 'Buy a Property', sub: 'Residential & commercial buying assistance', page: 'home' },
+  { tag: 'Service', title: 'Sell Your Property', sub: 'List and sell flats, plots, shops', page: 'sell' },
+  { tag: 'Service', title: 'Property Investment Advisory', sub: 'Mumbai MMR investment guidance', page: 'about' },
+  { tag: 'Service', title: 'RERA-Verified Deals', sub: 'MahaRERA registered projects only', page: 'listings' },
+  { tag: 'Location', title: 'Mira Road & Mira-Bhayandar', sub: 'Listings and market data', page: 'listings' },
+  { tag: 'Location', title: 'Thane & Thane West', sub: 'Listings and market data', page: 'listings' },
+  { tag: 'Location', title: 'Navi Mumbai & Kharghar', sub: 'Listings and market data', page: 'listings' },
+  { tag: 'Location', title: 'Mumbai — Andheri, Powai, Bandra', sub: 'Listings and market data', page: 'listings' },
+  { tag: 'Location', title: 'Alibaug & Coastal Maharashtra', sub: 'Plots and investment', page: 'listings' },
+];
+
+function openSearch() {
+  var overlay = document.getElementById('search-overlay');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function(){ document.getElementById('search-input').focus(); }, 80);
+  renderSearchHint();
+}
+function closeSearch() {
+  document.getElementById('search-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+  document.getElementById('search-input').value = '';
+  document.getElementById('search-results').innerHTML = '';
+}
+function closeSearchOverlay(e) { if (e.target === document.getElementById('search-overlay')) closeSearch(); }
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeSearch(); });
+
+function renderSearchHint() {
+  document.getElementById('search-results').innerHTML = '<p class="search-hint">TYPE TO SEARCH LISTINGS · PAGES · BLOG · LOCATIONS</p>';
+}
+
+function runSearch(q) {
+  var box = document.getElementById('search-results');
+  q = q.trim().toLowerCase();
+  if (!q) { renderSearchHint(); return; }
+  var hits = SEARCH_INDEX.filter(function(item) {
+    return (item.title + ' ' + item.sub + ' ' + item.tag + ' ' + item.page).toLowerCase().indexOf(q) !== -1;
+  });
+  if (!hits.length) {
+    box.innerHTML = '<p class="search-no-result">No results for "<em>' + q.replace(/</g,'&lt;') + '</em>" — try another keyword</p>';
+    return;
+  }
+  box.innerHTML = hits.slice(0, 10).map(function(item) {
+    return '<div class="search-result-item" onclick="searchGo(\'' + item.page + '\')">' +
+      '<span class="search-result-tag">' + item.tag + '</span>' +
+      '<div><div class="search-result-title">' + item.title + '</div>' +
+      '<div class="search-result-sub">' + item.sub + '</div></div>' +
+      '</div>';
+  }).join('');
+}
+function searchGo(page) {
+  closeSearch();
+  showPage(page);
 }
 
 var chartInited = false;
