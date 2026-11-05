@@ -2019,39 +2019,38 @@ function submitLead(evt, p) {
     submittedAt: new Date().toISOString()
   };
 
-  if (!LEAD_ENDPOINT || LEAD_ENDPOINT.indexOf('PASTE_') === 0) {
-    return showErr(err, 'Our online form is being set up. Please message us on <a href="' + waLink(lead) + '" target="_blank" rel="noopener">WhatsApp</a> or call +91 96532 36410.');
-  }
-
-  btn.disabled = true;
-  btn.textContent = 'Sending…';
-  // text/plain + no-cors avoids a CORS preflight, which Apps Script does not answer
-  fetch(LEAD_ENDPOINT, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify(lead)
-  }).then(function() {
-    ok.style.display = 'block';
-    btn.textContent = 'Sent ✓';
-    btn.style.background = '#4caf50';
-    form.reset();
-  }).catch(function() {
-    btn.disabled = false;
+  // Open WhatsApp with full details
+  window.open(waLink(lead), '_blank', 'noopener');
+  ok.style.display = 'block';
+  btn.textContent = isSell ? 'Sent via WhatsApp ✓' : 'Sent via WhatsApp ✓';
+  btn.style.background = '#25D366';
+  form.reset();
+  setTimeout(function() {
     btn.textContent = isSell ? 'Submit Property →' : 'Send Enquiry →';
-    showErr(err, 'Sorry, we could not send your details. Please check your internet connection, or message us directly on <a href="' + waLink(lead) + '" target="_blank" rel="noopener">WhatsApp</a>.');
-  });
+    btn.style.background = '';
+  }, 4000);
   return false;
 }
 
 function showErr(el, html) { el.innerHTML = html; el.style.display = 'block'; return false; }
 
 function waLink(lead) {
-  var name = [lead.firstName, lead.lastName].filter(Boolean).join(' ');
-  var text = 'Hello A&A Landgate, I would like to know more. I am ' + (name || 'interested') + '. ' +
-    (lead.leadType === 'Sell' ? 'I want to sell my property' : 'I am looking for a property') +
-    (lead.location ? ' in ' + lead.location : '') + (lead.range ? ' (' + lead.range + ')' : '') + '.';
-  return 'https://wa.me/' + WHATSAPP_FALLBACK + '?text=' + encodeURIComponent(text);
+  var name = [lead.firstName, lead.middleName, lead.lastName].filter(Boolean).join(' ');
+  var lines = [
+    '*New Enquiry — A&A Landgate Website*',
+    '─────────────────────',
+    '*Type:* ' + (lead.leadType || '—'),
+    '*Name:* ' + (name || '—'),
+    '*Phone:* +91 ' + (lead.phone || '—'),
+    '*Email:* ' + (lead.email || '—'),
+  ];
+  if (lead.location) lines.push('*Location:* ' + lead.location);
+  if (lead.propertyType) lines.push('*Property Type:* ' + lead.propertyType);
+  if (lead.range) lines.push('*' + (lead.rangeLabel || 'Budget') + ':* ' + lead.range);
+  if (lead.message) lines.push('*Message:* ' + lead.message);
+  lines.push('─────────────────────');
+  lines.push('_Submitted via www.aalandgate.com_');
+  return 'https://wa.me/' + WHATSAPP_FALLBACK + '?text=' + encodeURIComponent(lines.join('\n'));
 }
 
 
@@ -2068,13 +2067,10 @@ function filterListings(type, btn) {
   });
 }
 
-// LISTINGS: pre-fill contact form with property reference
+// LISTINGS: open WhatsApp directly with property reference
 function enquireListing(propertyRef) {
-  showPage('contact');
-  setTimeout(function(){
-    var msgField = document.getElementById('contact-message');
-    if (msgField) msgField.value = 'I am interested in: ' + propertyRef + '. Please get in touch with me.';
-  }, 300);
+  var text = '*Property Enquiry — A&A Landgate*\n─────────────────────\n*Property:* ' + propertyRef + '\n\nHello, I am interested in this property. Please get in touch with me.\n─────────────────────\n_Via www.aalandgate.com_';
+  window.open('https://wa.me/' + WHATSAPP_FALLBACK + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
 }
 
 var chartInited = false;
