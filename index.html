@@ -1871,7 +1871,7 @@ footer { padding-bottom: 6rem; }
 </div><!-- /contact-page -->
 
 <!-- ==================== SERVICES PAGE ==================== -->
-<div id="services-page" class="page" style="display:none; background: var(--navy); min-height: 100vh;">
+<div id="services-page" class="page" style="background: var(--navy); min-height: 100vh;">
 
   <!-- HERO BANNER -->
   <div style="position:relative; height:420px; overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center;">
@@ -2102,6 +2102,7 @@ footer { padding-bottom: 6rem; }
           <h4>Services</h4>
           <ul>
 
+            <li onclick="showPage('services')">All Services</li>
             <li onclick="showPage('sell')">Sell Your Property</li>
             <li onclick="showPage('contact')">NRI Investment</li>
             <li onclick="showPage('contact')">Project Advisory</li>
@@ -2172,7 +2173,8 @@ function showPage(name) {
     sell: 'Sell Your Property in Mumbai or Thane | A&A Landgate',
     blog: 'Real Estate Insights & Property Tips | A&A Landgate Blog',
     faq: 'Frequently Asked Questions | A&A Landgate Real Estate',
-    contact: 'Contact A&A Landgate | Real Estate Consultants Maharashtra'
+    contact: 'Contact A&A Landgate | Real Estate Consultants Maharashtra',
+    services: 'Real Estate Services by A&A Landgate | Residential, Commercial, NRI, Investment & Advisory Services in Mumbai and Maharashtra'
   };
   var descs = {
     home: 'A&A Landgate is Maharashtra\'s trusted real estate consultancy helping families find homes in Mumbai, Thane, Navi Mumbai and Mira-Bhayandar. RERA registered, 0% brokerage on new projects.',
@@ -2181,7 +2183,8 @@ function showPage(name) {
     sell: 'Sell your residential or commercial property in Mumbai, Thane or Navi Mumbai through A&A Landgate. Expert valuation, wide buyer network, full RERA compliance.',
     blog: 'Read expert insights on Mumbai real estate, property investment tips, market trends across Maharashtra and home-buying guides on the A&A Landgate blog.',
     faq: 'Got questions about buying or selling property in Maharashtra? Find clear answers from A&A Landgate\'s real estate experts.',
-    contact: 'Get in touch with A&A Landgate. Call, WhatsApp or fill in the form — our consultants across Mumbai, Thane and Navi Mumbai respond within 24 hours.'
+    contact: 'Get in touch with A&A Landgate. Call, WhatsApp or fill in the form — our consultants across Mumbai, Thane and Navi Mumbai respond within 24 hours.',
+    services: 'Explore A&A Landgate\'s full range of real estate services — residential buying, property selling, commercial spaces, home loans, NRI assistance, investment advisory and RERA-verified deals.'
   };
   if (titles[name]) { document.title = titles[name]; }
   var metaDesc = document.querySelector('meta[name="description"]');
