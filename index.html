@@ -2149,7 +2149,7 @@ footer { padding-bottom: 6rem; }
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
-var navMap = {home:0, listings:1, about:2, sell:3, blog:4, faq:5, contact:6, services:7};
+var navMap = {home:0, listings:1, about:2, sell:3, services:4, blog:5, faq:6, contact:7};
 var blogPages = ['b1','b2','b3','b4','b5','b6'];
 
 function toggleMenu(btn) {
@@ -2209,7 +2209,7 @@ function showBlog(id) {
   if (el) el.classList.add('active');
   document.querySelectorAll('.nav-links a').forEach(function(a){ a.classList.remove('active'); });
   var links = document.querySelectorAll('.nav-links a');
-  if (links[4]) links[4].classList.add('active');
+  if (links[5]) links[5].classList.add('active');
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
@@ -2338,6 +2338,7 @@ var SEARCH_INDEX = [
   { tag: 'Page', title: 'Property Listings', sub: 'Browse 1BHK, 2BHK, 3BHK, plots, commercial', page: 'listings' },
   { tag: 'Page', title: 'About Us', sub: 'Our team, mission, MahaRERA registration', page: 'about' },
   { tag: 'Page', title: 'Sell Property', sub: 'List your flat, plot, shop for sale', page: 'sell' },
+  { tag: 'Page', title: 'Services', sub: 'Residential, commercial, NRI, home loan, valuation, investment advisory', page: 'services' },
   { tag: 'Page', title: 'Blog & Insights', sub: 'Mumbai market trends, stamp duty, NRI guide', page: 'blog' },
   { tag: 'Page', title: 'FAQ', sub: 'Brokerage, process, NRI, documents, timelines', page: 'faq' },
   { tag: 'Page', title: 'Contact Us', sub: 'Call, WhatsApp, or fill enquiry form', page: 'contact' },
@@ -2353,10 +2354,17 @@ var SEARCH_INDEX = [
   { tag: 'Blog', title: 'Understanding Stamp Duty and Registration Charges', sub: 'Maharashtra property taxes', page: 'blog' },
   { tag: 'Blog', title: 'Complete NRI Guide to Buying Property in India', sub: 'FEMA, NRE/NRO, process', page: 'blog' },
   { tag: 'Blog', title: 'How AI Is Transforming Real Estate Valuation in India', sub: 'PropTech insights', page: 'blog' },
-  { tag: 'Service', title: 'Buy a Property', sub: 'Residential & commercial buying assistance', page: 'home' },
+  { tag: 'Service', title: 'Residential Buying', sub: '1RK, 1BHK, 2BHK, 3BHK apartments across MMR', page: 'services' },
+  { tag: 'Service', title: 'Property Selling', sub: 'Valuation, marketing, legal paperwork', page: 'services' },
+  { tag: 'Service', title: 'Commercial Spaces', sub: 'Shops, offices, showrooms, warehouses', page: 'services' },
+  { tag: 'Service', title: 'Project Advisory & Consultancy', sub: 'Price guidance, documentation, registration', page: 'services' },
+  { tag: 'Service', title: 'Investment Advisory', sub: 'ROI analysis, market insights, portfolio strategy', page: 'services' },
+  { tag: 'Service', title: 'Home Loan Assistance', sub: 'Pre-approval, rate comparison, bank tie-ups', page: 'services' },
+  { tag: 'Service', title: 'NRI Property Services', sub: 'POA, virtual tours, repatriation, legal compliance', page: 'services' },
+  { tag: 'Service', title: 'Property Valuation', sub: 'Market rate analysis, comparable sales, expert report', page: 'services' },
+  { tag: 'Service', title: 'RERA-Verified Deals', sub: 'MahaRERA check, legal compliance, buyer protection', page: 'services' },
+  { tag: 'Service', title: 'Buy a Property', sub: 'Residential & commercial buying assistance', page: 'services' },
   { tag: 'Service', title: 'Sell Your Property', sub: 'List and sell flats, plots, shops', page: 'sell' },
-  { tag: 'Service', title: 'Property Investment Advisory', sub: 'Mumbai MMR investment guidance', page: 'about' },
-  { tag: 'Service', title: 'RERA-Verified Deals', sub: 'MahaRERA registered projects only', page: 'listings' },
   { tag: 'Location', title: 'Mira Road & Mira-Bhayandar', sub: 'Listings and market data', page: 'listings' },
   { tag: 'Location', title: 'Thane & Thane West', sub: 'Listings and market data', page: 'listings' },
   { tag: 'Location', title: 'Navi Mumbai & Kharghar', sub: 'Listings and market data', page: 'listings' },
