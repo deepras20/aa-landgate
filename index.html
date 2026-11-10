@@ -584,6 +584,65 @@ footer { padding-bottom: 6rem; }
   .hero-ctas { flex-direction: column; }
   .hero-ctas > * { width: 100%; text-align: center; }
 }
+
+/* ==================== FREE TOOLS PAGE ==================== */
+.tools-wrap { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem 5rem; }
+.tools-tabs-nav { display: flex; flex-wrap: wrap; gap: 0; margin-bottom: 2.5rem; border-bottom: 1px solid rgba(201,168,76,0.25); }
+.tools-tab-btn { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 0.85rem 1.4rem; background: transparent; color: rgba(255,255,255,0.5); border: none; border-bottom: 2px solid transparent; cursor: pointer; transition: all .2s; white-space: nowrap; }
+.tools-tab-btn:hover { color: #C9A84C; }
+.tools-tab-btn.t-active { color: #C9A84C; border-bottom-color: #C9A84C; }
+.tool-panel { display: none; }
+.tool-panel.t-open { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+.calc-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(201,168,76,0.22); padding: 2rem; }
+.calc-label { font-size: 10px; font-family: 'Cinzel', serif; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.6); display: block; margin-bottom: 0.5rem; }
+.calc-input, .calc-select { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.3); color: #fff; padding: 0.75rem 1rem; font-size: 14px; font-family: 'Inter', sans-serif; outline: none; transition: border .2s; box-sizing: border-box; border-radius: 0; -webkit-appearance: none; appearance: none; }
+.calc-input:focus, .calc-select:focus { border-color: #C9A84C; }
+.calc-select option { background: #0B1F3A; color: #fff; }
+.calc-field { margin-bottom: 1.25rem; }
+.calc-btn { width: 100%; margin-top: 0.5rem; font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 0.9rem 1rem; background: #C9A84C; color: #0B1F3A; border: none; cursor: pointer; transition: background .2s; }
+.calc-btn:hover { background: #E2C97E; }
+.calc-result-panel { background: rgba(255,255,255,0.03); border: 1px solid rgba(201,168,76,0.22); padding: 2rem; display: none; }
+.calc-result-panel.cr-show { display: block; }
+.calc-result-eyebrow { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: #C9A84C; margin-bottom: 1.5rem; }
+.cr-metric { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.cr-metric:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.cr-value { font-family: 'Cinzel', serif; font-size: clamp(1.3rem,3vw,1.8rem); font-weight: 700; color: #fff; }
+.cr-value.cr-gold { color: #C9A84C; }
+.cr-label { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 0.3rem; letter-spacing: 0.5px; }
+.cr-breakdown { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.08); display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.cr-b-item { text-align: left; }
+.cr-b-val { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 700; color: rgba(255,255,255,0.85); }
+.cr-b-label { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 0.2rem; letter-spacing: 0.5px; }
+.calc-note { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 1.5rem; line-height: 1.7; }
+.tool-desc { }
+.tool-desc h3 { font-family: 'Cinzel', serif; font-size: clamp(1.1rem,2.5vw,1.4rem); font-weight: 700; color: #fff; margin-bottom: 1rem; }
+.tool-desc p { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 1rem; }
+.tool-desc ul { list-style: none; padding: 0; margin: 0 0 1.5rem; }
+.tool-desc ul li { font-size: 13px; color: rgba(255,255,255,0.65); padding: 0.4rem 0; padding-left: 1.25rem; position: relative; line-height: 1.6; }
+.tool-desc ul li::before { content: '→'; position: absolute; left: 0; color: #C9A84C; font-size: 11px; }
+.tools-overview { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.25rem; margin-bottom: 3rem; }
+.tool-ov-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(201,168,76,0.18); padding: 1.75rem 1.5rem; cursor: pointer; transition: all .2s; }
+.tool-ov-card:hover { border-color: #C9A84C; background: rgba(201,168,76,0.05); }
+.tool-ov-icon { font-size: 1.75rem; margin-bottom: 1rem; }
+.tool-ov-card h4 { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; letter-spacing: 1px; color: #fff; margin-bottom: 0.5rem; }
+.tool-ov-card p { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 1rem; }
+.tool-ov-link { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #C9A84C; }
+/* Tools home teaser */
+.tools-teaser { background: linear-gradient(135deg, rgba(201,168,76,0.07) 0%, transparent 60%); border-top: 1px solid rgba(201,168,76,0.15); padding: 5rem 1.5rem; }
+.tools-teaser-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.tools-mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.tools-mini-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.2); padding: 1.25rem; }
+.tools-mini-card .tmc-icon { font-size: 1.4rem; margin-bottom: 0.6rem; }
+.tools-mini-card h5 { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 1px; color: #C9A84C; margin-bottom: 0.3rem; }
+.tools-mini-card p { font-size: 11px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+@media (max-width: 768px) {
+  .tool-panel.t-open { grid-template-columns: 1fr; }
+  .tools-teaser-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .tools-mini-grid { grid-template-columns: 1fr 1fr; }
+  .cr-breakdown { grid-template-columns: 1fr; }
+  .tools-tabs-nav { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+  .tools-tab-btn { flex-shrink: 0; }
+}
 </style>
 </head>
 <body>
@@ -610,6 +669,7 @@ footer { padding-bottom: 6rem; }
 
     <li><a onclick="showPage('services')">Services</a></li>
     <li><a onclick="showPage('blog')">Blog</a></li>
+    <li><a onclick="showPage('tools')">Free Tools</a></li>
     <li><a onclick="showPage('faq')">FAQ</a></li>
     <li><a onclick="showPage('contact')">Contact Us</a></li>
   </ul>
@@ -786,6 +846,41 @@ footer { padding-bottom: 6rem; }
           <div style="margin-top:1rem;padding:0.75rem 1rem;border:1px solid var(--border-gold);background:rgba(201,168,76,0.05);">
             <p style="font-size:11px;color:#fff;line-height:1.6;">Source: Maharashtra property registration data &amp; A&amp;A Landgate market intelligence. Values are indicative averages.</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREE TOOLS TEASER -->
+  <section class="tools-teaser">
+    <div class="tools-teaser-inner">
+      <div>
+        <div class="section-eyebrow">100% Free · No Login Required</div>
+        <h2 class="section-h2" style="margin-bottom:1rem;">Plan Smarter<br>with Our Free<br>Property Tools</h2>
+        <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.8;margin-bottom:0.75rem;">Calculate your EMI, estimate Maharashtra stamp duty, compare renting vs buying, and find the right BHK for your budget — all in seconds.</p>
+        <p style="color:rgba(255,255,255,0.5);font-size:13px;line-height:1.7;margin-bottom:2rem;">Built specifically for Mumbai, Thane, Navi Mumbai &amp; Mira-Bhayandar.</p>
+        <button class="btn-primary" onclick="showPage('tools')">Explore All Free Tools →</button>
+      </div>
+      <div class="tools-mini-grid">
+        <div class="tools-mini-card" onclick="showPage('tools')" style="cursor:pointer;">
+          <div class="tmc-icon">🏦</div>
+          <h5>EMI Calculator</h5>
+          <p>Monthly instalment &amp; total interest for any home loan</p>
+        </div>
+        <div class="tools-mini-card" onclick="showPage('tools')" style="cursor:pointer;">
+          <div class="tmc-icon">📋</div>
+          <h5>Stamp Duty</h5>
+          <p>Exact stamp duty &amp; registration charges for Maharashtra</p>
+        </div>
+        <div class="tools-mini-card" onclick="showPage('tools')" style="cursor:pointer;">
+          <div class="tmc-icon">⚖️</div>
+          <h5>Rent vs Buy</h5>
+          <p>See when buying becomes cheaper than renting</p>
+        </div>
+        <div class="tools-mini-card" onclick="showPage('tools')" style="cursor:pointer;">
+          <div class="tmc-icon">🏡</div>
+          <h5>Budget Planner</h5>
+          <p>Discover which BHK fits your income &amp; savings</p>
         </div>
       </div>
     </div>
@@ -2109,6 +2204,470 @@ footer { padding-bottom: 6rem; }
 </div><!-- /services-page -->
 
 
+<!-- ==================== FREE TOOLS PAGE ==================== -->
+<div id="tools-page" class="page" style="background:var(--navy);min-height:100vh;">
+
+  <!-- Page Header -->
+  <div class="page-header" style="padding-top:7rem;">
+    <span class="section-tag-light">Completely Free · No Login Required</span>
+    <h1>Free Real Estate Tools</h1>
+    <p>Smart calculators built for home buyers in Mumbai, Thane, Navi Mumbai &amp; Mira-Bhayandar. Plan your budget, estimate costs, and make confident decisions.</p>
+  </div>
+
+  <!-- Overview cards -->
+  <div class="tools-wrap" style="padding-top:2rem;padding-bottom:0;">
+    <div class="tools-overview">
+      <div class="tool-ov-card" onclick="switchTool('emi')">
+        <div class="tool-ov-icon">🏦</div>
+        <h4>EMI Calculator</h4>
+        <p>Find your monthly instalment and total interest for any home loan amount and tenure.</p>
+        <div class="tool-ov-link">Use Tool →</div>
+      </div>
+      <div class="tool-ov-card" onclick="switchTool('stamp')">
+        <div class="tool-ov-icon">📋</div>
+        <h4>Stamp Duty Calculator</h4>
+        <p>Calculate exact stamp duty &amp; registration charges for any Maharashtra property purchase.</p>
+        <div class="tool-ov-link">Use Tool →</div>
+      </div>
+      <div class="tool-ov-card" onclick="switchTool('rvb')">
+        <div class="tool-ov-icon">⚖️</div>
+        <h4>Rent vs Buy Analyzer</h4>
+        <p>Compare the total cost of renting vs buying over time and find your break-even point.</p>
+        <div class="tool-ov-link">Use Tool →</div>
+      </div>
+      <div class="tool-ov-card" onclick="switchTool('budget')">
+        <div class="tool-ov-icon">🏡</div>
+        <h4>Budget Planner</h4>
+        <p>Enter your income and savings to discover your maximum budget and the right BHK for you.</p>
+        <div class="tool-ov-link">Use Tool →</div>
+      </div>
+      <div class="tool-ov-card" onclick="switchTool('valuation')">
+        <div class="tool-ov-icon">📊</div>
+        <h4>Property Valuation</h4>
+        <p>Get an estimated market value range for a property based on location, size and age.</p>
+        <div class="tool-ov-link">Use Tool →</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab navigation -->
+  <div class="tools-wrap" style="padding-top:0;padding-bottom:0;">
+    <div class="tools-tabs-nav">
+      <button class="tools-tab-btn t-active" id="tab-emi" onclick="switchTool('emi')">🏦 EMI Calculator</button>
+      <button class="tools-tab-btn" id="tab-stamp" onclick="switchTool('stamp')">📋 Stamp Duty</button>
+      <button class="tools-tab-btn" id="tab-rvb" onclick="switchTool('rvb')">⚖️ Rent vs Buy</button>
+      <button class="tools-tab-btn" id="tab-budget" onclick="switchTool('budget')">🏡 Budget Planner</button>
+      <button class="tools-tab-btn" id="tab-valuation" onclick="switchTool('valuation')">📊 Valuation</button>
+    </div>
+  </div>
+
+  <!-- ======= EMI CALCULATOR ======= -->
+  <div class="tools-wrap" id="panel-emi" style="padding-top:1.5rem;">
+    <div class="tool-panel t-open">
+      <div>
+        <div class="calc-card">
+          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:1.25rem;">Home Loan EMI Calculator</div>
+          <div class="calc-field">
+            <label class="calc-label">Loan Amount (₹)</label>
+            <input class="calc-input" id="emi-loan" type="number" placeholder="e.g. 5000000" min="100000" max="100000000" step="50000">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Annual Interest Rate (%)</label>
+            <input class="calc-input" id="emi-rate" type="number" placeholder="e.g. 8.5" min="5" max="20" step="0.05">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Loan Tenure (Years)</label>
+            <input class="calc-input" id="emi-tenure" type="number" placeholder="e.g. 20" min="1" max="30">
+          </div>
+          <button class="calc-btn" onclick="calcEMI()">Calculate EMI</button>
+        </div>
+        <div class="calc-result-panel" id="emi-result">
+          <div class="calc-result-eyebrow">Your Loan Summary</div>
+          <div class="cr-metric">
+            <div class="cr-value cr-gold" id="emi-monthly">—</div>
+            <div class="cr-label">Monthly EMI</div>
+          </div>
+          <div class="cr-breakdown">
+            <div class="cr-b-item">
+              <div class="cr-b-val" id="emi-principal">—</div>
+              <div class="cr-b-label">Principal Amount</div>
+            </div>
+            <div class="cr-b-item">
+              <div class="cr-b-val" id="emi-interest">—</div>
+              <div class="cr-b-label">Total Interest</div>
+            </div>
+            <div class="cr-b-item">
+              <div class="cr-b-val" id="emi-total">—</div>
+              <div class="cr-b-label">Total Payment</div>
+            </div>
+            <div class="cr-b-item">
+              <div class="cr-b-val" id="emi-int-pct">—</div>
+              <div class="cr-b-label">Interest as % of Loan</div>
+            </div>
+          </div>
+          <p class="calc-note">Indicative figures. Actual EMI may vary based on your bank's processing and disbursement schedule. Speak with our home loan advisors for the best bank rate.</p>
+        </div>
+      </div>
+      <div class="tool-desc">
+        <h3>Plan Your Home Loan Before You Apply</h3>
+        <p>Your EMI (Equated Monthly Instalment) is the fixed amount you pay every month until your loan is fully repaid. It includes both principal and interest.</p>
+        <p>Use this calculator to find a comfortable EMI for your budget, compare different loan amounts and tenures, and understand the full cost of borrowing before you approach a bank.</p>
+        <ul>
+          <li>A longer tenure lowers your EMI but increases total interest paid</li>
+          <li>Even a 0.25% lower interest rate saves ₹2–5 lakhs over 20 years on a ₹50L loan</li>
+          <li>Most lenders cap EMI at 40–50% of monthly net income</li>
+          <li>Pre-payment reduces your outstanding principal and saves future interest</li>
+        </ul>
+        <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);padding:1.25rem;margin-top:1rem;">
+          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:0.5rem;">Need the Best Home Loan Rate?</div>
+          <p style="font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:1rem;line-height:1.6;">We work with 10+ banks and NBFCs. Our advisors compare rates for you and get pre-approval done quickly.</p>
+          <button class="btn-primary" onclick="showPage('contact')" style="font-size:9px;padding:0.7rem 1.5rem;">Get Free Loan Advice</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= STAMP DUTY CALCULATOR ======= -->
+  <div class="tools-wrap" id="panel-stamp" style="padding-top:1.5rem;display:none;">
+    <div class="tool-panel t-open">
+      <div>
+        <div class="calc-card">
+          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:1.25rem;">Maharashtra Stamp Duty Calculator</div>
+          <div class="calc-field">
+            <label class="calc-label">Property Value / Agreement Value (₹)</label>
+            <input class="calc-input" id="sd-value" type="number" placeholder="e.g. 7500000" min="100000" step="50000">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Location</label>
+            <select class="calc-select" id="sd-location">
+              <option value="mumbai">Mumbai Municipal Area (BMC)</option>
+              <option value="mmr">MMR — Thane, Navi Mumbai, Mira Road, KDMC</option>
+              <option value="pune">Pune Municipal Area (PMC / PCMC)</option>
+              <option value="mah">Rest of Maharashtra</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Buyer Gender</label>
+            <select class="calc-select" id="sd-gender">
+              <option value="male">Male</option>
+              <option value="female">Female (1% concession in Mumbai)</option>
+              <option value="joint">Joint (Male + Female)</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Property Type</label>
+            <select class="calc-select" id="sd-type">
+              <option value="residential">Residential</option>
+              <option value="commercial">Commercial</option>
+            </select>
+          </div>
+          <button class="calc-btn" onclick="calcStampDuty()">Calculate Charges</button>
+        </div>
+        <div class="calc-result-panel" id="sd-result">
+          <div class="calc-result-eyebrow">Total Acquisition Charges</div>
+          <div class="cr-metric">
+            <div class="cr-value cr-gold" id="sd-total">—</div>
+            <div class="cr-label">Total Government Charges</div>
+          </div>
+          <div class="cr-breakdown">
+            <div class="cr-b-item">
+              <div class="cr-b-val" id="sd-stamp">—</div>
+              <div class="cr-b-label">Stamp Duty</div>
+            </div>
+            <div class="cr-b-item">
+              <div class="cr-b-val" id="sd-reg">—</div>
+              <div class="cr-b-label">Registration Charges</div>
+            </div>
+            <div class="cr-b-item">
+              <div class="cr-b-val" id="sd-metro">—</div>
+              <div class="cr-b-label">Metro / Local Cess</div>
+            </div>
+            <div class="cr-b-item">
+              <div class="cr-b-val" id="sd-pct">—</div>
+              <div class="cr-b-label">Effective Rate (%)</div>
+            </div>
+          </div>
+          <p class="calc-note">Based on current Maharashtra government rates (2024–25). Rates are subject to revision; always verify with your legal advisor or the Sub-Registrar office before registration.</p>
+        </div>
+      </div>
+      <div class="tool-desc">
+        <h3>Understand Your True Property Cost</h3>
+        <p>Stamp duty and registration charges are mandatory government fees paid when you register a property in Maharashtra. They can add 6–9% to your purchase cost — a significant amount that many buyers overlook.</p>
+        <p>Maharashtra stamp duty rates vary by:</p>
+        <ul>
+          <li>Location — Mumbai rates differ from MMR and rest of Maharashtra</li>
+          <li>Gender — Female buyers get a 1% concession in Mumbai</li>
+          <li>Metro cess of 1% applies in Mumbai Municipal Area</li>
+          <li>Registration is 1% of agreement value (max ₹30,000 for most residential)</li>
+          <li>Commercial properties attract higher effective rates</li>
+        </ul>
+        <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);padding:1.25rem;margin-top:1rem;">
+          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:0.5rem;">Need Help with Registration?</div>
+          <p style="font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:1rem;line-height:1.6;">We guide you through the full registration process — from stamp duty payment to final handover — so nothing is missed.</p>
+          <button class="btn-primary" onclick="showPage('contact')" style="font-size:9px;padding:0.7rem 1.5rem;">Talk to Our Team</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= RENT vs BUY ======= -->
+  <div class="tools-wrap" id="panel-rvb" style="padding-top:1.5rem;display:none;">
+    <div class="tool-panel t-open">
+      <div>
+        <div class="calc-card">
+          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:1.25rem;">Rent vs Buy Analyzer</div>
+          <div class="calc-field">
+            <label class="calc-label">Property Purchase Price (₹)</label>
+            <input class="calc-input" id="rvb-price" type="number" placeholder="e.g. 8000000" step="100000">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Down Payment (%)</label>
+            <input class="calc-input" id="rvb-down" type="number" placeholder="e.g. 20" min="10" max="100" step="1">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Home Loan Interest Rate (%)</label>
+            <input class="calc-input" id="rvb-rate" type="number" placeholder="e.g. 8.75" min="5" max="15" step="0.05">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Monthly Rent You Pay (₹)</label>
+            <input class="calc-input" id="rvb-rent" type="number" placeholder="e.g. 25000" step="500">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Annual Rent Increase (%)</label>
+            <input class="calc-input" id="rvb-rentinc" type="number" placeholder="e.g. 5" min="0" max="20" step="0.5">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Analysis Period (Years)</label>
+            <input class="calc-input" id="rvb-years" type="number" placeholder="e.g. 10" min="1" max="30">
+          </div>
+          <button class="calc-btn" onclick="calcRvB()">Compare Now</button>
+        </div>
+        <div class="calc-result-panel" id="rvb-result">
+          <div class="calc-result-eyebrow">Over Your Analysis Period</div>
+          <div class="cr-metric">
+            <div class="cr-value" id="rvb-verdict">—</div>
+            <div class="cr-label">Financial Verdict</div>
+          </div>
+          <div class="cr-breakdown">
+            <div class="cr-b-item">
+              <div class="cr-b-val" id="rvb-buy-cost">—</div>
+              <div class="cr-b-label">Total Cost of Buying</div>
+            </div>
+            <div class="cr-b-item">
+              <div class="cr-b-val" id="rvb-rent-cost">—</div>
+              <div class="cr-b-label">Total Cost of Renting</div>
+            </div>
+            <div class="cr-b-item">
+              <div class="cr-b-val" id="rvb-emi">—</div>
+              <div class="cr-b-label">Monthly EMI</div>
+            </div>
+            <div class="cr-b-item">
+              <div class="cr-b-val" id="rvb-break">—</div>
+              <div class="cr-b-label">Break-even Year</div>
+            </div>
+          </div>
+          <p class="calc-note">Analysis excludes property appreciation, tax benefits on home loan interest (Sec 24), principal deductions (Sec 80C), maintenance, and investment returns on down payment. Full financial planning should include all factors.</p>
+        </div>
+      </div>
+      <div class="tool-desc">
+        <h3>Is Buying Always Better Than Renting?</h3>
+        <p>In Mumbai's market, the answer depends on the rent-to-price ratio, your loan terms, and how long you plan to stay. This tool compares the actual cash outflow of both paths over time.</p>
+        <ul>
+          <li>In Mumbai, rent-to-price ratios are often 2–3% — buying can take 10+ years to break even on cash flows alone</li>
+          <li>Buying builds equity; renting preserves liquidity and flexibility</li>
+          <li>EMI payments stop after tenure; rent continues rising every year</li>
+          <li>Tax benefits on home loans significantly improve buying economics</li>
+          <li>Property appreciation of 5–8% per year has been the historical norm in MMR</li>
+        </ul>
+        <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);padding:1.25rem;margin-top:1rem;">
+          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:0.5rem;">Want a Personalised Analysis?</div>
+          <p style="font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:1rem;line-height:1.6;">Our advisors factor in tax benefits, property appreciation, and your life plan to give a complete picture.</p>
+          <button class="btn-primary" onclick="showPage('contact')" style="font-size:9px;padding:0.7rem 1.5rem;">Book a Free Consultation</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= BUDGET PLANNER ======= -->
+  <div class="tools-wrap" id="panel-budget" style="padding-top:1.5rem;display:none;">
+    <div class="tool-panel t-open">
+      <div>
+        <div class="calc-card">
+          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:1.25rem;">Property Budget Planner</div>
+          <div class="calc-field">
+            <label class="calc-label">Monthly Household Income (₹)</label>
+            <input class="calc-input" id="bp-income" type="number" placeholder="e.g. 100000" step="5000">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Existing Monthly EMIs / Obligations (₹)</label>
+            <input class="calc-input" id="bp-emi" type="number" placeholder="e.g. 15000" step="1000">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Available Down Payment (₹)</label>
+            <input class="calc-input" id="bp-dp" type="number" placeholder="e.g. 1500000" step="50000">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Home Loan Interest Rate (%)</label>
+            <input class="calc-input" id="bp-rate" type="number" placeholder="e.g. 8.75" min="5" max="15" step="0.05">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Preferred Area</label>
+            <select class="calc-select" id="bp-area">
+              <option value="mira">Mira Road / Mira-Bhayandar</option>
+              <option value="thane">Thane West / Thane East</option>
+              <option value="navimumbai">Navi Mumbai / Kharghar / Panvel</option>
+              <option value="andheri">Andheri / Goregaon / Malad</option>
+              <option value="powai">Powai / Vikhroli / Mulund</option>
+              <option value="bandra">Bandra / Juhu / Santacruz</option>
+            </select>
+          </div>
+          <button class="calc-btn" onclick="calcBudget()">Find My Budget</button>
+        </div>
+        <div class="calc-result-panel" id="bp-result">
+          <div class="calc-result-eyebrow">Your Property Budget</div>
+          <div class="cr-metric">
+            <div class="cr-value cr-gold" id="bp-max-budget">—</div>
+            <div class="cr-label">Maximum Property Budget</div>
+          </div>
+          <div class="cr-breakdown">
+            <div class="cr-b-item">
+              <div class="cr-b-val" id="bp-max-loan">—</div>
+              <div class="cr-b-label">Max Home Loan Eligible</div>
+            </div>
+            <div class="cr-b-item">
+              <div class="cr-b-val" id="bp-emi-out">—</div>
+              <div class="cr-b-label">Max Monthly EMI</div>
+            </div>
+          </div>
+          <div id="bp-bhk-advice" style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.08);">
+            <div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:0.75rem;">BHK Recommendation for Your Area</div>
+            <div id="bp-bhk-text" style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.8;"></div>
+          </div>
+          <p class="calc-note">Banks typically limit new home loan EMIs to 40–50% of gross income. This planner uses 40% as a conservative limit. Actual loan eligibility depends on credit score, existing obligations, and the lender's criteria.</p>
+        </div>
+      </div>
+      <div class="tool-desc">
+        <h3>Know Your Numbers Before You House-Hunt</h3>
+        <p>Many buyers start searching for a home without knowing their actual budget — and either fall in love with something unaffordable, or under-spend on a property they could have stretched for.</p>
+        <p>This planner shows you:</p>
+        <ul>
+          <li>How much home loan you're likely to qualify for</li>
+          <li>The maximum property price you can comfortably target</li>
+          <li>Which BHK configurations are realistic in your chosen area</li>
+          <li>An EMI that keeps your finances balanced</li>
+        </ul>
+        <p>Once you know your budget, you can narrow your search and negotiate from a position of knowledge.</p>
+        <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);padding:1.25rem;margin-top:1rem;">
+          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:0.5rem;">Ready to Start Searching?</div>
+          <p style="font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:1rem;line-height:1.6;">We'll match you with verified properties that fit your exact budget — no wasted site visits.</p>
+          <button class="btn-primary" onclick="showPage('listings')" style="font-size:9px;padding:0.7rem 1.5rem;">Browse Matching Listings</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= PROPERTY VALUATION ======= -->
+  <div class="tools-wrap" id="panel-valuation" style="padding-top:1.5rem;display:none;">
+    <div class="tool-panel t-open">
+      <div>
+        <div class="calc-card">
+          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:1.25rem;">Property Valuation Estimator</div>
+          <div class="calc-field">
+            <label class="calc-label">Carpet Area (sq ft)</label>
+            <input class="calc-input" id="val-area" type="number" placeholder="e.g. 650" min="100" max="10000">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Location / Micro-Market</label>
+            <select class="calc-select" id="val-location">
+              <option value="mira">Mira Road / Mira-Bhayandar</option>
+              <option value="bhayander">Bhayander East / West</option>
+              <option value="thane_w">Thane West (Majiwada–Ghodbunder)</option>
+              <option value="thane_e">Thane East / Kalwa / Mumbra</option>
+              <option value="kharghar">Navi Mumbai — Kharghar / Belapur</option>
+              <option value="panvel">Navi Mumbai — Panvel / Ulwe</option>
+              <option value="andheri">Andheri West / East</option>
+              <option value="goregaon">Goregaon / Malad</option>
+              <option value="powai">Powai / Vikhroli / Mulund</option>
+              <option value="bandra">Bandra / Santacruz / Khar</option>
+              <option value="juhu">Juhu / Vile Parle</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Year of Construction</label>
+            <select class="calc-select" id="val-age">
+              <option value="new">Under Construction / New (2020–present)</option>
+              <option value="2015">2015–2019</option>
+              <option value="2010">2010–2014</option>
+              <option value="2005">2005–2009</option>
+              <option value="2000">2000–2004</option>
+              <option value="old">Before 2000</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Floor / Level</label>
+            <select class="calc-select" id="val-floor">
+              <option value="low">Ground – 4th Floor</option>
+              <option value="mid">5th – 12th Floor</option>
+              <option value="high">13th Floor and Above (High-Rise Premium)</option>
+            </select>
+          </div>
+          <button class="calc-btn" onclick="calcValuation()">Estimate Value</button>
+        </div>
+        <div class="calc-result-panel" id="val-result">
+          <div class="calc-result-eyebrow">Market Value Estimate</div>
+          <div class="cr-metric">
+            <div class="cr-value cr-gold" id="val-total">—</div>
+            <div class="cr-label">Estimated Market Value Range</div>
+          </div>
+          <div class="cr-breakdown">
+            <div class="cr-b-item">
+              <div class="cr-b-val" id="val-low-psf">—</div>
+              <div class="cr-b-label">Rate Range (₹/sq ft)</div>
+            </div>
+            <div class="cr-b-item">
+              <div class="cr-b-val" id="val-area-out">—</div>
+              <div class="cr-b-label">Carpet Area</div>
+            </div>
+          </div>
+          <p class="calc-note">Estimates based on A&amp;A Landgate's market intelligence and recent transactions in the area. Actual value depends on exact location, floor, amenities, builder reputation, and legal status. For a precise valuation, consult our property experts.</p>
+        </div>
+      </div>
+      <div class="tool-desc">
+        <h3>What is Your Property Worth Today?</h3>
+        <p>Property valuations in Mumbai and the MMR vary significantly — even within the same building — based on floor, view, age, and micro-market demand. This estimator uses our in-house market data to give you a realistic range.</p>
+        <ul>
+          <li>Mira Road: ₹8,000–14,000 / sq ft depending on sector and builder</li>
+          <li>Thane West: ₹10,000–18,000 / sq ft on Ghodbunder Road corridor</li>
+          <li>Navi Mumbai: ₹7,500–16,000 / sq ft across nodes</li>
+          <li>Andheri: ₹18,000–28,000 / sq ft</li>
+          <li>Bandra / Khar: ₹35,000–60,000+ / sq ft</li>
+          <li>High floors typically command a 5–12% premium over lower floors</li>
+        </ul>
+        <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);padding:1.25rem;margin-top:1rem;">
+          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:0.5rem;">Get a Professional Valuation</div>
+          <p style="font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:1rem;line-height:1.6;">Our team visits the property and provides a detailed valuation report — essential for loan applications and sale pricing.</p>
+          <button class="btn-primary" onclick="showPage('contact')" style="font-size:9px;padding:0.7rem 1.5rem;">Request a Valuation</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="tools-wrap" style="padding-top:4rem;">
+    <div style="background:linear-gradient(135deg,rgba(201,168,76,0.08) 0%,rgba(11,31,58,0.6) 100%);border:1px solid rgba(201,168,76,0.25);padding:3rem 2.5rem;text-align:center;">
+      <div class="section-eyebrow" style="margin-bottom:0.75rem;">Still Have Questions?</div>
+      <h2 style="font-family:'Cinzel',serif;font-size:clamp(1.3rem,2.5vw,2rem);font-weight:700;color:#fff;margin-bottom:1rem;">Our Experts Are Here to Help</h2>
+      <p style="font-size:14px;color:rgba(255,255,255,0.65);max-width:520px;margin:0 auto 2rem;line-height:1.8;">These tools give you a great starting point. For exact figures, personalised advice, or a detailed financial plan — speak with our consultants.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <button class="btn-primary" onclick="showPage('contact')">Book a Free Consultation</button>
+        <a href="https://wa.me/919653236410" target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:0.9rem 2rem;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.4);text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all .2s;" onmouseover="this.style.borderColor='#C9A84C';this.style.color='#C9A84C'" onmouseout="this.style.borderColor='rgba(255,255,255,0.4)';this.style.color='#fff'">WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tools-page -->
+
+
 <!-- ==================== FOOTER ==================== -->
 <footer>
   <div class="footer-inner">
@@ -2136,8 +2695,8 @@ footer { padding-bottom: 6rem; }
           <ul>
             <li onclick="showPage('about')">About Us</li>
             <li onclick="showPage('blog')">Blog</li>
+            <li onclick="showPage('tools')">Free Tools</li>
             <li onclick="showPage('faq')">FAQ</li>
-            <li onclick="showPage('contact')">Careers</li>
           </ul>
         </div>
         <div class="footer-col">
@@ -2172,7 +2731,7 @@ footer { padding-bottom: 6rem; }
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
 <script>
-var navMap = {home:0, listings:1, about:2, sell:3, services:4, blog:5, faq:6, contact:7};
+var navMap = {home:0, listings:1, about:2, sell:3, services:4, blog:5, tools:6, faq:7, contact:8};
 var blogPages = ['b1','b2','b3','b4','b5','b6'];
 
 function toggleMenu(btn) {
@@ -2197,7 +2756,8 @@ function showPage(name) {
     blog: 'Real Estate Insights & Property Tips | A&A Landgate Blog',
     faq: 'Frequently Asked Questions | A&A Landgate Real Estate',
     contact: 'Contact A&A Landgate | Real Estate Consultants Maharashtra',
-    services: 'Real Estate Services by A&A Landgate | Residential, Commercial, NRI, Investment & Advisory Services in Mumbai and Maharashtra'
+    services: 'Real Estate Services by A&A Landgate | Residential, Commercial, NRI, Investment & Advisory Services in Mumbai and Maharashtra',
+    tools: 'Free Real Estate Tools — EMI Calculator, Stamp Duty, Rent vs Buy & More | A&A Landgate'
   };
   var descs = {
     home: 'A&A Landgate is Maharashtra\'s trusted real estate consultancy helping families find homes in Mumbai, Thane, Navi Mumbai and Mira-Bhayandar. RERA registered, 0% brokerage on new projects.',
@@ -2207,7 +2767,8 @@ function showPage(name) {
     blog: 'Read expert insights on Mumbai real estate, property investment tips, market trends across Maharashtra and home-buying guides on the A&A Landgate blog.',
     faq: 'Got questions about buying or selling property in Maharashtra? Find clear answers from A&A Landgate\'s real estate experts.',
     contact: 'Get in touch with A&A Landgate. Call, WhatsApp or fill in the form — our consultants across Mumbai, Thane and Navi Mumbai respond within 24 hours.',
-    services: 'Explore A&A Landgate\'s full range of real estate services — residential buying, property selling, commercial spaces, home loans, NRI assistance, investment advisory and RERA-verified deals.'
+    services: 'Explore A&A Landgate\'s full range of real estate services — residential buying, property selling, commercial spaces, home loans, NRI assistance, investment advisory and RERA-verified deals.',
+    tools: 'Free calculators for home buyers in Mumbai, Thane, Navi Mumbai & Mira-Bhayandar. Calculate EMI, Maharashtra stamp duty, compare rent vs buy, plan your property budget and get a valuation estimate.'
   };
   if (titles[name]) { document.title = titles[name]; }
   var metaDesc = document.querySelector('meta[name="description"]');
@@ -2355,6 +2916,198 @@ function enquireListing(propertyRef) {
   window.open('https://wa.me/' + WHATSAPP_FALLBACK + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
 }
 
+/* ============================================================ FREE TOOLS CALCULATORS ============================================================ */
+function switchTool(name) {
+  ['emi','stamp','rvb','budget','valuation'].forEach(function(t){
+    var panel = document.getElementById('panel-' + t);
+    var tab = document.getElementById('tab-' + t);
+    if (panel) panel.style.display = (t === name) ? 'block' : 'none';
+    if (tab) tab.classList.toggle('t-active', t === name);
+  });
+  var target = document.getElementById('tools-tabs-nav-anchor');
+  if (target) target.scrollIntoView({behavior:'smooth'});
+}
+
+function inr(n) { return '₹' + Math.round(n).toLocaleString('en-IN'); }
+function pct(n) { return n.toFixed(2) + '%'; }
+
+function calcEMI() {
+  var P = parseFloat(document.getElementById('emi-loan').value) || 0;
+  var annualRate = parseFloat(document.getElementById('emi-rate').value) || 0;
+  var years = parseInt(document.getElementById('emi-tenure').value) || 0;
+  if (!P || !annualRate || !years) { alert('Please fill in all fields.'); return; }
+  var r = annualRate / 12 / 100;
+  var n = years * 12;
+  var emi = P * r * Math.pow(1+r,n) / (Math.pow(1+r,n) - 1);
+  var total = emi * n;
+  var interest = total - P;
+  var res = document.getElementById('emi-result');
+  res.classList.add('cr-show');
+  document.getElementById('emi-monthly').textContent = inr(emi);
+  document.getElementById('emi-principal').textContent = inr(P);
+  document.getElementById('emi-interest').textContent = inr(interest);
+  document.getElementById('emi-total').textContent = inr(total);
+  document.getElementById('emi-int-pct').textContent = pct(interest/P*100);
+}
+
+function calcStampDuty() {
+  var val = parseFloat(document.getElementById('sd-value').value) || 0;
+  var loc = document.getElementById('sd-location').value;
+  var gender = document.getElementById('sd-gender').value;
+  var type = document.getElementById('sd-type').value;
+  if (!val) { alert('Please enter property value.'); return; }
+  var sdPct, metro, regAmt;
+  /* Maharashtra Stamp Duty Rates (2024–25) */
+  if (loc === 'mumbai') {
+    sdPct = (gender === 'female' || gender === 'joint') ? 0.04 : 0.05;
+    metro = 0.01; /* 1% metro cess on market value */
+    regAmt = Math.min(val * 0.01, 30000);
+  } else if (loc === 'mmr') {
+    sdPct = (gender === 'female') ? 0.05 : 0.06;
+    metro = 0.01; /* 1% local body cess */
+    regAmt = Math.min(val * 0.01, 30000);
+  } else if (loc === 'pune') {
+    sdPct = (gender === 'female') ? 0.05 : 0.06;
+    metro = 0.01;
+    regAmt = Math.min(val * 0.01, 30000);
+  } else {
+    sdPct = (gender === 'female') ? 0.06 : 0.07;
+    metro = 0;
+    regAmt = Math.min(val * 0.01, 30000);
+  }
+  if (type === 'commercial') { sdPct += 0.01; }
+  var stamp = val * sdPct;
+  var metroAmt = val * metro;
+  var total = stamp + metroAmt + regAmt;
+  var effPct = total / val * 100;
+  var res = document.getElementById('sd-result');
+  res.classList.add('cr-show');
+  document.getElementById('sd-total').textContent = inr(total);
+  document.getElementById('sd-stamp').textContent = inr(stamp) + ' (' + (sdPct*100).toFixed(0) + '%)';
+  document.getElementById('sd-reg').textContent = inr(regAmt);
+  document.getElementById('sd-metro').textContent = metro > 0 ? inr(metroAmt) + ' (' + (metro*100).toFixed(0) + '%)' : 'N/A';
+  document.getElementById('sd-pct').textContent = pct(effPct);
+}
+
+function calcRvB() {
+  var price = parseFloat(document.getElementById('rvb-price').value) || 0;
+  var downPct = parseFloat(document.getElementById('rvb-down').value) || 0;
+  var rate = parseFloat(document.getElementById('rvb-rate').value) || 0;
+  var monthlyRent = parseFloat(document.getElementById('rvb-rent').value) || 0;
+  var rentInc = parseFloat(document.getElementById('rvb-rentinc').value) || 0;
+  var years = parseInt(document.getElementById('rvb-years').value) || 0;
+  if (!price || !downPct || !rate || !monthlyRent || !years) { alert('Please fill in all fields.'); return; }
+  var loan = price * (1 - downPct/100);
+  var r = rate/12/100;
+  var n = 30 * 12; /* 30 year standard */
+  var emi = loan * r * Math.pow(1+r,n) / (Math.pow(1+r,n) - 1);
+  /* Stamp duty approx 7% */
+  var buyCostUpfront = price * downPct/100 + price * 0.065;
+  var totalBuyCost = buyCostUpfront + emi * years * 12;
+  /* Rent total */
+  var totalRentCost = 0;
+  var r2 = monthlyRent;
+  for (var i = 0; i < years; i++) {
+    totalRentCost += r2 * 12;
+    r2 = r2 * (1 + rentInc/100);
+  }
+  /* Break-even: year when cumulative buy < cumulative rent */
+  var cumBuy = buyCostUpfront;
+  var cumRent = 0;
+  var r3 = monthlyRent;
+  var breakYear = 'Beyond ' + years + ' yrs';
+  for (var y = 1; y <= Math.min(years, 30); y++) {
+    cumBuy += emi * 12;
+    cumRent += r3 * 12;
+    r3 = r3 * (1 + rentInc/100);
+    if (cumBuy <= cumRent && breakYear === 'Beyond ' + years + ' yrs') { breakYear = 'Year ' + y; }
+  }
+  var verdict = totalBuyCost < totalRentCost ? 'Buying is cheaper' : 'Renting is cheaper (pure cash flow)';
+  var res = document.getElementById('rvb-result');
+  res.classList.add('cr-show');
+  document.getElementById('rvb-verdict').textContent = verdict;
+  document.getElementById('rvb-buy-cost').textContent = inr(totalBuyCost);
+  document.getElementById('rvb-rent-cost').textContent = inr(totalRentCost);
+  document.getElementById('rvb-emi').textContent = inr(emi);
+  document.getElementById('rvb-break').textContent = breakYear;
+}
+
+function calcBudget() {
+  var income = parseFloat(document.getElementById('bp-income').value) || 0;
+  var existingEmi = parseFloat(document.getElementById('bp-emi').value) || 0;
+  var dp = parseFloat(document.getElementById('bp-dp').value) || 0;
+  var rate = parseFloat(document.getElementById('bp-rate').value) || 0;
+  var area = document.getElementById('bp-area').value;
+  if (!income || !dp || !rate) { alert('Please fill in all fields.'); return; }
+  var maxEmi = income * 0.40 - existingEmi;
+  if (maxEmi <= 0) { document.getElementById('bp-result').classList.add('cr-show'); document.getElementById('bp-max-budget').textContent = 'EMIs exceed limit'; document.getElementById('bp-max-loan').textContent = '—'; document.getElementById('bp-emi-out').textContent = inr(income * 0.4); document.getElementById('bp-bhk-text').textContent = 'Your existing EMIs are close to or above the 40% income threshold lenders typically allow. Consider reducing obligations before applying for a home loan.'; return; }
+  var r = rate/12/100;
+  var n = 240; /* 20 year standard */
+  var maxLoan = maxEmi * (Math.pow(1+r,n) - 1) / (r * Math.pow(1+r,n));
+  var maxBudget = maxLoan + dp;
+  /* BHK guidance by area */
+  var areaRates = {
+    mira: {lo:7000,hi:13000,name:'Mira Road / Mira-Bhayandar'},
+    bhayander: {lo:6500,hi:11000,name:'Bhayander'},
+    thane_w: {lo:11000,hi:19000,name:'Thane West'},
+    thane_e: {lo:8000,hi:13000,name:'Thane East'},
+    kharghar: {lo:8500,hi:15000,name:'Navi Mumbai (Kharghar / Belapur)'},
+    panvel: {lo:6500,hi:11000,name:'Panvel / Ulwe'},
+    andheri: {lo:18000,hi:28000,name:'Andheri'},
+    goregaon: {lo:14000,hi:22000,name:'Goregaon / Malad'},
+    powai: {lo:17000,hi:26000,name:'Powai / Mulund'},
+    bandra: {lo:35000,hi:60000,name:'Bandra / Khar'},
+    juhu: {lo:28000,hi:45000,name:'Juhu / Vile Parle'}
+  };
+  var ar = areaRates[area] || areaRates['mira'];
+  var midRate = (ar.lo + ar.hi) / 2;
+  var carpet = maxBudget / midRate;
+  var bhkText = '';
+  if (carpet >= 1200) bhkText = '4 BHK or above is feasible in ' + ar.name + ' at your budget.';
+  else if (carpet >= 850) bhkText = '3 BHK is well within reach in ' + ar.name + ' at your budget.';
+  else if (carpet >= 550) bhkText = '2 BHK is a strong fit in ' + ar.name + '. Some premium projects at the higher end of pricing may also be possible.';
+  else if (carpet >= 350) bhkText = '1 BHK or a compact 2 BHK is realistic in ' + ar.name + '. Consider nearby areas for more space at this budget.';
+  else bhkText = '1 RK or 1 BHK is feasible at the more affordable end of ' + ar.name + '. Nearby micro-markets like Bhayander or Mira Road may offer better options at your budget.';
+  var res = document.getElementById('bp-result');
+  res.classList.add('cr-show');
+  document.getElementById('bp-max-budget').textContent = inr(maxBudget);
+  document.getElementById('bp-max-loan').textContent = inr(maxLoan);
+  document.getElementById('bp-emi-out').textContent = inr(maxEmi);
+  document.getElementById('bp-bhk-text').textContent = bhkText + ' (Rate range: ₹' + ar.lo.toLocaleString('en-IN') + '–' + ar.hi.toLocaleString('en-IN') + '/sq ft, estimated carpet ≈ ' + Math.round(carpet) + ' sq ft)';
+}
+
+function calcValuation() {
+  var area = parseFloat(document.getElementById('val-area').value) || 0;
+  var loc = document.getElementById('val-location').value;
+  var age = document.getElementById('val-age').value;
+  var floor = document.getElementById('val-floor').value;
+  if (!area) { alert('Please enter carpet area.'); return; }
+  var rates = {
+    mira: {lo:8000,hi:13500}, bhayander: {lo:7000,hi:11500},
+    thane_w: {lo:11000,hi:19000}, thane_e: {lo:8000,hi:13000},
+    kharghar: {lo:9000,hi:16000}, panvel: {lo:7000,hi:12000},
+    andheri: {lo:18000,hi:28000}, goregaon: {lo:14000,hi:22000},
+    powai: {lo:17000,hi:26000}, bandra: {lo:35000,hi:60000},
+    juhu: {lo:28000,hi:45000}
+  };
+  var base = rates[loc] || rates['mira'];
+  /* Age factor */
+  var ageFactor = {new:1.0, '2015':0.95, '2010':0.88, '2005':0.82, '2000':0.75, old:0.65};
+  var af = ageFactor[age] || 1.0;
+  /* Floor premium */
+  var floorFactor = {low:0.95, mid:1.0, high:1.07};
+  var ff = floorFactor[floor] || 1.0;
+  var lo = base.lo * af * ff;
+  var hi = base.hi * af * ff;
+  var totalLo = lo * area;
+  var totalHi = hi * area;
+  var res = document.getElementById('val-result');
+  res.classList.add('cr-show');
+  document.getElementById('val-total').textContent = inr(totalLo) + ' – ' + inr(totalHi);
+  document.getElementById('val-low-psf').textContent = '₹' + Math.round(lo).toLocaleString('en-IN') + ' – ₹' + Math.round(hi).toLocaleString('en-IN');
+  document.getElementById('val-area-out').textContent = area + ' sq ft';
+}
+
 /* ============================================================ SEARCH ============================================================ */
 var SEARCH_INDEX = [
   { tag: 'Page', title: 'Home', sub: 'Overview, services, featured listings', page: 'home' },
@@ -2393,6 +3146,12 @@ var SEARCH_INDEX = [
   { tag: 'Location', title: 'Navi Mumbai & Kharghar', sub: 'Listings and market data', page: 'listings' },
   { tag: 'Location', title: 'Mumbai — Andheri, Powai, Bandra', sub: 'Listings and market data', page: 'listings' },
   { tag: 'Location', title: 'Alibaug & Coastal Maharashtra', sub: 'Plots and investment', page: 'listings' },
+  { tag: 'Tool', title: 'Free Real Estate Tools', sub: 'EMI, stamp duty, rent vs buy, valuation, budget planner', page: 'tools' },
+  { tag: 'Tool', title: 'EMI / Home Loan Calculator', sub: 'Monthly instalment, total interest, loan planning', page: 'tools' },
+  { tag: 'Tool', title: 'Maharashtra Stamp Duty Calculator', sub: 'Stamp duty & registration charges for Mumbai, Thane, MMR', page: 'tools' },
+  { tag: 'Tool', title: 'Rent vs Buy Analyzer', sub: 'Compare renting and buying over time, break-even point', page: 'tools' },
+  { tag: 'Tool', title: 'Property Budget Planner', sub: 'Find the right BHK for your budget and income', page: 'tools' },
+  { tag: 'Tool', title: 'Property Valuation Estimator', sub: 'Estimate market value by location and area in Mumbai', page: 'tools' },
 ];
 
 function openSearch() {
