@@ -2938,8 +2938,8 @@ function switchTool(name) {
     if (panel) panel.style.display = (t === name) ? 'block' : 'none';
     if (tab) tab.classList.toggle('t-active', t === name);
   });
-  var target = document.getElementById('tools-tabs-nav-anchor');
-  if (target) target.scrollIntoView({behavior:'smooth'});
+  var target = document.querySelector('.tools-tabs-nav');
+  if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
 }
 
 function inr(n) { return '₹' + Math.round(n).toLocaleString('en-IN'); }
