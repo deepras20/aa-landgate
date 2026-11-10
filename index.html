@@ -627,18 +627,28 @@ footer { padding-bottom: 6rem; }
 .tool-ov-card h4 { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; letter-spacing: 1px; color: #fff; margin-bottom: 0.5rem; }
 .tool-ov-card p { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 1rem; }
 .tool-ov-link { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #C9A84C; }
-/* Tools home teaser */
-.tools-teaser { background: linear-gradient(135deg, rgba(201,168,76,0.07) 0%, transparent 60%); border-top: 1px solid rgba(201,168,76,0.15); padding: 5rem 1.5rem; }
-.tools-teaser-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-.tools-mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.tools-mini-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.2); padding: 1.25rem; }
-.tools-mini-card .tmc-icon { font-size: 1.4rem; margin-bottom: 0.6rem; }
-.tools-mini-card h5 { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 1px; color: #C9A84C; margin-bottom: 0.3rem; }
-.tools-mini-card p { font-size: 11px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+/* Tools home teaser — matches trust-section / why-us pattern */
+.tools-teaser { background: var(--navy); border-top: 1px solid var(--border-gold); padding: 6rem 3rem; }
+.tools-teaser-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: start; }
+.tools-teaser-left p { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: rgba(255,255,255,0.85); line-height: 1.75; margin-top: 1.25rem; margin-bottom: 0.6rem; }
+.tools-teaser-left .tools-sub { font-size: 13px; color: rgba(255,255,255,0.5); font-family: 'Inter', sans-serif; margin-bottom: 2.5rem; }
+.tools-mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.tools-mini-card { border: 1px solid var(--border-gold); padding: 2rem 1.75rem; background: rgba(255,255,255,0.02); position: relative; overflow: hidden; transition: all .3s; cursor: pointer; }
+.tools-mini-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0; transition: opacity .3s; }
+.tools-mini-card:hover { background: rgba(201,168,76,0.04); }
+.tools-mini-card:hover::before { opacity: 1; }
+.tools-mini-card .tmc-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
+.tools-mini-card h5 { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem; line-height: 1.3; }
+.tools-mini-card p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.65; margin: 0 0 1.1rem; }
+.tools-mini-link { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; display: flex; align-items: center; gap: 0.4rem; }
+@media (max-width: 1024px) { .tools-teaser-inner { grid-template-columns: 1fr; gap: 3rem; } }
 @media (max-width: 768px) {
   .tool-panel.t-open { grid-template-columns: 1fr; }
-  .tools-teaser-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .tools-mini-grid { grid-template-columns: 1fr 1fr; }
+  .tools-teaser { padding: 4rem 1.25rem; }
+  .tools-mini-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .tools-mini-card { padding: 1.5rem 1.25rem; }
+  .tools-mini-card .tmc-icon { font-size: 1.8rem; }
+  .tools-mini-card h5 { font-size: 0.9rem; }
   .cr-breakdown { grid-template-columns: 1fr; }
   .tools-tabs-nav { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
   .tools-tab-btn { flex-shrink: 0; }
@@ -854,33 +864,37 @@ footer { padding-bottom: 6rem; }
   <!-- FREE TOOLS TEASER -->
   <section class="tools-teaser">
     <div class="tools-teaser-inner">
-      <div>
+      <div class="tools-teaser-left">
         <div class="section-eyebrow">100% Free · No Login Required</div>
-        <h2 class="section-h2" style="margin-bottom:1rem;">Plan Smarter<br>with Our Free<br>Property Tools</h2>
-        <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.8;margin-bottom:0.75rem;">Calculate your EMI, estimate Maharashtra stamp duty, compare renting vs buying, and find the right BHK for your budget — all in seconds.</p>
-        <p style="color:rgba(255,255,255,0.5);font-size:13px;line-height:1.7;margin-bottom:2rem;">Built specifically for Mumbai, Thane, Navi Mumbai &amp; Mira-Bhayandar.</p>
+        <h2 class="section-h2">Plan Smarter<br>with Our Free<br>Property Tools</h2>
+        <p>Calculate your EMI, estimate Maharashtra stamp duty, compare renting vs buying, and find the right BHK for your budget — all in seconds.</p>
+        <p class="tools-sub">Built specifically for Mumbai, Thane, Navi Mumbai &amp; Mira-Bhayandar. No registration, no cost.</p>
         <button class="btn-primary" onclick="showPage('tools')">Explore All Free Tools →</button>
       </div>
       <div class="tools-mini-grid">
-        <div class="tools-mini-card" onclick="showPage('tools')" style="cursor:pointer;">
-          <div class="tmc-icon">🏦</div>
+        <div class="tools-mini-card" onclick="showPage('tools')">
+          <span class="tmc-icon">🏦</span>
           <h5>EMI Calculator</h5>
-          <p>Monthly instalment &amp; total interest for any home loan</p>
+          <p>Monthly instalment &amp; total interest for any home loan amount and tenure</p>
+          <div class="tools-mini-link">Use Tool →</div>
         </div>
-        <div class="tools-mini-card" onclick="showPage('tools')" style="cursor:pointer;">
-          <div class="tmc-icon">📋</div>
+        <div class="tools-mini-card" onclick="showPage('tools')">
+          <span class="tmc-icon">📋</span>
           <h5>Stamp Duty</h5>
-          <p>Exact stamp duty &amp; registration charges for Maharashtra</p>
+          <p>Exact stamp duty &amp; registration charges across Maharashtra</p>
+          <div class="tools-mini-link">Use Tool →</div>
         </div>
-        <div class="tools-mini-card" onclick="showPage('tools')" style="cursor:pointer;">
-          <div class="tmc-icon">⚖️</div>
+        <div class="tools-mini-card" onclick="showPage('tools')">
+          <span class="tmc-icon">⚖️</span>
           <h5>Rent vs Buy</h5>
-          <p>See when buying becomes cheaper than renting</p>
+          <p>See when buying becomes cheaper than renting — with break-even year</p>
+          <div class="tools-mini-link">Use Tool →</div>
         </div>
-        <div class="tools-mini-card" onclick="showPage('tools')" style="cursor:pointer;">
-          <div class="tmc-icon">🏡</div>
+        <div class="tools-mini-card" onclick="showPage('tools')">
+          <span class="tmc-icon">🏡</span>
           <h5>Budget Planner</h5>
-          <p>Discover which BHK fits your income &amp; savings</p>
+          <p>Discover which BHK fits your income, savings and preferred area</p>
+          <div class="tools-mini-link">Use Tool →</div>
         </div>
       </div>
     </div>
