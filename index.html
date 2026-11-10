@@ -2255,10 +2255,10 @@ footer { padding-bottom: 6rem; }
         <p>Enter your income and savings to discover your maximum budget and the right BHK for you.</p>
         <div class="tool-ov-link">Use Tool →</div>
       </div>
-      <div class="tool-ov-card" onclick="switchTool('valuation')">
-        <div class="tool-ov-icon">📊</div>
-        <h4>Property Valuation</h4>
-        <p>Get an estimated market value range for a property based on location, size and age.</p>
+      <div class="tool-ov-card" onclick="switchTool('totalcost')">
+        <div class="tool-ov-icon">🧮</div>
+        <h4>Total Acquisition Cost</h4>
+        <p>Enter carpet area, rate per sq ft and all charges to get the full &amp; final cost of the property.</p>
         <div class="tool-ov-link">Use Tool →</div>
       </div>
     </div>
@@ -2271,7 +2271,7 @@ footer { padding-bottom: 6rem; }
       <button class="tools-tab-btn" id="tab-stamp" onclick="switchTool('stamp')">📋 Stamp Duty</button>
       <button class="tools-tab-btn" id="tab-rvb" onclick="switchTool('rvb')">⚖️ Rent vs Buy</button>
       <button class="tools-tab-btn" id="tab-budget" onclick="switchTool('budget')">🏡 Budget Planner</button>
-      <button class="tools-tab-btn" id="tab-valuation" onclick="switchTool('valuation')">📊 Valuation</button>
+      <button class="tools-tab-btn" id="tab-totalcost" onclick="switchTool('totalcost')">🧮 Total Cost</button>
     </div>
   </div>
 
@@ -2580,87 +2580,118 @@ footer { padding-bottom: 6rem; }
     </div>
   </div>
 
-  <!-- ======= PROPERTY VALUATION ======= -->
-  <div class="tools-wrap" id="panel-valuation" style="padding-top:1.5rem;display:none;">
+  <!-- ======= TOTAL ACQUISITION COST CALCULATOR ======= -->
+  <div class="tools-wrap" id="panel-totalcost" style="padding-top:1.5rem;display:none;">
     <div class="tool-panel t-open">
       <div>
         <div class="calc-card">
-          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:1.25rem;">Property Valuation Estimator</div>
+          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:1.5rem;">Full &amp; Final Property Cost Calculator</div>
+
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.75rem;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:0.5rem;">Property Details</div>
           <div class="calc-field">
             <label class="calc-label">Carpet Area (sq ft)</label>
-            <input class="calc-input" id="val-area" type="number" placeholder="e.g. 650" min="100" max="10000">
+            <input class="calc-input" id="tc-area" type="number" placeholder="e.g. 650" min="100" oninput="tcAutoCalc()">
           </div>
           <div class="calc-field">
-            <label class="calc-label">Location / Micro-Market</label>
-            <select class="calc-select" id="val-location">
-              <option value="mira">Mira Road / Mira-Bhayandar</option>
-              <option value="bhayander">Bhayander East / West</option>
-              <option value="thane_w">Thane West (Majiwada–Ghodbunder)</option>
-              <option value="thane_e">Thane East / Kalwa / Mumbra</option>
-              <option value="kharghar">Navi Mumbai — Kharghar / Belapur</option>
-              <option value="panvel">Navi Mumbai — Panvel / Ulwe</option>
-              <option value="andheri">Andheri West / East</option>
-              <option value="goregaon">Goregaon / Malad</option>
-              <option value="powai">Powai / Vikhroli / Mulund</option>
-              <option value="bandra">Bandra / Santacruz / Khar</option>
-              <option value="juhu">Juhu / Vile Parle</option>
-            </select>
+            <label class="calc-label">Rate per sq ft (₹)</label>
+            <input class="calc-input" id="tc-rate" type="number" placeholder="e.g. 10500" min="1000" oninput="tcAutoCalc()">
           </div>
           <div class="calc-field">
-            <label class="calc-label">Year of Construction</label>
-            <select class="calc-select" id="val-age">
-              <option value="new">Under Construction / New (2020–present)</option>
-              <option value="2015">2015–2019</option>
-              <option value="2010">2010–2014</option>
-              <option value="2005">2005–2009</option>
-              <option value="2000">2000–2004</option>
-              <option value="old">Before 2000</option>
-            </select>
+            <label class="calc-label">Agreement / Base Value (₹) <span style="font-size:10px;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;text-transform:none;letter-spacing:0;">— auto-filled from above, or enter directly</span></label>
+            <input class="calc-input" id="tc-base" type="number" placeholder="e.g. 6825000" min="100000" oninput="tcBaseOverride()">
+          </div>
+
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.75rem;margin-top:1.25rem;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:0.5rem;">Government Charges</div>
+          <div class="calc-field">
+            <label class="calc-label">Stamp Duty (%)</label>
+            <input class="calc-input" id="tc-stamp" type="number" placeholder="e.g. 6" min="0" max="15" step="0.5" value="6">
           </div>
           <div class="calc-field">
-            <label class="calc-label">Floor / Level</label>
-            <select class="calc-select" id="val-floor">
-              <option value="low">Ground – 4th Floor</option>
-              <option value="mid">5th – 12th Floor</option>
-              <option value="high">13th Floor and Above (High-Rise Premium)</option>
-            </select>
+            <label class="calc-label">Registration Charges (%)</label>
+            <input class="calc-input" id="tc-reg" type="number" placeholder="e.g. 1" min="0" max="5" step="0.1" value="1">
           </div>
-          <button class="calc-btn" onclick="calcValuation()">Estimate Value</button>
+          <div class="calc-field">
+            <label class="calc-label">Metro / Local Body Cess (%) <span style="font-size:10px;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;text-transform:none;letter-spacing:0;">— 1% for Mumbai, 0 otherwise</span></label>
+            <input class="calc-input" id="tc-cess" type="number" placeholder="e.g. 0 or 1" min="0" max="5" step="0.5" value="0">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">GST (%) <span style="font-size:10px;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;text-transform:none;letter-spacing:0;">— 5% under-construction, 0 for ready-to-move</span></label>
+            <input class="calc-input" id="tc-gst" type="number" placeholder="e.g. 5 or 0" min="0" max="12" step="0.5" value="0">
+          </div>
+
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.75rem;margin-top:1.25rem;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:0.5rem;">Other Charges (Optional)</div>
+          <div class="calc-field">
+            <label class="calc-label">Brokerage / Agent Fee (₹)</label>
+            <input class="calc-input" id="tc-brok" type="number" placeholder="e.g. 100000" min="0" step="1000">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Home Loan Processing Fee (₹)</label>
+            <input class="calc-input" id="tc-proc" type="number" placeholder="e.g. 20000" min="0" step="1000">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Parking Charges (₹)</label>
+            <input class="calc-input" id="tc-park" type="number" placeholder="e.g. 300000" min="0" step="10000">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Legal / Documentation (₹)</label>
+            <input class="calc-input" id="tc-legal" type="number" placeholder="e.g. 25000" min="0" step="1000">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Society / Corpus Fund (₹)</label>
+            <input class="calc-input" id="tc-corpus" type="number" placeholder="e.g. 50000" min="0" step="5000">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Interior / Modular Kitchen Budget (₹)</label>
+            <input class="calc-input" id="tc-interior" type="number" placeholder="e.g. 500000" min="0" step="10000">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Any Other Charges (₹)</label>
+            <input class="calc-input" id="tc-other" type="number" placeholder="e.g. 0" min="0" step="1000">
+          </div>
+
+          <button class="calc-btn" onclick="calcTotalCost()">Calculate Full &amp; Final Cost</button>
         </div>
-        <div class="calc-result-panel" id="val-result">
-          <div class="calc-result-eyebrow">Market Value Estimate</div>
-          <div class="cr-metric">
-            <div class="cr-value cr-gold" id="val-total">—</div>
-            <div class="cr-label">Estimated Market Value Range</div>
+
+        <div class="calc-result-panel" id="tc-result">
+          <div class="calc-result-eyebrow">Full &amp; Final Acquisition Cost</div>
+          <div class="cr-metric" style="margin-bottom:1.75rem;">
+            <div class="cr-value cr-gold" id="tc-grand-total">—</div>
+            <div class="cr-label">Total Amount You Will Pay</div>
           </div>
-          <div class="cr-breakdown">
+
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.75rem;">Detailed Breakdown</div>
+          <div id="tc-lines" style="border:1px solid rgba(255,255,255,0.07);"></div>
+
+          <div class="cr-breakdown" style="margin-top:1.25rem;">
             <div class="cr-b-item">
-              <div class="cr-b-val" id="val-low-psf">—</div>
-              <div class="cr-b-label">Rate Range (₹/sq ft)</div>
+              <div class="cr-b-val" id="tc-allincost">—</div>
+              <div class="cr-b-label">All-In Cost per sq ft</div>
             </div>
             <div class="cr-b-item">
-              <div class="cr-b-val" id="val-area-out">—</div>
-              <div class="cr-b-label">Carpet Area</div>
+              <div class="cr-b-val" id="tc-govt-total">—</div>
+              <div class="cr-b-label">Total Govt Charges</div>
             </div>
           </div>
-          <p class="calc-note">Estimates based on A&amp;A Landgate's market intelligence and recent transactions in the area. Actual value depends on exact location, floor, amenities, builder reputation, and legal status. For a precise valuation, consult our property experts.</p>
+          <p class="calc-note">Registration charges in Maharashtra are 1% of agreement value with a cap of ₹30,000 for most residential properties. Verify all rates with your legal advisor before registration.</p>
         </div>
       </div>
+
       <div class="tool-desc">
-        <h3>What is Your Property Worth Today?</h3>
-        <p>Property valuations in Mumbai and the MMR vary significantly — even within the same building — based on floor, view, age, and micro-market demand. This estimator uses our in-house market data to give you a realistic range.</p>
+        <h3>Know Every Rupee Before You Sign</h3>
+        <p>The price you negotiate with the builder or seller is just the starting point. By the time you get possession, the actual amount paid is typically 10–20% higher once government charges, brokerage, loan fees, and other costs are added.</p>
+        <p>This calculator gives you the complete picture — every cost, itemised — so there are no surprises at registration.</p>
         <ul>
-          <li>Mira Road: ₹8,000–14,000 / sq ft depending on sector and builder</li>
-          <li>Thane West: ₹10,000–18,000 / sq ft on Ghodbunder Road corridor</li>
-          <li>Navi Mumbai: ₹7,500–16,000 / sq ft across nodes</li>
-          <li>Andheri: ₹18,000–28,000 / sq ft</li>
-          <li>Bandra / Khar: ₹35,000–60,000+ / sq ft</li>
-          <li>High floors typically command a 5–12% premium over lower floors</li>
+          <li>Stamp duty in Maharashtra ranges from 4–7% depending on location and buyer gender</li>
+          <li>Registration is 1% of agreement value (capped at ₹30,000 for most residential)</li>
+          <li>GST of 5% applies on under-construction projects; nil for ready-to-move</li>
+          <li>Brokerage is typically 1–2% of the property value</li>
+          <li>Parking, corpus fund and interior costs can add ₹5–15 lakhs or more</li>
+          <li>Mumbai's 1% metro cess applies on top of stamp duty in BMC limits</li>
         </ul>
         <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);padding:1.25rem;margin-top:1rem;">
-          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:0.5rem;">Get a Professional Valuation</div>
-          <p style="font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:1rem;line-height:1.6;">Our team visits the property and provides a detailed valuation report — essential for loan applications and sale pricing.</p>
-          <button class="btn-primary" onclick="showPage('contact')" style="font-size:9px;padding:0.7rem 1.5rem;">Request a Valuation</button>
+          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:0.5rem;">Want Us to Check the Numbers?</div>
+          <p style="font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:1rem;line-height:1.6;">Our advisors review all charges on the builder's cost sheet and flag anything that looks incorrect — before you pay.</p>
+          <button class="btn-primary" onclick="showPage('contact')" style="font-size:9px;padding:0.7rem 1.5rem;">Get a Free Cost Review</button>
         </div>
       </div>
     </div>
@@ -2932,7 +2963,7 @@ function enquireListing(propertyRef) {
 
 /* ============================================================ FREE TOOLS CALCULATORS ============================================================ */
 function switchTool(name) {
-  ['emi','stamp','rvb','budget','valuation'].forEach(function(t){
+  ['emi','stamp','rvb','budget','totalcost'].forEach(function(t){
     var panel = document.getElementById('panel-' + t);
     var tab = document.getElementById('tab-' + t);
     if (panel) panel.style.display = (t === name) ? 'block' : 'none';
@@ -3090,36 +3121,73 @@ function calcBudget() {
   document.getElementById('bp-bhk-text').textContent = bhkText + ' (Rate range: ₹' + ar.lo.toLocaleString('en-IN') + '–' + ar.hi.toLocaleString('en-IN') + '/sq ft, estimated carpet ≈ ' + Math.round(carpet) + ' sq ft)';
 }
 
-function calcValuation() {
-  var area = parseFloat(document.getElementById('val-area').value) || 0;
-  var loc = document.getElementById('val-location').value;
-  var age = document.getElementById('val-age').value;
-  var floor = document.getElementById('val-floor').value;
-  if (!area) { alert('Please enter carpet area.'); return; }
-  var rates = {
-    mira: {lo:8000,hi:13500}, bhayander: {lo:7000,hi:11500},
-    thane_w: {lo:11000,hi:19000}, thane_e: {lo:8000,hi:13000},
-    kharghar: {lo:9000,hi:16000}, panvel: {lo:7000,hi:12000},
-    andheri: {lo:18000,hi:28000}, goregaon: {lo:14000,hi:22000},
-    powai: {lo:17000,hi:26000}, bandra: {lo:35000,hi:60000},
-    juhu: {lo:28000,hi:45000}
-  };
-  var base = rates[loc] || rates['mira'];
-  /* Age factor */
-  var ageFactor = {new:1.0, '2015':0.95, '2010':0.88, '2005':0.82, '2000':0.75, old:0.65};
-  var af = ageFactor[age] || 1.0;
-  /* Floor premium */
-  var floorFactor = {low:0.95, mid:1.0, high:1.07};
-  var ff = floorFactor[floor] || 1.0;
-  var lo = base.lo * af * ff;
-  var hi = base.hi * af * ff;
-  var totalLo = lo * area;
-  var totalHi = hi * area;
-  var res = document.getElementById('val-result');
-  res.classList.add('cr-show');
-  document.getElementById('val-total').textContent = inr(totalLo) + ' – ' + inr(totalHi);
-  document.getElementById('val-low-psf').textContent = '₹' + Math.round(lo).toLocaleString('en-IN') + ' – ₹' + Math.round(hi).toLocaleString('en-IN');
-  document.getElementById('val-area-out').textContent = area + ' sq ft';
+/* Auto-fill Agreement Value from carpet area × rate */
+function tcAutoCalc() {
+  var area = parseFloat(document.getElementById('tc-area').value) || 0;
+  var rate = parseFloat(document.getElementById('tc-rate').value) || 0;
+  if (area > 0 && rate > 0) {
+    document.getElementById('tc-base').value = Math.round(area * rate);
+  }
+}
+function tcBaseOverride() { /* user typed base directly — leave area/rate as-is */ }
+
+function calcTotalCost() {
+  var area    = parseFloat(document.getElementById('tc-area').value) || 0;
+  var base    = parseFloat(document.getElementById('tc-base').value) || 0;
+  if (!base) { alert('Please enter the Agreement / Base Value (or fill Carpet Area + Rate).'); return; }
+
+  var stampPct  = (parseFloat(document.getElementById('tc-stamp').value) || 0) / 100;
+  var regPct    = (parseFloat(document.getElementById('tc-reg').value)   || 0) / 100;
+  var cessPct   = (parseFloat(document.getElementById('tc-cess').value)  || 0) / 100;
+  var gstPct    = (parseFloat(document.getElementById('tc-gst').value)   || 0) / 100;
+
+  var brok      = parseFloat(document.getElementById('tc-brok').value)     || 0;
+  var proc      = parseFloat(document.getElementById('tc-proc').value)     || 0;
+  var park      = parseFloat(document.getElementById('tc-park').value)     || 0;
+  var legal     = parseFloat(document.getElementById('tc-legal').value)    || 0;
+  var corpus    = parseFloat(document.getElementById('tc-corpus').value)   || 0;
+  var interior  = parseFloat(document.getElementById('tc-interior').value) || 0;
+  var other     = parseFloat(document.getElementById('tc-other').value)    || 0;
+
+  /* Computed charges */
+  var stamp   = base * stampPct;
+  var reg     = Math.min(base * regPct, (regPct === 0.01 ? 30000 : base * regPct)); /* Maharashtra reg cap ₹30k at 1% */
+  var cess    = base * cessPct;
+  var gst     = base * gstPct;
+  var govtTotal = stamp + reg + cess + gst;
+
+  var otherTotal = brok + proc + park + legal + corpus + interior + other;
+  var grand = base + govtTotal + otherTotal;
+
+  /* Build breakdown lines */
+  var lines = [
+    {label:'Agreement / Base Value',    amt: base,    bold: false},
+    {label:'Stamp Duty (' + (stampPct*100).toFixed(1) + '%)',    amt: stamp,   bold: false},
+    {label:'Registration Charges',      amt: reg,     bold: false},
+  ];
+  if (cess > 0)      lines.push({label:'Metro / Local Body Cess (' + (cessPct*100).toFixed(1) + '%)', amt: cess,     bold: false});
+  if (gst > 0)       lines.push({label:'GST (' + (gstPct*100).toFixed(1) + '%)',                      amt: gst,      bold: false});
+  if (brok > 0)      lines.push({label:'Brokerage / Agent Fee',                                        amt: brok,     bold: false});
+  if (proc > 0)      lines.push({label:'Home Loan Processing Fee',                                     amt: proc,     bold: false});
+  if (park > 0)      lines.push({label:'Parking Charges',                                              amt: park,     bold: false});
+  if (legal > 0)     lines.push({label:'Legal / Documentation',                                        amt: legal,    bold: false});
+  if (corpus > 0)    lines.push({label:'Society / Corpus Fund',                                        amt: corpus,   bold: false});
+  if (interior > 0)  lines.push({label:'Interior / Modular Kitchen',                                   amt: interior, bold: false});
+  if (other > 0)     lines.push({label:'Other Charges',                                                amt: other,    bold: false});
+  lines.push({label:'TOTAL & FINAL COST', amt: grand, bold: true});
+
+  var html = lines.map(function(l){
+    return '<div style="display:flex;justify-content:space-between;align-items:center;padding:0.6rem 0.9rem;border-bottom:1px solid rgba(255,255,255,0.06);' + (l.bold ? 'background:rgba(201,168,76,0.1);border-bottom:none;' : '') + '">'
+      + '<span style="font-size:12px;color:' + (l.bold ? '#C9A84C' : 'rgba(255,255,255,0.7)') + ';font-family:' + (l.bold ? "'Cinzel',serif" : "'Inter',sans-serif") + ';font-weight:' + (l.bold ? '700' : '400') + ';letter-spacing:' + (l.bold ? '1px' : '0') + ';text-transform:' + (l.bold ? 'uppercase' : 'none') + ';">' + l.label + '</span>'
+      + '<span style="font-size:' + (l.bold ? '1rem' : '13px') + ';color:' + (l.bold ? '#fff' : 'rgba(255,255,255,0.9)') + ';font-family:' + (l.bold ? "'Cinzel',serif" : "'Inter',sans-serif") + ';font-weight:' + (l.bold ? '700' : '500') + ';">' + inr(l.amt) + '</span>'
+      + '</div>';
+  }).join('');
+
+  document.getElementById('tc-lines').innerHTML = html;
+  document.getElementById('tc-grand-total').textContent = inr(grand);
+  document.getElementById('tc-govt-total').textContent = inr(govtTotal);
+  document.getElementById('tc-allincost').textContent = area > 0 ? '₹' + Math.round(grand/area).toLocaleString('en-IN') + '/sq ft' : '—';
+  document.getElementById('tc-result').classList.add('cr-show');
 }
 
 /* ============================================================ SEARCH ============================================================ */
@@ -3165,7 +3233,7 @@ var SEARCH_INDEX = [
   { tag: 'Tool', title: 'Maharashtra Stamp Duty Calculator', sub: 'Stamp duty & registration charges for Mumbai, Thane, MMR', page: 'tools' },
   { tag: 'Tool', title: 'Rent vs Buy Analyzer', sub: 'Compare renting and buying over time, break-even point', page: 'tools' },
   { tag: 'Tool', title: 'Property Budget Planner', sub: 'Find the right BHK for your budget and income', page: 'tools' },
-  { tag: 'Tool', title: 'Property Valuation Estimator', sub: 'Estimate market value by location and area in Mumbai', page: 'tools' },
+  { tag: 'Tool', title: 'Total Acquisition Cost Calculator', sub: 'Full and final property cost — carpet area, rate, stamp duty, GST, registration, brokerage', page: 'tools' },
 ];
 
 function openSearch() {
