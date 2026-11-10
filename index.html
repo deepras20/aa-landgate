@@ -599,6 +599,7 @@ footer { padding-bottom: 6rem; }
 .calc-input:focus, .calc-select:focus { border-color: #C9A84C; }
 .calc-select option { background: #0B1F3A; color: #fff; }
 .calc-field { margin-bottom: 1.25rem; }
+.calc-live-amt { font-size: 11px; color: #C9A84C; font-family: 'Inter', sans-serif; margin-top: 0.4rem; min-height: 1.1em; letter-spacing: 0.3px; }
 .calc-btn { width: 100%; margin-top: 0.5rem; font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 0.9rem 1rem; background: #C9A84C; color: #0B1F3A; border: none; cursor: pointer; transition: background .2s; }
 .calc-btn:hover { background: #E2C97E; }
 .calc-result-panel { background: rgba(255,255,255,0.03); border: 1px solid rgba(201,168,76,0.22); padding: 2rem; display: none; }
@@ -2598,25 +2599,29 @@ footer { padding-bottom: 6rem; }
           </div>
           <div class="calc-field">
             <label class="calc-label">Agreement / Base Value (₹) <span style="font-size:10px;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;text-transform:none;letter-spacing:0;">— auto-filled from above, or enter directly</span></label>
-            <input class="calc-input" id="tc-base" type="number" placeholder="e.g. 6825000" min="100000" oninput="tcBaseOverride()">
+            <input class="calc-input" id="tc-base" type="number" placeholder="e.g. 6825000" min="100000" oninput="tcBaseOverride(); tcUpdateLive()">
           </div>
 
           <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.75rem;margin-top:1.25rem;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:0.5rem;">Government Charges</div>
           <div class="calc-field">
             <label class="calc-label">Stamp Duty (%)</label>
-            <input class="calc-input" id="tc-stamp" type="number" placeholder="e.g. 6" min="0" max="15" step="0.5" value="6">
+            <input class="calc-input" id="tc-stamp" type="number" placeholder="e.g. 6" min="0" max="15" step="0.5" value="6" oninput="tcUpdateLive()">
+            <div class="calc-live-amt" id="tc-stamp-amt"></div>
           </div>
           <div class="calc-field">
             <label class="calc-label">Registration Charges (%)</label>
-            <input class="calc-input" id="tc-reg" type="number" placeholder="e.g. 1" min="0" max="5" step="0.1" value="1">
+            <input class="calc-input" id="tc-reg" type="number" placeholder="e.g. 1" min="0" max="5" step="0.1" value="1" oninput="tcUpdateLive()">
+            <div class="calc-live-amt" id="tc-reg-amt"></div>
           </div>
           <div class="calc-field">
             <label class="calc-label">Metro / Local Body Cess (%) <span style="font-size:10px;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;text-transform:none;letter-spacing:0;">— 1% for Mumbai, 0 otherwise</span></label>
-            <input class="calc-input" id="tc-cess" type="number" placeholder="e.g. 0 or 1" min="0" max="5" step="0.5" value="0">
+            <input class="calc-input" id="tc-cess" type="number" placeholder="e.g. 0 or 1" min="0" max="5" step="0.5" value="0" oninput="tcUpdateLive()">
+            <div class="calc-live-amt" id="tc-cess-amt"></div>
           </div>
           <div class="calc-field">
             <label class="calc-label">GST (%) <span style="font-size:10px;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;text-transform:none;letter-spacing:0;">— 5% under-construction, 0 for ready-to-move</span></label>
-            <input class="calc-input" id="tc-gst" type="number" placeholder="e.g. 5 or 0" min="0" max="12" step="0.5" value="0">
+            <input class="calc-input" id="tc-gst" type="number" placeholder="e.g. 5 or 0" min="0" max="12" step="0.5" value="0" oninput="tcUpdateLive()">
+            <div class="calc-live-amt" id="tc-gst-amt"></div>
           </div>
 
           <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.75rem;margin-top:1.25rem;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:0.5rem;">Other Charges (Optional)</div>
@@ -3128,8 +3133,35 @@ function tcAutoCalc() {
   if (area > 0 && rate > 0) {
     document.getElementById('tc-base').value = Math.round(area * rate);
   }
+  tcUpdateLive();
 }
 function tcBaseOverride() { /* user typed base directly — leave area/rate as-is */ }
+
+/* Live preview: show ₹ amount for each government charge as user types */
+function tcUpdateLive() {
+  var base    = parseFloat(document.getElementById('tc-base').value) || 0;
+  var stampPct = (parseFloat(document.getElementById('tc-stamp').value) || 0) / 100;
+  var regPct   = (parseFloat(document.getElementById('tc-reg').value)   || 0) / 100;
+  var cessPct  = (parseFloat(document.getElementById('tc-cess').value)  || 0) / 100;
+  var gstPct   = (parseFloat(document.getElementById('tc-gst').value)   || 0) / 100;
+
+  function setLive(id, val) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = (base > 0 && val > 0) ? '= ' + inr(Math.round(val)) : '';
+  }
+
+  /* Use same cap logic as calcTotalCost: reg ≤1% is capped at ₹30,000 */
+  var stamp = base * stampPct;
+  var reg   = (regPct > 0 && regPct <= 0.01) ? Math.min(base * regPct, 30000) : base * regPct;
+  var cess  = base * cessPct;
+  var gst   = base * gstPct;
+
+  setLive('tc-stamp-amt', stamp);
+  setLive('tc-reg-amt',   reg);
+  setLive('tc-cess-amt',  cess);
+  setLive('tc-gst-amt',   gst);
+}
 
 function calcTotalCost() {
   var area    = parseFloat(document.getElementById('tc-area').value) || 0;
@@ -3151,7 +3183,7 @@ function calcTotalCost() {
 
   /* Computed charges */
   var stamp   = base * stampPct;
-  var reg     = Math.min(base * regPct, (regPct === 0.01 ? 30000 : base * regPct)); /* Maharashtra reg cap ₹30k at 1% */
+  var reg     = (regPct > 0 && regPct <= 0.01) ? Math.min(base * regPct, 30000) : base * regPct; /* Maharashtra reg cap ₹30k at ≤1% */
   var cess    = base * cessPct;
   var gst     = base * gstPct;
   var govtTotal = stamp + reg + cess + gst;
