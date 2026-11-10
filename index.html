@@ -3598,6 +3598,19 @@ function initChart() {
 
 // Init chart on first load (home page is active by default)
 window.addEventListener('load', function() { setTimeout(initChart, 200); });
+
+// Hash-based routing — allows direct links like /#blog, /#contact etc.
+// Used by standalone blog pages so "Back to Blog" shows the blog section
+(function() {
+  var hash = window.location.hash;
+  if (hash && hash.length > 1) {
+    var page = hash.substring(1); // strip the #
+    var validPages = ['home','listings','about','sell','blog','faq','contact','services','tools'];
+    if (validPages.indexOf(page) !== -1) {
+      showPage(page);
+    }
+  }
+})();
 </script>
 </body>
 </html>
