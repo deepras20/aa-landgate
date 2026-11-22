@@ -146,6 +146,85 @@ tbody td{padding:10px 14px;color:var(--text);}
   .breadcrumb{padding:0.65rem 1rem;}
 }
 </style>
+<!-- AA-MOTION START: site-wide animations (added 2026-11-22). To roll back, delete everything between AA-MOTION START and AA-MOTION END. -->
+<script>(function(){try{if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){document.documentElement.classList.add('aa-anim');}}catch(e){}})();</script>
+<style id="aa-motion-css">
+@keyframes aaFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes aaFadeUp{from{opacity:0;transform:translate3d(0,26px,0)}to{opacity:1;transform:none}}
+@keyframes aaSlideIn{from{opacity:0;transform:translate3d(48px,0,0) scale(.97)}to{opacity:1;transform:none}}
+@keyframes aaZoomOut{from{transform:scale(1.1)}to{transform:scale(1)}}
+@keyframes aaLineGrow{from{opacity:0;transform:scaleX(0)}to{opacity:.5;transform:scaleX(1)}}
+@keyframes aaPulse{0%{box-shadow:0 6px 20px rgba(0,0,0,.25),0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 6px 20px rgba(0,0,0,.25),0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 6px 20px rgba(0,0,0,.25),0 0 0 0 rgba(37,211,102,0)}}
+@keyframes aaShimmer{0%{background-position:-150% 0}100%{background-position:250% 0}}
+@keyframes aaNavDown{from{opacity:0;transform:translate3d(0,-14px,0)}to{opacity:1;transform:none}}
+
+/* Page switch: gentle cross-fade each time a page is opened */
+.aa-anim .page.active{animation:aaFadeIn .5s ease backwards}
+
+/* Nav: drops in on load, gains depth once you scroll */
+.aa-anim nav > *{animation:aaNavDown .7s cubic-bezier(.2,.7,.2,1) .1s backwards}
+.aa-anim nav{transition:box-shadow .35s ease,background-color .35s ease}
+.aa-anim nav.aa-scrolled{box-shadow:0 10px 30px rgba(4,12,24,.35)}
+
+/* Home hero: background eases in, text rises line by line, featured card slides in */
+.aa-anim .page.active .hero-bg,.aa-anim .page.active .hero-skyline{animation:aaZoomOut 2.6s cubic-bezier(.2,.7,.2,1) backwards}
+.aa-anim .page.active .hero-content > *{animation:aaFadeUp .9s cubic-bezier(.2,.7,.2,1) backwards}
+.aa-anim .page.active .hero-content > :nth-child(1){animation-delay:.15s}
+.aa-anim .page.active .hero-content > :nth-child(2){animation-delay:.3s}
+.aa-anim .page.active .hero-content > :nth-child(3){animation-delay:.45s}
+.aa-anim .page.active .hero-content > :nth-child(4){animation-delay:.6s}
+.aa-anim .page.active .hero-content > :nth-child(5){animation-delay:.75s}
+.aa-anim .page.active .hero-stats > *{animation:aaFadeUp .7s cubic-bezier(.2,.7,.2,1) backwards}
+.aa-anim .page.active .hero-stats > :nth-child(1){animation-delay:.85s}
+.aa-anim .page.active .hero-stats > :nth-child(2){animation-delay:.95s}
+.aa-anim .page.active .hero-stats > :nth-child(3){animation-delay:1.05s}
+.aa-anim .page.active .hero-stats > :nth-child(4){animation-delay:1.15s}
+.aa-anim .page.active .villa-card{animation:aaSlideIn 1.1s cubic-bezier(.2,.7,.2,1) .4s backwards}
+.aa-anim .hero-eyebrow::before,.aa-anim .hero-eyebrow::after{animation:aaLineGrow .9s ease .6s backwards}
+.aa-anim .hero-eyebrow::before{transform-origin:right}
+.aa-anim .hero-eyebrow::after{transform-origin:left}
+
+/* Inner page banners (About, Listings, Blog, FAQ, Contact, Sell, Tools, blog articles) */
+.aa-anim .page.active .page-header > *,.aa-anim body > .page-header > *{animation:aaFadeUp .85s cubic-bezier(.2,.7,.2,1) backwards}
+.aa-anim .page.active .page-header > :nth-child(1),.aa-anim body > .page-header > :nth-child(1){animation-delay:.1s}
+.aa-anim .page.active .page-header > :nth-child(2),.aa-anim body > .page-header > :nth-child(2){animation-delay:.22s}
+.aa-anim .page.active .page-header > :nth-child(3),.aa-anim body > .page-header > :nth-child(3){animation-delay:.34s}
+.aa-anim .page.active .page-header > :nth-child(n+4),.aa-anim body > .page-header > :nth-child(n+4){animation-delay:.46s}
+
+/* Services banner */
+.aa-anim #services-page.active > div:first-child > img{animation:aaZoomOut 2.6s cubic-bezier(.2,.7,.2,1) backwards}
+.aa-anim #services-page.active > div:first-child > div:last-child > *{animation:aaFadeUp .85s cubic-bezier(.2,.7,.2,1) backwards}
+.aa-anim #services-page.active > div:first-child > div:last-child > :nth-child(2){animation-delay:.15s}
+.aa-anim #services-page.active > div:first-child > div:last-child > :nth-child(3){animation-delay:.3s}
+.aa-anim #services-page.active > div:first-child > div:last-child > :nth-child(4){animation-delay:.45s}
+
+/* Scroll reveal (classes are added by the script at the end of the page) */
+.aa-anim .aa-rv{opacity:0;transform:translate3d(0,34px,0);transition:opacity .85s cubic-bezier(.2,.7,.2,1),transform .85s cubic-bezier(.2,.7,.2,1) !important;transition-delay:var(--aa-d,0s) !important;will-change:opacity,transform}
+.aa-anim .aa-rv.aa-rv-fade{transform:none}
+.aa-anim .aa-rv.aa-in{opacity:1;transform:none}
+
+/* Gold shimmer on the "0%" style headline stats */
+.aa-anim .stat-val{background:linear-gradient(100deg,var(--gold) 0%,var(--gold) 40%,#FFF3CF 50%,var(--gold) 60%,var(--gold) 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:aaShimmer 5s ease-in-out 1.8s infinite}
+
+/* Buttons: light sweep on hover */
+.aa-anim .btn-primary,.aa-anim .nav-cta,.aa-anim .villa-btn,.aa-anim .submit-btn,.aa-anim .sell-submit,.aa-anim .calc-btn,.aa-anim .listing-enquire-btn{position:relative;overflow:hidden}
+.aa-anim .btn-primary::after,.aa-anim .nav-cta::after,.aa-anim .villa-btn::after,.aa-anim .submit-btn::after,.aa-anim .sell-submit::after,.aa-anim .calc-btn::after,.aa-anim .listing-enquire-btn::after{content:'';position:absolute;top:0;bottom:0;left:-80%;width:50%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .7s ease;pointer-events:none}
+.aa-anim .btn-primary:hover::after,.aa-anim .nav-cta:hover::after,.aa-anim .villa-btn:hover::after,.aa-anim .submit-btn:hover::after,.aa-anim .sell-submit:hover::after,.aa-anim .calc-btn:hover::after,.aa-anim .listing-enquire-btn:hover::after{left:130%}
+
+/* Logo: soft gold glow on hover */
+.aa-anim .logo-mark{transition:box-shadow .4s ease}
+.aa-anim .logo:hover .logo-mark{box-shadow:0 0 18px rgba(201,168,76,.55)}
+
+/* WhatsApp button: slow attention pulse */
+.aa-anim .wa-float{animation:aaPulse 2.8s ease-out 3s infinite}
+.aa-anim .wa-float:hover{animation-play-state:paused}
+
+@media (prefers-reduced-motion: reduce){
+  .aa-anim *,.aa-anim *::before,.aa-anim *::after{animation:none !important;transition:none !important}
+  .aa-anim .aa-rv{opacity:1 !important;transform:none !important}
+}
+</style>
+<!-- AA-MOTION END -->
 </head>
 <body>
 
@@ -207,5 +286,121 @@ tbody td{padding:10px 14px;color:var(--text);}
   </p>
 </footer>
 
+<!-- AA-MOTION START: scroll-reveal script (added 2026-11-22). To roll back, delete everything between AA-MOTION START and AA-MOTION END. -->
+<script>
+(function(){
+  var root = document.documentElement;
+  if (!root.classList.contains('aa-anim')) return;
+
+  // Things that should rise into view as you scroll
+  var BLOCKS = 'h2, .section-eyebrow, .section-tag-light, .why-us-header, .services-header, .sell-faq-header, ' +
+               '.faq-item, .pull-quote, .btn-row, .trust-top, .testimonial, .vm-card, .calc-card, ' +
+               '.footer-col, .footer-links-row, .article-body > *';
+  // Containers whose children should cascade in one after another
+  var CASCADE = '.pillars, .trust-badges, .footer-nav, .tools-tabs, .filter-bar';
+  // Never touch these (handled by CSS, interactive, or updated by scripts)
+  var SKIP = '.hero, .page-header, nav, #search-overlay, .video-modal, form, .calc-result-panel, ' +
+             '.form-row, .form-row3, .form-group, .checkbox-grid, .search-box, .broadcast-banner, .wa-float, ' +
+             '#services-page > div:first-child';
+
+  function skipped(el){ return !!(el.closest && el.closest(SKIP)); }
+
+  function collect(scope){
+    var out = [], seen = new Set();
+    function add(el, i){
+      if (seen.has(el) || skipped(el) || el.offsetParent === null && getComputedStyle(el).position !== 'fixed') return;
+      for (var p = el.parentElement; p && p !== scope; p = p.parentElement) { if (seen.has(p)) return; }
+      seen.add(el); out.push({el: el, i: i || 0});
+    }
+    // 1) grids: every child cascades in
+    scope.querySelectorAll('div, section, ul').forEach(function(c){
+      if (skipped(c)) return;
+      var d = getComputedStyle(c).display;
+      if ((d === 'grid' || d === 'inline-grid') && c.children.length > 1) {
+        var n = 0;
+        Array.prototype.forEach.call(c.children, function(ch){ if (ch.offsetParent !== null) add(ch, n++); });
+      }
+    });
+    scope.querySelectorAll(CASCADE).forEach(function(c){
+      var n = 0; Array.prototype.forEach.call(c.children, function(ch){ add(ch, n++); });
+    });
+    // 2) headings and standalone blocks
+    scope.querySelectorAll(BLOCKS).forEach(function(el){ add(el, 0); });
+    // drop anything that sits inside another animated block (avoids double animation)
+    return out.filter(function(t){
+      for (var p = t.el.parentElement; p && p !== scope; p = p.parentElement) { if (seen.has(p)) return false; }
+      return true;
+    });
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (!en.isIntersecting) return;
+      var el = en.target; io.unobserve(el);
+      el.classList.add('aa-in');
+      var done = function(){ el.classList.remove('aa-rv', 'aa-rv-fade', 'aa-in'); el.style.removeProperty('--aa-d'); };
+      var delay = parseFloat(el.style.getPropertyValue('--aa-d')) || 0;
+      setTimeout(done, 950 + delay * 1000);   // hand hover effects back to the element afterwards
+    });
+  }, {rootMargin: '0px 0px -6% 0px', threshold: 0.01});
+
+  var armed = new WeakSet();
+  function arm(scope, onlyNew){
+    collect(scope).forEach(function(t){
+      var el = t.el;
+      if (onlyNew && armed.has(el)) return;
+      armed.add(el);
+      el.classList.remove('aa-in');
+      el.classList.add('aa-rv');
+      if (el.matches('h2, .section-eyebrow, .section-tag-light')) el.classList.add('aa-rv-fade');
+      el.style.setProperty('--aa-d', (Math.min(t.i, 5) * 0.09).toFixed(2) + 's');
+      io.observe(el);
+    });
+  }
+
+  function activePage(){ return document.querySelector('.page.active'); }
+
+  function armAll(){
+    var p = activePage();
+    if (p) arm(p); else arm(document.body);
+    var f = document.querySelector('body > footer');
+    if (f && p) arm(f);
+  }
+
+  // Replay reveals each time a page is opened from the menu
+  if (typeof window.showPage === 'function') {
+    var original = window.showPage;
+    window.showPage = function(){
+      var r = original.apply(this, arguments);
+      armed = new WeakSet();
+      requestAnimationFrame(armAll);
+      return r;
+    };
+  }
+
+  // Elements revealed inside tabs/filters that become visible later (e.g. Free Tools tabs)
+  document.addEventListener('click', function(e){
+    if (e.target.closest && e.target.closest('.tools-tab-btn, .tool-ov-card, .tools-mini-card')) {
+      setTimeout(function(){ var p = activePage(); if (p) arm(p, true); }, 30);
+    }
+  }, true);
+
+  // Nav depth on scroll + make sure nothing at the very bottom of the page stays hidden
+  var nav = document.querySelector('nav');
+  var onScroll = function(){
+    if (nav) nav.classList.toggle('aa-scrolled', window.scrollY > 40);
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+      document.querySelectorAll('.aa-rv:not(.aa-in)').forEach(function(el){
+        if (el.getBoundingClientRect().top < window.innerHeight) { io.unobserve(el); el.classList.add('aa-in');
+          setTimeout(function(){ el.classList.remove('aa-rv','aa-rv-fade','aa-in'); el.style.removeProperty('--aa-d'); }, 1300); }
+      });
+    }
+  };
+  window.addEventListener('scroll', onScroll, {passive: true}); onScroll();
+
+  armAll();
+})();
+</script>
+<!-- AA-MOTION END -->
 </body>
 </html>
