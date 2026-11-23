@@ -162,7 +162,7 @@ tbody td{padding:10px 14px;color:var(--text);}
 .aa-anim .page.active{animation:aaFadeIn .5s ease backwards}
 
 /* Nav: drops in on load, gains depth once you scroll */
-.aa-anim nav > *{animation:aaNavDown .7s cubic-bezier(.2,.7,.2,1) .1s backwards}
+.aa-anim nav > :not(.nav-links),.aa-anim .nav-links > li{animation:aaNavDown .7s cubic-bezier(.2,.7,.2,1) .1s backwards}
 .aa-anim nav{transition:box-shadow .35s ease,background-color .35s ease}
 .aa-anim nav.aa-scrolled{box-shadow:0 10px 30px rgba(4,12,24,.35)}
 
@@ -206,10 +206,12 @@ tbody td{padding:10px 14px;color:var(--text);}
 /* Gold shimmer on the "0%" style headline stats */
 .aa-anim .stat-val{background:linear-gradient(100deg,var(--gold) 0%,var(--gold) 40%,#FFF3CF 50%,var(--gold) 60%,var(--gold) 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:aaShimmer 5s ease-in-out 1.8s infinite}
 
-/* Buttons: light sweep on hover */
+/* Buttons: light sweep on hover (mouse/trackpad only, so taps on phones never leave it stuck) */
+@media (hover: hover) and (pointer: fine){
 .aa-anim .btn-primary,.aa-anim .nav-cta,.aa-anim .villa-btn,.aa-anim .submit-btn,.aa-anim .sell-submit,.aa-anim .calc-btn,.aa-anim .listing-enquire-btn{position:relative;overflow:hidden}
 .aa-anim .btn-primary::after,.aa-anim .nav-cta::after,.aa-anim .villa-btn::after,.aa-anim .submit-btn::after,.aa-anim .sell-submit::after,.aa-anim .calc-btn::after,.aa-anim .listing-enquire-btn::after{content:'';position:absolute;top:0;bottom:0;left:-80%;width:50%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .7s ease;pointer-events:none}
 .aa-anim .btn-primary:hover::after,.aa-anim .nav-cta:hover::after,.aa-anim .villa-btn:hover::after,.aa-anim .submit-btn:hover::after,.aa-anim .sell-submit:hover::after,.aa-anim .calc-btn:hover::after,.aa-anim .listing-enquire-btn:hover::after{left:130%}
+}
 
 /* Logo: soft gold glow on hover */
 .aa-anim .logo-mark{transition:box-shadow .4s ease}
@@ -218,6 +220,13 @@ tbody td{padding:10px 14px;color:var(--text);}
 /* WhatsApp button: slow attention pulse */
 .aa-anim .wa-float{animation:aaPulse 2.8s ease-out 3s infinite}
 .aa-anim .wa-float:hover{animation-play-state:paused}
+
+/* Phones & small tablets: shorter, quicker movement; nothing slides in sideways */
+@media (max-width: 768px){
+  .aa-anim .aa-rv{transform:translate3d(0,18px,0);transition-duration:.6s !important}
+  .aa-anim .page.active .villa-card{animation-name:aaFadeUp;animation-duration:.8s}
+  .aa-anim .page.active .hero-content > *,.aa-anim .page.active .page-header > *,.aa-anim body > .page-header > *{animation-duration:.7s}
+}
 
 @media (prefers-reduced-motion: reduce){
   .aa-anim *,.aa-anim *::before,.aa-anim *::after{animation:none !important;transition:none !important}
@@ -269,7 +278,7 @@ tbody td{padding:10px 14px;color:var(--text);}
 </div>
 
 <footer class="site-footer">
-  <p>&copy; 2026 A&amp;A Landgate. RERA Reg. A011332604622 &nbsp;|&nbsp;
+  <p>&copy; 2026 A&amp;A Landgate. All rights reserved. &nbsp;|&nbsp;
      <a href="/">Home</a> &nbsp;|&nbsp; <a href="/#listings">Listings</a> &nbsp;|&nbsp;
      <a href="/#blog">Blog</a> &nbsp;|&nbsp; <a href="/#contact">Contact</a><br>
      Shop No 2, D Wing, Happy Home Estate IV, Poonam Sagar Complex, Mira Road East, Thane 401107, Maharashtra<br>
@@ -308,12 +317,14 @@ tbody td{padding:10px 14px;color:var(--text);}
       if (skipped(c)) return;
       var d = getComputedStyle(c).display;
       if ((d === 'grid' || d === 'inline-grid') && c.children.length > 1) {
-        var n = 0;
-        Array.prototype.forEach.call(c.children, function(ch){ if (ch.offsetParent !== null) add(ch, n++); });
+        var vis = Array.prototype.filter.call(c.children, function(ch){ return ch.offsetParent !== null; });
+        // stagger only across items sharing a row, so single-column phone layouts don't wait
+        vis.forEach(function(ch, k){ var col = 0; for (var j = 0; j < k; j++) { if (Math.abs(vis[j].offsetTop - ch.offsetTop) < 4) col++; } add(ch, col); });
       }
     });
     scope.querySelectorAll(CASCADE).forEach(function(c){
-      var n = 0; Array.prototype.forEach.call(c.children, function(ch){ add(ch, n++); });
+      var kids = c.children;
+      Array.prototype.forEach.call(kids, function(ch, k){ var col = 0; for (var j = 0; j < k; j++) { if (Math.abs(kids[j].offsetTop - ch.offsetTop) < 4) col++; } add(ch, col); });
     });
     // 2) headings and standalone blocks
     scope.querySelectorAll(BLOCKS).forEach(function(el){ add(el, 0); });

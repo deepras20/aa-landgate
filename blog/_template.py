@@ -195,7 +195,7 @@ def html(slug, title, description, category_tag, date_iso, date_display, read_ti
 </div>
 
 <footer class="site-footer">
-  <p>&copy; 2026 A&amp;A Landgate. RERA Reg. A011332604622 &nbsp;|&nbsp;
+  <p>&copy; 2026 A&amp;A Landgate. All rights reserved. &nbsp;|&nbsp;
      <a href="/">Home</a> &nbsp;|&nbsp; <a href="/#listings">Listings</a> &nbsp;|&nbsp;
      <a href="/#blog">Blog</a> &nbsp;|&nbsp; <a href="/#contact">Contact</a><br>
      Shop No 2, D Wing, Happy Home Estate IV, Poonam Sagar Complex, Mira Road East, Thane 401107, Maharashtra<br>
