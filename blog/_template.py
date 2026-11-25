@@ -214,30 +214,24 @@ posts = [
   {
     "slug": "mumbai-real-estate-prices-q1-2025",
     "title": "Mumbai Real Estate Prices: Q1 2025 Report",
-    "description": "Mumbai's residential property market posted 11.4% year-on-year price growth in Q1 2025. Area-wise price snapshot, top performing corridors, and outlook for the rest of 2025.",
-    "category_tag": "Market Trends &middot; May 2025 &middot; 5 min read",
+    "description": "How the Mumbai Metropolitan Region housing market moved in Q1 2025, using ANAROCK Research data: sales fell 26% as prices kept rising. What happened next, and what it means for buyers today.",
+    "category_tag": "Market Trends &middot; Updated Nov 2026 &middot; 5 min read",
     "date_iso": "2025-05-01",
-    "keywords": "Mumbai real estate prices 2025, property price report Mumbai, Thane property rates, Mira Road property prices, Maharashtra real estate market",
-    "body": """  <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--muted);line-height:1.7;margin-bottom:2rem;">Mumbai's residential property market posted a robust 11.4% year-on-year price growth in Q1 2025, driven by renewed buyer confidence, infrastructure completions, and a sustained surge in luxury housing demand.</p>
-  <h2>Key Findings</h2>
-  <p>Bandra West and Juhu continued to command the highest per-sqft rates in the city, averaging &#8377;45,000&#8211;&#8377;60,000 per sqft for sea-facing apartments. The western suburbs from Andheri to Virar saw moderate growth of 8&#8211;12%, while Thane and Navi Mumbai recorded the strongest volume-based growth at 15&#8211;18% year-on-year as infrastructure projects matured.</p>
-  <p>The coastal belt &#8212; particularly Alibaug and Revdanda &#8212; saw extraordinary demand for villa and bungalow properties, with prices appreciating 22&#8211;28% as Mumbai's affluent class sought second-home options within 90 minutes of the city.</p>
-  <h2>Area-Wise Price Snapshot (&#8377; per sqft)</h2>
-  <table>
-    <thead><tr><th>Area</th><th>Q1 2024</th><th>Q1 2025</th><th>Growth</th></tr></thead>
-    <tbody>
-      <tr><td>Bandra West</td><td>&#8377;48,000</td><td>&#8377;56,000</td><td style="color:#2e7d32;font-weight:600;">+16.7%</td></tr>
-      <tr><td>Thane West</td><td>&#8377;14,500</td><td>&#8377;17,200</td><td style="color:#2e7d32;font-weight:600;">+18.6%</td></tr>
-      <tr><td>Alibaug (Coastal)</td><td>&#8377;18,000</td><td>&#8377;22,400</td><td style="color:#2e7d32;font-weight:600;">+24.4%</td></tr>
-      <tr><td>Bhayandar / Mira Road</td><td>&#8377;9,800</td><td>&#8377;11,500</td><td style="color:#2e7d32;font-weight:600;">+17.3%</td></tr>
-    </tbody>
-  </table>
-  <h2>Outlook for Q2&#8211;Q4 2025</h2>
-  <p>The RBI's decision to hold rates steady has bolstered buyer sentiment. With the Mumbai Metro Line 3 now fully operational and the Mumbai Trans Harbour Link driving Navi Mumbai connectivity, analysts at A&amp;A Landgate project an additional 8&#8211;12% appreciation in key corridors through year-end.</p>
-  <p>Luxury and ultra-luxury segments (above &#8377;5 Cr) are expected to see sustained demand from HNIs and NRIs, particularly in the western suburbs and coastal Maharashtra belt.</p>
+    "keywords": "Mumbai real estate prices 2025, MMR housing sales Q1 2025, ANAROCK MMR data, Mumbai property market 2026, Mira Road property prices",
+    "body": """  <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--muted);line-height:1.7;margin-bottom:2rem;">The first quarter of 2025 marked a turning point for the Mumbai Metropolitan Region (MMR): prices kept rising, but buyers began to push back, and sales fell sharply.</p>
+  <h2>Key Findings: Q1 2025</h2>
+  <ul>
+    <li>MMR remained India’s largest housing market, with about <strong>31,610 homes sold</strong> in Q1 2025, but that was <strong>26% fewer</strong> than the roughly 42,920 sold in Q1 2024.</li>
+    <li>New launches in MMR fell 9% year on year to about 30,755 homes, and over 56% of the new supply was priced below ₹80 lakh.</li>
+    <li>Across India’s top seven cities, average residential prices rose about <strong>17% year on year</strong>, and the sales slowdown was linked to high prices and geopolitical headwinds.</li>
+  </ul>
+  <h2>What Happened Next</h2>
+  <p>Price growth cooled through the rest of the year. For 2025 as a whole, MMR sales fell 18% to about 1,27,875 homes, while average prices across the top seven cities rose about 8%, down from double-digit growth in earlier years.</p>
+  <p>By Q3 2026 the market had steadied. MMR again recorded the highest sales of any city, at about 31,750 homes, while price growth across the top seven cities slowed to about 7% and unsold inventory rose 12%.</p>
+  <h2>What It Means for Buyers</h2>
+  <p>Slower price growth and more unsold homes give buyers more room to negotiate than they had in 2024. Compare carpet-area rates, ask about offers on ready inventory, and check recent registered sales before you commit.</p>
   <div class="pull-quote">
-    <p>"The fundamentals for Maharashtra real estate remain exceptionally strong. Supply constraints in premium locations, combined with rising household incomes and NRI demand, are creating a sustained seller's market in the luxury segment."</p>
-    <cite>&#8212; A&amp;A Landgate Market Intelligence Team</cite>
+    <p style="font-size:13px;font-style:normal;"><strong>About these figures:</strong> market data in this report comes from ANAROCK Research’s published quarterly data on India’s top seven cities. Prices in individual micro-markets vary widely, so ask our team for current rates in the area you’re considering.</p>
   </div>"""
   },
   {
@@ -278,31 +272,32 @@ posts = [
   },
   {
     "slug": "invest-mumbai-property-2025",
-    "title": "Is 2025 a Good Time to Invest in Mumbai Property?",
-    "description": "Interest rate stability, metro connectivity, and NRI demand make 2025 a strong year for Mumbai property investment. Find out which areas offer the best returns in Maharashtra.",
-    "category_tag": "Investment &middot; Mar 2025 &middot; 6 min read",
+    "title": "Is Now a Good Time to Invest in Mumbai Property? (2026 Update)",
+    "description": "Is now a good time to invest in Mumbai property? Our late-2026 update on interest rates, ANAROCK sales and price data, new metro lines, where to look and the risks to weigh.",
+    "category_tag": "Investment &middot; Updated Nov 2026 &middot; 6 min read",
     "date_iso": "2025-03-01",
-    "keywords": "invest Mumbai property 2025, best areas to invest Mumbai, Thane real estate investment, Mira Road property investment, Mumbai property market 2025",
-    "body": """  <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--muted);line-height:1.7;margin-bottom:2rem;">Short answer: yes &#8212; but with caveats. 2025 presents a rare convergence of favourable factors for property investment in Maharashtra, though smart timing and location selection remain critical.</p>
-  <h2>Why 2025 Is a Strong Entry Year</h2>
-  <p><strong>Interest Rate Stability:</strong> The RBI held the repo rate at 6.5% through most of 2024&#8211;25, keeping home loan rates predictable. Most buyers can lock in rates between 8.4&#8211;8.9% &#8212; historically favourable compared to the 10&#8211;12% rates of the 2010s.</p>
-  <p><strong>Metro Connectivity Boost:</strong> Mumbai Metro Lines 2A, 7, and 9 have opened up corridors from Andheri to Dahisar and from Versova to Borivali, dramatically cutting commute times and boosting property values in previously underserved areas.</p>
-  <p><strong>Post-COVID Housing Upgrade:</strong> Work-from-home culture has driven sustained demand for larger homes. Buyers who downgraded during 2020&#8211;22 are now actively upgrading, sustaining volume at the 2&#8211;5 Cr price band.</p>
-  <p><strong>NRI Demand Surge:</strong> With the Indian rupee depreciation making property more attractive in dollar/dirham terms, NRI investment in Mumbai real estate hit a 10-year high in FY25, with particular concentration in Bandra, Juhu, and Alibaug.</p>
-  <h2>Where to Invest in 2025</h2>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
+    "keywords": "invest Mumbai property 2026, best areas to invest Mumbai, Mira Road property investment, Thane real estate investment, Mumbai property market 2026",
+    "body": """  <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--muted);line-height:1.7;margin-bottom:2rem;">Short answer: it can be, if you choose the location carefully and budget for higher borrowing costs. Here is how the market looks in late 2026.</p>
+  <h2>Interest Rates: Lower Than 2024, but Rising Again</h2>
+  <p>The RBI cut its repo rate through 2025 to 5.25%, making home loans noticeably cheaper than in 2024, when it stood at 6.5%. In October 2026 it raised the rate by 0.25% to 5.50% and signalled that further cuts are off the table for now. If you are buying with a loan, compare floating and fixed options and budget for rates edging up.</p>
+  <h2>The Market: Steady Sales, Slower Price Growth</h2>
+  <p>MMR is still India’s busiest housing market. About 31,750 homes were sold in MMR in Q3 2026, the most of any city, and about 37,500 new homes were launched. Across the top seven cities, prices rose about 7% year on year and unsold inventory grew 12%, so buyers have more choice and more room to negotiate than in 2024.</p>
+  <h2>Metro Connectivity</h2>
+  <p>Metro Line 9 opened its first phase, from Dahisar East to Kashigaon, in April 2026, bringing the metro to Mira Road. Phase 2, further into Mira-Bhayandar, is expected around December 2026. In Thane, the first section of Lines 4 and 4A is targeted for December 2026. Homes within walking distance of these stations are worth a closer look.</p>
+  <h2>Where to Look</h2>
+  <div class="aa-grid2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-bottom:2rem;">
     <div style="padding:1.25rem;border:1px solid rgba(201,168,76,0.15);background:rgba(201,168,76,0.03);">
-      <div style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold);letter-spacing:1px;margin-bottom:0.5rem;">HIGH GROWTH</div>
-      <ul style="list-style:none;padding:0;line-height:2;">
-        <li>&#9679; Thane &#8212; Majiwada / Wagle Estate</li>
-        <li>&#9679; Alibaug coastal belt</li>
-        <li>&#9679; Navi Mumbai &#8212; Kharghar / Panvel</li>
-        <li>&#9679; Bhayandar &#8212; Mira Road</li>
+      <div style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold);letter-spacing:1px;margin-bottom:0.5rem;">GROWING CORRIDORS</div>
+      <ul style="list-style:none;padding:0;margin:0;line-height:2;font-size:13px;color:var(--muted);">
+        <li>&#9679; Mira Road – Bhayandar (Metro Line 9)</li>
+        <li>&#9679; Dahisar – Borivali</li>
+        <li>&#9679; Thane – Ghodbunder Road (Metro 4/4A)</li>
+        <li>&#9679; Navi Mumbai – Kharghar / Panvel</li>
       </ul>
     </div>
     <div style="padding:1.25rem;border:1px solid rgba(201,168,76,0.15);background:rgba(201,168,76,0.03);">
-      <div style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold);letter-spacing:1px;margin-bottom:0.5rem;">PREMIUM STABLE</div>
-      <ul style="list-style:none;padding:0;line-height:2;">
+      <div style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold);letter-spacing:1px;margin-bottom:0.5rem;">ESTABLISHED PREMIUM</div>
+      <ul style="list-style:none;padding:0;margin:0;line-height:2;font-size:13px;color:var(--muted);">
         <li>&#9679; Bandra West / Khar</li>
         <li>&#9679; Juhu / Versova</li>
         <li>&#9679; Lower Parel / Prabhadevi</li>
@@ -310,35 +305,43 @@ posts = [
       </ul>
     </div>
   </div>
-  <p>For investors with a 3&#8211;5 year horizon and a budget of &#8377;80 lakh to &#8377;1.5 crore, Mira Road East and Thane West offer the best combination of rental yield (around 3&#8211;4% per annum) and capital appreciation potential in the entire MMR right now.</p>"""
+  <h2>Risks to Weigh</h2>
+  <ul>
+    <li>Rising interest rates increase EMIs on floating-rate loans.</li>
+    <li>More unsold inventory means some projects may take longer to sell or complete, so check the builder’s MahaRERA record.</li>
+    <li>Infrastructure timelines often slip, so don’t pay today for a station that may open years late.</li>
+  </ul>
+  <p>For buyers with a 3–5 year horizon and a clear budget, a well-located home at a fair price is usually a sounder plan than trying to time the market.</p>"""
   },
   {
     "slug": "stamp-duty-registration-maharashtra",
     "title": "Understanding Stamp Duty and Registration Charges in Maharashtra",
-    "description": "Complete guide to stamp duty rates in Maharashtra 2025 — Mumbai Municipal Area, women buyer rebate, under-construction property GST, and registration charges. Includes worked example.",
-    "category_tag": "Legal Guide &middot; Feb 2025 &middot; 4 min read",
+    "description": "Stamp duty in Maharashtra for 2026: 6% in Mumbai including the 1% metro cess, 7% in Thane, Pune and Nagpur, and a 1% concession for women buyers. Registration fees and a worked example for a ₹2 crore flat.",
+    "category_tag": "Legal Guide &middot; Updated Nov 2026 &middot; 4 min read",
     "date_iso": "2025-02-01",
-    "keywords": "stamp duty Maharashtra 2025, property registration charges Mumbai, stamp duty calculator Maharashtra, women buyer stamp duty rebate, under construction GST Maharashtra",
-    "body": """  <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--muted);line-height:1.7;margin-bottom:2rem;">The total acquisition cost of a property in Maharashtra includes more than just the price tag. Stamp duty and registration charges can add 6&#8211;7% to your transaction value &#8212; making them critical to budget for upfront.</p>
-  <h2>Current Stamp Duty Rates (Maharashtra 2025)</h2>
-  <table>
-    <thead><tr><th>Category</th><th>Stamp Duty</th><th>Registration</th></tr></thead>
+    "keywords": "stamp duty Maharashtra 2026, Mumbai stamp duty rate, metro cess Mumbai, registration charges Maharashtra, women stamp duty concession",
+    "body": """  <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--muted);line-height:1.7;margin-bottom:2rem;">The total acquisition cost of a property in Maharashtra includes more than the price tag. Stamp duty and registration charges typically add 6–8% to your transaction value, so budget for them upfront.</p>
+  <h2>Current Stamp Duty Rates (Maharashtra, 2026)</h2>
+  <div style="overflow-x:auto;"><table>
+    <thead><tr><th>Area</th><th>Men / Joint with a Man</th><th>Women (Sole Owner)</th></tr></thead>
     <tbody>
-      <tr><td>Mumbai Municipal Area</td><td>5% of market value</td><td>1% (max &#8377;30,000)</td></tr>
-      <tr><td>Rest of Maharashtra</td><td>6% of market value</td><td>1% (max &#8377;30,000)</td></tr>
-      <tr><td>Women Buyer (sole owner)</td><td>4% (1% rebate)</td><td>1%</td></tr>
-      <tr><td>Under-construction property</td><td>5% + GST 5%</td><td>1%</td></tr>
+      <tr><td>Mumbai (BMC limits)</td><td>6% (5% + 1% metro cess)</td><td>5%</td></tr>
+      <tr><td>Thane, Pune, Pimpri-Chinchwad, Nagpur</td><td>7% (5% + 1% metro cess + 1% LBT)</td><td>6%</td></tr>
+      <tr><td>Registration fee (all areas)</td><td>1% of value, max ₹30,000</td><td>1% of value, max ₹30,000</td></tr>
     </tbody>
-  </table>
-  <h2>Example: &#8377;2 Crore Flat in Mumbai</h2>
+  </table></div>
+  <p>Published rates for other areas, including Mira-Bhayandar and Navi Mumbai, differ between sources. Confirm the rate in force on the IGR Maharashtra website (igrmaharashtra.gov.in) or ask our team before you budget.</p>
+  <p>Stamp duty is charged on the higher of your agreement value and the government’s ready reckoner rate. The women’s concession applies to residential property owned solely by women; if a man is a joint owner, the full rate applies.</p>
+  <h2>Example: ₹2 Crore Flat in Mumbai</h2>
   <div style="border:1px solid rgba(201,168,76,0.2);padding:1.5rem;margin-bottom:2rem;">
-    <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--muted);">Property Value</span><span style="font-size:13px;font-weight:600;">&#8377;2,00,00,000</span></div>
-    <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--muted);">Stamp Duty (5%)</span><span style="font-size:13px;">&#8377;10,00,000</span></div>
-    <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--muted);">Registration (1%, capped)</span><span style="font-size:13px;">&#8377;30,000</span></div>
-    <div style="display:flex;justify-content:space-between;padding:0.75rem 0;"><span style="font-size:14px;color:var(--navy);font-weight:600;">Total Acquisition Cost</span><span style="font-size:14px;color:var(--gold);font-weight:700;">&#8377;2,10,30,000</span></div>
+    <div style="display:flex;justify-content:space-between;gap:1rem;padding:0.5rem 0;border-bottom:1px solid rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--muted);">Property Value</span><span style="font-size:13px;font-weight:600;">₹2,00,00,000</span></div>
+    <div style="display:flex;justify-content:space-between;gap:1rem;padding:0.5rem 0;border-bottom:1px solid rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--muted);">Stamp Duty (6%, incl. metro cess)</span><span style="font-size:13px;font-weight:600;">₹12,00,000</span></div>
+    <div style="display:flex;justify-content:space-between;gap:1rem;padding:0.5rem 0;border-bottom:1px solid rgba(0,0,0,0.06);"><span style="font-size:13px;color:var(--muted);">Registration (1%, capped)</span><span style="font-size:13px;font-weight:600;">₹30,000</span></div>
+    <div style="display:flex;justify-content:space-between;gap:1rem;padding:0.75rem 0;"><span style="font-size:14px;color:var(--navy);font-weight:600;">Total Acquisition Cost</span><span style="font-size:14px;color:var(--gold);font-weight:700;">₹2,12,30,000</span></div>
   </div>
-  <p>Note: For under-construction properties, GST at 5% (for properties above &#8377;45 lakh) applies on the property value, adding significantly to the total cost. Always factor this in before budgeting.</p>
-  <p>Use our <a href="/#calculators" style="color:var(--gold);">Total Acquisition Cost Calculator</a> to get an instant breakdown for any property value. Our team provides a complete cost breakdown before you sign any agreement.</p>"""
+  <p>A woman buying the same flat in her sole name would pay 5% stamp duty (₹10,00,000), for a total of ₹2,10,30,000.</p>
+  <p>For under-construction properties, GST also applies on the property value: 5% for most homes, or 1% for homes that qualify as affordable housing. Ready-to-move homes with an Occupancy Certificate don’t attract GST. Always factor this in before budgeting.</p>
+  <p>Use our <a href="/#tools" style="color:var(--gold);">free stamp duty and Total Acquisition Cost calculators</a> to get an instant breakdown for any property value. Our team provides a complete cost breakdown before you sign any agreement.</p>"""
   },
   {
     "slug": "nri-guide-buying-property-india",
@@ -373,53 +376,59 @@ posts = [
   {
     "slug": "ai-real-estate-valuation-india",
     "title": "How AI Is Transforming Real Estate Valuation in India",
-    "description": "AI-powered property valuation engines trained on IGR Maharashtra data are ending information asymmetry in India's real estate market. How A&A Landgate uses AI to get clients fair prices.",
-    "category_tag": "AI &amp; Technology &middot; Dec 2024 &middot; 5 min read",
+    "description": "Data and AI-based valuation models are making property prices in India more transparent. How automated valuation models work, what data they use in Maharashtra, and how buyers and sellers can check a fair price.",
+    "category_tag": "AI &amp; Technology &middot; Updated Nov 2026 &middot; 5 min read",
     "date_iso": "2024-12-01",
-    "keywords": "AI property valuation India, real estate technology Maharashtra, automated valuation model India, PropTech India, property price prediction Mumbai",
-    "body": """  <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--muted);line-height:1.7;margin-bottom:2rem;">For decades, property valuation in India was an opaque art &#8212; driven by builder-quoted prices, hearsay, and gut instinct. AI is changing that permanently, and A&amp;A Landgate is at the forefront of applying this technology in Maharashtra.</p>
+    "keywords": "AI property valuation India, automated valuation model India, property price Maharashtra, IGR Maharashtra data, fair property price Mumbai",
+    "body": """  <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--muted);line-height:1.7;margin-bottom:2rem;">For decades, property valuation in India relied on builder-quoted prices, word of mouth and gut instinct. Data and AI tools are changing that, and buyers who use them can negotiate from a much stronger position.</p>
   <h2>The Traditional Problem</h2>
-  <p>India's property market suffers from endemic information asymmetry. Sellers have access to the full sales history of their building; buyers typically do not. Brokers often have a vested interest in a particular price direction. Government circle rates frequently lag true market values by 2&#8211;5 years.</p>
-  <p>The result: buyers routinely overpay by 5&#8211;15% in premium markets, and sellers underprice by similar margins in slower markets. The information gap cost Indian property buyers an estimated &#8377;4,200 crore in avoidable overpayments in FY2024.</p>
+  <p>India’s property market has long suffered from information asymmetry. Sellers and brokers often know far more about recent sale prices in a building than buyers do, and government ready reckoner rates can lag behind actual market prices.</p>
+  <p>The result is that two buyers can pay very different prices for similar flats in the same building, simply because one of them knew what comparable homes had sold for.</p>
   <h2>How AI Valuation Works</h2>
-  <p>Modern AI valuation engines trained on Maharashtra property registration data, Circle Rate histories, infrastructure project timelines, and micro-market demographic shifts can now produce price estimates within 3&#8211;5% of actual transaction prices &#8212; comparable to the best international AVM (Automated Valuation Model) systems.</p>
-  <p>Key inputs include: registered transaction data (IGR Maharashtra), floor, view orientation, building age, lift availability, car parking status, proximity to metro stations, and school/hospital micro-scores.</p>
-  <h2>A&amp;A Landgate's Predictive Valuation Tool</h2>
-  <p>Our proprietary model processes over 18 data variables per property and generates a 12-month forward price estimate alongside a current fair value range. Clients using our valuation tool have saved an average of &#8377;8&#8211;22 lakh per transaction by avoiding overpayment &#8212; and sellers have achieved 4&#8211;9% higher sale prices by correct positioning.</p>
+  <p>Automated valuation models (AVMs) estimate a property’s market value from data rather than opinion. In Maharashtra, the starting point is registered transaction data from the Department of Registration and Stamps (IGR Maharashtra), combined with ready reckoner rates and details of the property itself.</p>
+  <p>Typical inputs include recent registered sales nearby, floor and view, building age, lift and parking, and distance to metro stations, schools and hospitals. The more recent and local the data, the more reliable the estimate. In areas with few recent sales, any estimate deserves a wider margin of error.</p>
+  <h2>How to Use This When You Buy or Sell</h2>
+  <ul>
+    <li>Compare the asking price with recent <strong>registered</strong> sales in the same building or lane, not with listing prices.</li>
+    <li>Convert every quote to a price per sq ft of <strong>carpet area</strong> before comparing projects.</li>
+    <li>Check the ready reckoner rate: stamp duty is charged on the higher of the agreement value and this rate.</li>
+    <li>Treat any single estimate, from a person or a model, as a range rather than an exact number.</li>
+  </ul>
   <div class="pull-quote">
-    <p style="font-size:13px;font-style:normal;"><strong>Request a Valuation Report:</strong> A&amp;A Landgate clients receive a complimentary AI Valuation Report for any Maharashtra property they are considering purchasing or selling. Speak to our advisory team to request yours.</p>
+    <p style="font-size:13px;font-style:normal;"><strong>Not sure a price is fair?</strong> Speak to our team for free advice before you negotiate, and use our <a href="/#tools" style="color:var(--gold);">free calculators</a> to see the full cost of any property.</p>
   </div>"""
   },
   {
     "slug": "mumbai-metro-expansion-property-prices-2026",
     "title": "Mumbai Metro Expansion and Its Impact on Property Prices in 2026",
-    "description": "Mumbai's metro network is redrawing the city's real estate map. How Lines 2A, 7, 3 and upcoming Line 11 affect property prices — and why Mira Road is the investment to watch in 2026.",
-    "category_tag": "Investment &middot; Nov 2026 &middot; 6 min read",
+    "description": "Mumbai’s metro network is redrawing the city’s real estate map. Where Lines 2A, 7, 3, 9 and 4 stand in late 2026, and what Metro Line 9 to Mira-Bhayandar means for property buyers.",
+    "category_tag": "Investment &middot; Updated Nov 2026 &middot; 6 min read",
     "date_iso": "2026-11-10",
-    "keywords": "Mumbai metro property prices 2026, metro Line 11 Mira Road investment, Mumbai real estate metro corridor, metro connectivity property appreciation Mumbai, Mira Road property 2026",
-    "body": """  <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--muted);line-height:1.7;margin-bottom:2rem;">Mumbai's metro network is one of India's most transformative infrastructure projects &#8212; and it is quietly reshaping the city's real estate map, corridor by corridor. If you are considering buying property in the suburbs, understanding how metro connectivity affects prices is no longer optional; it is essential.</p>
+    "keywords": "Mumbai metro property prices 2026, Metro Line 9 Mira Road, Mira Bhayandar metro, Mumbai real estate metro corridor, Thane Metro Line 4",
+    "body": """  <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--muted);line-height:1.7;margin-bottom:2rem;">Mumbai’s metro network is one of India’s most transformative infrastructure projects, and it is quietly reshaping the city’s real estate map, corridor by corridor. If you are considering buying property in the suburbs, understanding how metro connectivity affects prices is no longer optional; it is essential.</p>
   <h2>How Metro Proximity Drives Property Values</h2>
-  <p>In every major metro-connected city &#8212; Delhi, Bengaluru, Hyderabad &#8212; properties within 500 metres to 1 kilometre of a station consistently command a 12&#8211;25% price premium over comparable units farther from the network. Mumbai is now proving no exception. Transaction data along the operational Metro Lines 2A and 7 (Dahisar to Andheri East, opened 2022) shows that localities within walking distance of a station have appreciated 15&#8211;22% more than the broader suburban average since the lines opened.</p>
-  <p>The mechanism is straightforward: reduced commute times expand the catchment area of employment hubs like BKC, Andheri, and Lower Parel, making previously "far" neighbourhoods practical for working professionals. This demand surge, meeting relatively fixed housing supply, drives prices upward consistently.</p>
-  <h2>Mumbai Metro Lines Operational &amp; Upcoming in 2026</h2>
-  <p>As of 2026, several metro lines are operational across Mumbai and more are under advanced construction. The key corridors to know:</p>
+  <p>When a metro line opens, homes within walking distance of a station tend to gain value faster than comparable homes further away. Shorter, more reliable commutes widen the pool of buyers and tenants who can realistically live there.</p>
+  <p>The mechanism is straightforward: reduced commute times expand the catchment area of employment hubs like BKC, Andheri and Lower Parel, making previously “far” neighbourhoods practical for working professionals. When that demand meets a limited supply of homes near stations, prices rise.</p>
+  <h2>Mumbai Metro Lines: Where Things Stand (November 2026)</h2>
   <ul>
-    <li><strong>Line 1 (Versova&#8211;Andheri&#8211;Ghatkopar)</strong> &#8212; The original line, fully operational, linking the western and central suburbs efficiently.</li>
-    <li><strong>Lines 2A &amp; 7 (Dahisar&#8211;Andheri East corridor)</strong> &#8212; The game-changer for the western suburbs. Kandivali, Borivali, Malad, and Goregaon East have seen the highest volume of new flat registrations since these lines opened.</li>
-    <li><strong>Line 3 &#8212; Aqua Line (Colaba&#8211;Bandra&#8211;SEEPZ)</strong> &#8212; Mumbai's first underground metro, now operational, dramatically improving connectivity to South Mumbai and BKC.</li>
-    <li><strong>Lines 4 &amp; 5 (Thane and Navi Mumbai corridors)</strong> &#8212; Under construction, expected to reshape the Thane and Navi Mumbai markets significantly on completion.</li>
-    <li><strong>Line 11 (Mira Road&#8211;Bhayandar to Dahisar)</strong> &#8212; Planned corridor directly connecting Mira-Bhayandar to the metro network &#8212; the single most significant upcoming infrastructure catalyst for the Mira Road property market.</li>
+    <li><strong>Line 1 (Versova–Andheri–Ghatkopar)</strong>: operational, linking the western and central suburbs.</li>
+    <li><strong>Lines 2A &amp; 7 (Dahisar–Andheri)</strong>: operational, and the backbone of the western suburbs from Dahisar to Andheri.</li>
+    <li><strong>Line 3, Aqua Line (Colaba–Bandra–SEEPZ)</strong>: Mumbai’s first underground line, now operational, improving connectivity to South Mumbai and BKC.</li>
+    <li><strong>Line 9 (Dahisar East–Mira-Bhayandar)</strong>: Phase 1, from Dahisar East to Kashigaon, opened in April 2026. Phase 2, further into Mira-Bhayandar, is expected around December 2026.</li>
+    <li><strong>Lines 4 &amp; 4A (Wadala–Thane–Gaimukh)</strong>: the first section in Thane, between Gaimukh and Cadbury Junction, is targeted for December 2026.</li>
+    <li><strong>Line 11 (Wadala–Gateway of India)</strong>: an approved underground line for South Mumbai.</li>
   </ul>
   <h2>What This Means for Mira Road &amp; the Northern Suburbs</h2>
-  <p>Mira Road East &#8212; already one of the best-value residential markets in the MMR &#8212; stands to gain enormously from the planned Metro Line 11. Currently, Mira Road is served primarily by the suburban railway (Western Line), which, while reliable, is heavily crowded during peak hours. Metro Line 11 will provide a faster, more comfortable alternative and directly link Mira Road residents to the existing Lines 2A and 7 at Dahisar, opening up the entire western corridor.</p>
-  <p>Property prices in Mira Road East currently range from &#8377;8,500 to &#8377;13,000 per sq ft for well-located 1BHK and 2BHK apartments &#8212; among the most affordable in the extended Mumbai region. Infrastructure-led appreciation cycles in comparable areas suggest a potential 18&#8211;30% upside over a 3&#8211;5 year window once Metro Line 11 construction progresses to a credible completion timeline.</p>
+  <p>Mira Road East is one of the best-value residential markets in the MMR, and for years it relied almost entirely on the crowded Western Railway line. Metro Line 9 changes that. Its first phase links Mira Road to Dahisar East, where it connects with Lines 2A and 7 for a direct metro ride towards Andheri.</p>
+  <p>Phase 2, which takes the line deeper into Mira-Bhayandar, is expected around December 2026. For buyers, homes within walking distance of the Line 9 stations are the ones to watch.</p>
+  <p>Infrastructure-led appreciation is never guaranteed, and prices near stations often move before a line opens. Compare a project’s distance to the nearest station with its price before you pay a “metro premium”.</p>
   <h2>Thane &amp; Navi Mumbai: Metro Meets Mature Markets</h2>
-  <p>Thane and Navi Mumbai are further along the metro development curve. The proposed metro extensions into Thane and toward Kharghar and Panvel will knit these already-popular markets even more tightly into the Mumbai commute ecosystem. Kharghar is tracking strong on new residential launches, with multiple reputed builders pricing projects in the &#8377;10,000&#8211;&#8377;18,000 per sq ft range, anticipating metro connectivity as a valuation catalyst.</p>
+  <p>Thane is waiting for its first metro section on Lines 4 and 4A, with the full Wadala–Thane corridor to follow. Navi Mumbai already has its own CIDCO metro line, and the new Navi Mumbai International Airport adds further demand. Both are well-established markets, so new metro access adds to existing demand rather than creating it from scratch.</p>
   <h2>When to Invest: The Infrastructure Appreciation Window</h2>
-  <p>Infrastructure-driven property appreciation follows a well-documented three-phase pattern. Prices typically rise at the announcement of a new line; again as construction visibly progresses; and sharply a third time at inauguration. The highest returns historically accrue to buyers who enter 24&#8211;36 months before a line opens &#8212; after the announcement reduces speculative risk, but before the final pre-inauguration surge locks in peak prices. For Mira Road and the Line 11 corridor, that window is open today.</p>
+  <p>Prices near a new line often rise in stages: when the line is announced, as construction becomes visible, and around the opening. Buying after the announcement but well before the opening has often offered a better entry point than buying at inauguration, but every corridor is different and timelines frequently slip.</p>
   <div class="pull-quote">
-    <p>"Infrastructure follows promise, then price follows infrastructure. We consistently advise clients to position in metro corridors 24&#8211;36 months before a line opens &#8212; that is where the most significant appreciation window lies, and it closes quickly once an inauguration date is officially announced."</p>
-    <cite>&#8212; A&amp;A Landgate Advisory Team</cite>
+    <p>“Infrastructure follows promise, then price follows infrastructure. Before you pay more for a home near a metro line, check how far it really is from a station, and when that station will actually open.”</p>
+    <cite>— A&amp;A Landgate Advisory Team</cite>
   </div>"""
   }
 ]
