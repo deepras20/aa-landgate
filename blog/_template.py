@@ -267,7 +267,7 @@ posts = [
     <div style="padding-top:6px;"><p>Additional checks include: approved building plan, encumbrance certificate, society formation status, amenities as promised, loan approval from reputable banks, and stamp duty / registration cost calculation. Our advisors conduct all 10 checks before any recommendation.</p></div>
   </div>
   <div class="pull-quote" style="margin-top:2rem;">
-    <p style="font-size:13px;font-style:normal;"><strong>A&amp;A Landgate Advisory:</strong> Every property we recommend undergoes a 25-point due diligence check by our senior advisors. We provide clients with a written due diligence summary before any site visit &#8212; at no cost.</p>
+    <p style="font-size:13px;font-style:normal;"><strong>A&amp;A Landgate Advisory:</strong> Not sure where to start? Our team can walk you through these checks for any property you’re considering. Get free advice before you sign anything.</p>
   </div>"""
   },
   {
