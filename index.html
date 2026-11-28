@@ -541,8 +541,8 @@ footer { background: #04101E; border-top: 1px solid var(--border-gold); padding:
 .pd-wrap { background: var(--cream2); padding: 3.5rem 3rem 4.5rem; }
 .pd-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: minmax(280px, 360px) 1fr; gap: 2.5rem; align-items: start; }
 .pd-media { position: sticky; top: 130px; display: flex; flex-direction: column; align-items: center; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 1.75rem 1.5rem 1.5rem; border: 1px solid var(--border-gold); }
-.pd-thumbs { display: flex; gap: 10px; margin-top: 1rem; }
-.pd-thumb { position: relative; width: 56px; aspect-ratio: 9 / 16; padding: 0; border: 2px solid transparent; background: #000; cursor: pointer; overflow: hidden; opacity: .65; transition: all .2s; }
+.pd-thumbs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 1rem; max-width: 310px; }
+.pd-thumb { position: relative; width: 42px; aspect-ratio: 9 / 16; padding: 0; border: 2px solid transparent; background: #000; cursor: pointer; overflow: hidden; opacity: .65; transition: all .2s; }
 .pd-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .pd-thumb.on { border-color: var(--gold); opacity: 1; }
 .pd-thumb .pd-play { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font-size: 16px; text-shadow: 0 1px 4px rgba(0,0,0,.6); }
@@ -618,6 +618,16 @@ footer { background: #04101E; border-top: 1px solid var(--border-gold); padding:
 .pd-near b { flex: 0 0 auto; font-size: 11px; font-weight: 700; color: var(--navy); background: var(--gold-pale); padding: 3px 7px; }
 @media (max-width: 1024px) { .pd-amen, .pd-near { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 420px) { .pd-amen, .pd-near { grid-template-columns: 1fr; } }
+.pd-units { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.pd-unit { display: flex; flex-direction: column; gap: 3px; padding: 0.6rem 0.6rem 0.75rem; background: #fff; border: 1px solid rgba(201,168,76,0.25); text-decoration: none; color: inherit; transition: border-color .2s, box-shadow .2s; }
+.pd-unit:hover { border-color: var(--gold); box-shadow: 0 8px 22px rgba(11,31,58,0.1); }
+.pd-unit-img { position: relative; display: block; flex: 0 0 auto; height: 0; padding-bottom: 100%; background: #fff; margin-bottom: 0.45rem; overflow: hidden; }
+.pd-unit-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; }
+.pd-unit-cfg { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 600; color: var(--navy); }
+.pd-unit-meta { font-size: 11.5px; letter-spacing: .5px; color: var(--muted); }
+.pd-unit-area { align-self: flex-start; margin-top: 4px; font-size: 12.5px; font-weight: 700; color: var(--navy); background: var(--gold-pale); padding: 4px 8px; }
+.pd-unit-area small { font-weight: 500; color: var(--muted); font-size: 10.5px; }
+@media (max-width: 1024px) { .pd-units { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 /* Enquiry form modal */
 .np-modal { display: none; position: fixed; inset: 0; z-index: 2100; background: rgba(4,16,30,0.78); align-items: center; justify-content: center; padding: 1rem; }
 .np-modal.open { display: flex; }
@@ -3750,6 +3760,66 @@ var NEW_PROJECTS = [
              photos: [['photo-1.jpg', 'The Tallest Towers', 'RENDERED IMAGE'], ['photo-2.jpg', 'Infinity Pool & Clubhouse', 'RENDERED IMAGE'],
                       ['photo-3.jpg', 'SkyDeck Residences', 'RENDERED IMAGE'], ['photo-4.jpg', 'Retail Avenue', 'RENDERED IMAGE'],
                       ['photo-5.jpg', 'Higher-floor living', 'REFERENCE IMAGE']] }
+  },
+  {
+    code: 'AAL-NP-003',
+    developer: 'Empire Realty',
+    name: 'Empire Greens',
+    area: 'Dahisar (E)',
+    location: 'S.V. Road, Dahisar (E)',
+    config: '1, 2 & 3 BHK Residences',
+    badge: 'NEW PROJECT',
+    tag: 'New Project',
+    status: 'Where Nature Meets Connectivity',
+    headline: 'NEW PROJECT by EMPIRE REALTY in DAHISAR EAST 🚨',
+    intro: 'Introducing EMPIRE GREENS – where nature meets connectivity on S.V. Road, Dahisar East! 🌆✨',
+    openLine: 'Thoughtfully planned 1, 2 & 3 BHK homes across two wings and 14 storeys!!',
+    facts: [['Property Code', 'AAL-NP-003'], ['Developer', 'Empire Realty'],
+            ['Project Type', 'New Project · Residential'], ['Configuration', '1, 2 & 3 BHK'],
+            ['RERA Carpet Area', '420 – 1,028 sq ft'], ['Location', 'S.V. Road, Dahisar (E)'],
+            ['Building', '2 wings (A & B) · 14 storeys'], ['Lifestyle', 'Rooftop café · Cineplex lounge'],
+            ['Sustainability', 'Solar panels · STP · EV charging'], ['Site Address', 'Om Arun CHSL, near DCB Bank'],
+            ['Pricing', 'On enquiry'], ['MahaRERA No.', 'PR1180002501615']],
+    highlights: [
+      ['🏙️', 'Two Wings, 14 Storeys', '– architecturally striking residences'],
+      ['🏡', '1, 2 & 3 BHK Homes', '– 420 to 1,028 sq ft RERA carpet area'],
+      ['🛋️', 'Grand Entrance Lobby', 'with handpicked finishes, ambient lighting and bespoke interiors'],
+      ['☕', 'Rooftop Open-Air Café', 'with panoramic skyline views'],
+      ['🎬', 'Private Cineplex Movie Lounge', 'with plush seating and modern acoustics'],
+      ['🌱', 'Green Living', '– solar panels, STP system and EV charging points'],
+      ['📍', 'Prime S.V. Road Address', '– close to highways, metro lines, schools, shopping and healthcare']
+    ],
+    residences: 'Two architecturally striking wings rise 14 storeys, blending sophisticated urban living with landscaped greens. Homes range from compact 1 BHKs to spacious 3 BHKs, and every arrival begins in a grand entrance lobby with handpicked finishes, ambient lighting and bespoke interiors.',
+    band: { title: 'Smart & Sustainable', big: '14', bigLabel: 'Storeys · Wings A & B',
+      points: [['☀️', '<strong>Solar panels</strong>'],
+               ['💧', '<strong>STP system</strong> for sewage treatment'],
+               ['🔌', '<strong>EV charging points</strong>'],
+               ['⚡', '<strong>Adani substation</strong>']],
+      chips: ['1, 2 & 3 BHK', '14 Storeys', 'Grand Lobby', 'Rooftop Café', 'Cineplex Lounge', 'EV Charging'] },
+    amenities: ['Grand Entrance Lobby', 'Rooftop Open-Air Café', 'Cineplex Movie Lounge', 'Amphitheatre Sit-outs',
+                'Kids’ Play Area', 'Toddler Zone with Sit-outs', 'Nature Sit-out Zone', 'Family Swing Court',
+                'Swing Deck', 'Party Zone', 'Solar Panels', 'STP System', 'EV Charging Points', 'Adani Substation'],
+    layout: { title: 'Typical Floor Plan', img: 'floor-plan.jpg', caption: 'Typical floor plan (10th to 14th floors), Wings A & B. Artist’s impression; subject to approval.' },
+    units: { note: 'RERA carpet areas (including balcony where applicable) as per the typical floor plans for the 10th to 14th floors. Some units on the 6th and 7th floors differ (for example, 578 sq ft units on the 6th floor) – details on enquiry.',
+      list: [['Wing A', '01', '2 BHK', '740', 'plan-A-01.jpg'], ['Wing A', '02', '3 BHK', '778', 'plan-A-02.jpg'],
+             ['Wing A', '03', '3 BHK', '1,028', 'plan-A-03.jpg'], ['Wing A', '04', '2 BHK', '740', 'plan-A-04.jpg'],
+             ['Wing B', '01', '2 BHK', '740', 'plan-B-01.jpg'], ['Wing B', '02', '2 BHK', '642', 'plan-B-02.jpg'],
+             ['Wing B', '03', '2 BHK', '646', 'plan-B-03.jpg'], ['Wing B', '04', '1 BHK', '420', 'plan-B-04.jpg'],
+             ['Wing B', '05', '2 BHK', '679', 'plan-B-05.jpg']] },
+    locationPoints: [['📍', '<strong>Site Address:</strong> Empire Greens, Om Arun CHSL, S.V. Road, near DCB Bank, Dahisar (East), Mumbai – 400 068'],
+                     ['🛣️', '<strong>Prime, well-connected neighbourhood</strong> – close to highways, metro lines and IT hubs'],
+                     ['🏫', '<strong>Everyday conveniences</strong> – top schools, shopping centres and healthcare facilities nearby']],
+    mapQuery: 'S.V. Road, Dahisar East, Mumbai 400068',
+    mapNote: 'Map shows S.V. Road, Dahisar (East); the location pin is approximate.',
+    about: { name: 'Empire Realty', text: 'Registered office at Tanishka Commercial Premises, Akurli Road, Kandivali (East), Mumbai. Project associates: K. Arch Architects (designing architect), Key Arch (liaisoning architect), M/s. AVP Structural Consultants (RCC), Eco MEP Consultants (MEP) and M/s. ASD Associates (legal).' },
+    opportunity: 'This is your opportunity to own a thoughtfully designed home at Empire Greens, S.V. Road, Dahisar East!!',
+    ctaChips: ['1, 2 & 3 BHK', 'Rooftop Café', 'Cineplex Lounge'],
+    rera: 'PR1180002501615',
+    reraNote: 'Empire Greens is registered with MahaRERA under registration no. PR1180002501615. Plans, areas, amenities and facilities are tentative and subject to approval of the concerned authorities; 3D renders, stock images and plans are artist’s impressions.',
+    media: { dir: 'assets/listings/AAL-NP-003/', tile: 'tile.jpg',
+             photos: [['photo-1.jpg', 'Elevation', 'ARTIST’S IMPRESSION'], ['photo-2.jpg', 'Entrance Lobby', 'ARTIST’S IMPRESSION'],
+                      ['photo-3.jpg', 'Rooftop Open-Air Café', 'ARTIST’S IMPRESSION'], ['photo-4.jpg', 'Cineplex Movie Lounge', 'ARTIST’S IMPRESSION'],
+                      ['photo-5.jpg', 'Family Swing Court', 'ARTIST’S IMPRESSION'], ['photo-6.jpg', 'Kids’ Play Area', 'ARTIST’S IMPRESSION']] }
   }
 ];
 
@@ -3768,7 +3838,7 @@ function renderProjectTiles() {
     return '<a class="np-tile" href="#project/' + p.code + '" onclick="openProject(\'' + p.code + '\');return false;" aria-label="' + npEsc(p.name + ', ' + p.location + ' – view project') + '">' +
       '<span class="np-tile-img"><img src="' + m.dir + m.tile + '" alt="' + npEsc(p.name + ' ' + p.area) + '" loading="lazy">' +
       '</span>' +
-      '<span class="np-tile-info"><span class="np-tile-tags"><span class="np-tile-badge">NEW LAUNCH</span><span class="np-code"><small>CODE</small>' + p.code + '</span></span>' +
+      '<span class="np-tile-info"><span class="np-tile-tags"><span class="np-tile-badge">' + npEsc(p.badge || 'NEW LAUNCH') + '</span><span class="np-code"><small>CODE</small>' + p.code + '</span></span>' +
       '<span class="np-tile-name">' + npEsc(p.name) + '</span>' +
       '<span class="np-tile-loc">📍 ' + npEsc(p.location) + '</span>' +
       '<span class="np-tile-cfg">' + npEsc(p.config) + '</span>' +
@@ -3781,7 +3851,7 @@ function renderProjectTiles() {
 
 // NEW PROJECT: full detail page — identical layout for every project.
 // Section order: Announcement · Key Details · Highlights · Residences* · Feature band ·
-// Amenities* · Master Layout* · Location & Connectivity · Developer* · CTA · RERA   (*only if provided)
+// Amenities* · Floor/Master Layout* · Unit Plans* · Location & Connectivity · Developer* · CTA · RERA   (*only if provided)
 function renderProjectPage(p) {
   var m = p.media;
   var slides = [], thumbs = [];
@@ -3796,7 +3866,7 @@ function renderProjectPage(p) {
     thumbs.push('<button class="pd-thumb" type="button" aria-label="Show ' + npEsc(ph[1]) + '"><img src="' + m.dir + ph[0] + '" alt="" loading="lazy"></button>');
   });
   var mapSrc = 'https://maps.google.com/maps?q=' + encodeURIComponent(p.mapQuery) + '&z=14&output=embed';
-  var enquire = 'openEnquiry(\'' + p.code + '\',\'' + npEsc(p.name + ' – New Launch, ' + p.area).replace(/'/g, "\\'") + '\')';
+  var enquire = 'openEnquiry(\'' + p.code + '\',\'' + npEsc(p.name + ' – ' + (p.tag || 'New Launch') + ', ' + p.area).replace(/'/g, "\\'") + '\')';
   var chips = function(list) { return list.map(function(c) { return '<span>' + npEsc(c) + '</span>'; }).join(''); };
   var sec = function(title, body, cls) { return '<section class="pd-card' + (cls ? ' ' + cls : '') + '"><h3>' + title + '</h3>' + body + '</section>'; };
   var b = p.band;
@@ -3804,7 +3874,7 @@ function renderProjectPage(p) {
   var html =
     '<div class="page-header" style="padding-top:8rem;">' +
       '<div class="pd-crumb"><a onclick="showPage(\'listings\')">Listings</a> &nbsp;›&nbsp; <a onclick="backToNewProjects()">New Projects</a> &nbsp;›&nbsp; ' + p.code + '</div>' +
-      '<span class="section-tag-light">New Launch · ' + npEsc(p.status) + '</span>' +
+      '<span class="section-tag-light">' + npEsc(p.tag || 'New Launch') + ' · ' + npEsc(p.status) + '</span>' +
       '<h1>' + npEsc(p.name) + '</h1>' +
       '<p>' + npEsc(p.config) + ' · ' + npEsc(p.location) + '</p>' +
       '<div class="pd-hero-meta"><span class="np-code"><small>PROPERTY CODE</small>' + p.code + '</span><span class="pd-pill">MahaRERA ' + p.rera + '</span></div>' +
@@ -3825,7 +3895,11 @@ function renderProjectPage(p) {
               '<div class="pd-offer-steps">' + b.points.map(function(o) { return '<div><span>' + o[0] + '</span><span>' + o[1] + '</span></div>'; }).join('') + '</div></div>' +
               '<div class="np-chips">' + chips(b.chips) + '</div>', 'pd-offer') : '') +
         (p.amenities ? sec('Amenities', '<ul class="pd-amen">' + p.amenities.map(function(a) { return '<li>' + npEsc(a) + '</li>'; }).join('') + '</ul>') : '') +
-        (p.layout ? sec('Master Layout', '<div class="pd-layout"><img src="' + m.dir + p.layout.img + '" alt="' + npEsc(p.name) + ' master layout plan" loading="lazy"></div><p class="pd-map-note">' + npEsc(p.layout.caption) + '</p>') : '') +
+        (p.layout ? sec(npEsc(p.layout.title || 'Master Layout'), '<div class="pd-layout"><img src="' + m.dir + p.layout.img + '" alt="' + npEsc(p.name) + ' master layout plan" loading="lazy"></div><p class="pd-map-note">' + npEsc(p.layout.caption) + '</p>') : '') +
+        (p.units ? sec('Unit Plans &amp; Carpet Areas', '<div class="pd-units">' + p.units.list.map(function(u) {
+            return '<a class="pd-unit" href="' + m.dir + u[4] + '" target="_blank" rel="noopener"><span class="pd-unit-img"><img src="' + m.dir + u[4] + '" alt="' + npEsc(p.name + ' ' + u[0] + ' flat ' + u[1] + ' ' + u[2] + ' plan') + '" loading="lazy"></span>' +
+              '<span class="pd-unit-cfg">' + npEsc(u[2]) + '</span><span class="pd-unit-meta">' + npEsc(u[0]) + ' · Flat ' + npEsc(u[1]) + '</span><span class="pd-unit-area">' + npEsc(u[3]) + ' sq ft <small>RERA carpet</small></span></a>';
+          }).join('') + '</div><p class="pd-map-note">' + npEsc(p.units.note) + ' Tap a plan to enlarge.</p>') : '') +
         sec('Location &amp; Connectivity', '<ul class="pd-loc-list">' + p.locationPoints.map(function(l) { return '<li><span>' + l[0] + '</span><span>' + l[1] + '</span></li>'; }).join('') + '</ul>' +
           (p.nearby ? '<div class="pd-near">' + p.nearby.map(function(n) { return '<div><span>' + npEsc(n[0]) + '</span><b>' + npEsc(n[1]) + '</b></div>'; }).join('') + '</div>' : '') +
           '<div class="pd-map"><iframe src="' + mapSrc + '" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map – ' + npEsc(p.location) + '"></iframe></div>' +
@@ -3852,9 +3926,9 @@ function openProject(code) {
   if (!p) { showPage('listings'); showListingCat('new'); return; }
   renderProjectPage(p);
   showPage('project');
-  document.title = p.name + ' New Launch, ' + p.area + ' (' + p.code + ') | A&A Landgate';
+  document.title = p.name + ' ' + (p.tag || 'New Launch') + ', ' + p.area + ' (' + p.code + ') | A&A Landgate';
   var md = document.querySelector('meta[name="description"]');
-  if (md) md.setAttribute('content', p.name + ' by ' + p.developer + ' – ' + p.config + ' at ' + p.location + '. New launch. MahaRERA ' + p.rera + '. Enquire with A&A Landgate.');
+  if (md) md.setAttribute('content', p.name + ' by ' + p.developer + ' – ' + p.config + ' at ' + p.location + '. ' + (p.tag || 'New Launch') + '. MahaRERA ' + p.rera + '. Enquire with A&A Landgate.');
   if (history.replaceState) history.replaceState(null, '', '#project/' + p.code);
 }
 function backToNewProjects() { showPage('listings'); showListingCat('new'); }
@@ -4277,6 +4351,7 @@ var SEARCH_INDEX = [
   { tag: 'Page', title: 'Contact Us', sub: 'Call, WhatsApp, or fill enquiry form', page: 'contact' },
   { tag: 'New Project', title: 'House of Hiranandani – New Launch (AAL-NP-001)', sub: 'Gorai, Borivali West · Luxury 2 & 3 BHK Deck Apartments · Pre-Launch', page: 'project/AAL-NP-001' },
   { tag: 'New Project', title: 'Sunteck SkyPark – The Higher League (AAL-NP-002)', sub: 'Beverly Park Road, Mira Road (E) · Higher-floor 2 & 3 Bed SkyDeck Residences', page: 'project/AAL-NP-002' },
+  { tag: 'New Project', title: 'Empire Greens (AAL-NP-003)', sub: 'S.V. Road, Dahisar (E) · 1, 2 & 3 BHK · Empire Realty', page: 'project/AAL-NP-003' },
   { tag: 'Listing', title: 'Spacious 2 BHK Apartment', sub: 'Thane West · Residential', page: 'listings' },
   { tag: 'Listing', title: 'Cosy 1 BHK Starter Home', sub: 'Mira Road · Residential', page: 'listings' },
   { tag: 'Listing', title: 'Premium 3 BHK Family Residence', sub: 'Kharghar, Navi Mumbai · Residential', page: 'listings' },
