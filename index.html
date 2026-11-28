@@ -471,15 +471,6 @@ footer { background: #04101E; border-top: 1px solid var(--border-gold); padding:
 .video-modal-close { position: absolute; top: -40px; right: 0; color: #fff; font-size: 28px; cursor: pointer; background: none; border: none; line-height: 1; }
 @media (max-width: 768px) { .listings-grid { grid-template-columns: 1fr; } .listings-controls { gap: 0.5rem; } .filter-btn { font-size: 9px; padding: 7px 12px; } }
 /* ---------- Listing categories: New Projects / Resale ---------- */
-.np-spot { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.75rem 1rem; background: var(--navy); border: 1px solid var(--gold); padding: 0.9rem 1.25rem; margin-bottom: 2rem; text-align: center; }
-.np-spot-item { display: inline-flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 0.6rem 0.9rem; padding: 0.45rem 0.9rem; border: 1px solid transparent; text-decoration: none; transition: background .2s, border-color .2s; }
-.np-spot-item:hover, .np-spot-item:focus-visible { background: var(--navy-mid); border-color: var(--border-gold); outline: none; }
-.np-spot-item + .np-spot-item { border-left-color: var(--border-gold); }
-.np-spot-live { display: inline-flex; align-items: center; gap: 8px; font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #fff; background: #C62828; padding: 6px 12px; }
-.np-spot-live i { width: 7px; height: 7px; border-radius: 50%; background: #fff; animation: npPulse 1.4s infinite; }
-@keyframes npPulse { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
-.np-spot-text { font-family: 'Cinzel', serif; font-size: 0.95rem; color: #fff; letter-spacing: 1px; }
-.np-spot-go { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-light); white-space: nowrap; }
 .np-code { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); color: var(--navy); font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; padding: 7px 13px; }
 .np-code small { font-family: 'Cinzel', serif; font-size: 8.5px; letter-spacing: 2px; opacity: .8; font-weight: 700; }
 .cat-tabs { display: flex; justify-content: center; gap: 0; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border-gold); }
@@ -626,7 +617,7 @@ footer { background: #04101E; border-top: 1px solid var(--border-gold); padding:
 .pd-near div { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 0.6rem 0.8rem; background: var(--cream); border: 1px solid rgba(201,168,76,0.12); font-size: 13px; color: var(--text); }
 .pd-near b { flex: 0 0 auto; font-size: 11px; font-weight: 700; color: var(--navy); background: var(--gold-pale); padding: 3px 7px; }
 @media (max-width: 1024px) { .pd-amen, .pd-near { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 420px) { .pd-amen, .pd-near { grid-template-columns: 1fr; } .np-spot-item + .np-spot-item { border-left-color: transparent; border-top: 1px solid var(--border-gold); } }
+@media (max-width: 420px) { .pd-amen, .pd-near { grid-template-columns: 1fr; } }
 /* Enquiry form modal */
 .np-modal { display: none; position: fixed; inset: 0; z-index: 2100; background: rgba(4,16,30,0.78); align-items: center; justify-content: center; padding: 1rem; }
 .np-modal.open { display: flex; }
@@ -650,7 +641,6 @@ footer { background: #04101E; border-top: 1px solid var(--border-gold); padding:
 .np-done a { display: inline-block; text-decoration: none; background: #25D366; color: #fff; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 13px 24px; }
 @media (max-width: 768px) {
   .cat-tab { padding: 0.9rem 1.25rem; font-size: 11.5px; letter-spacing: 1.5px; }
-  .np-spot { padding: 0.9rem 1rem; }
   .np-enquire { width: 100%; }
 }
 @media (max-width: 420px) {
@@ -658,7 +648,6 @@ footer { background: #04101E; border-top: 1px solid var(--border-gold); padding:
   .cat-tab-count { margin-left: 5px; }
   .np-reel { max-width: 270px; }
   .np-hl li { font-size: 13.5px; }
-  .np-spot-text { font-size: 0.85rem; }
 }
 
 /* ==================== BROKERAGE PAGE ==================== */
@@ -1329,9 +1318,6 @@ footer { padding-bottom: 6rem; }
   <!-- Listings Content -->
   <div class="listings-content">
     <div class="listings-inner">
-
-      <!-- Featured highlight (top of listings) — built from NEW_PROJECTS -->
-      <div class="np-spot" id="np-spot"></div>
 
       <!-- Listing categories -->
       <div class="cat-tabs" role="tablist">
@@ -3791,13 +3777,6 @@ function renderProjectTiles() {
   }).join('');
   var c = document.getElementById('np-count');
   if (c) c.textContent = NEW_PROJECTS.length;
-  var spot = document.getElementById('np-spot');
-  if (spot) spot.innerHTML = '<span class="np-spot-live"><i></i>New Launch' + (NEW_PROJECTS.length > 1 ? 'es' : '') + '</span>' +
-    NEW_PROJECTS.map(function(p) {
-      return '<a class="np-spot-item" href="#project/' + p.code + '" onclick="openProject(\'' + p.code + '\');return false;">' +
-        '<span class="np-spot-text">' + npEsc(p.name) + ' &middot; ' + npEsc(p.area) + '</span>' +
-        '<span class="np-code"><small>CODE</small>' + p.code + '</span><span class="np-spot-go">View &#8594;</span></a>';
-    }).join('');
 }
 
 // NEW PROJECT: full detail page — identical layout for every project.
