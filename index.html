@@ -471,8 +471,10 @@ footer { background: #04101E; border-top: 1px solid var(--border-gold); padding:
 .video-modal-close { position: absolute; top: -40px; right: 0; color: #fff; font-size: 28px; cursor: pointer; background: none; border: none; line-height: 1; }
 @media (max-width: 768px) { .listings-grid { grid-template-columns: 1fr; } .listings-controls { gap: 0.5rem; } .filter-btn { font-size: 9px; padding: 7px 12px; } }
 /* ---------- Listing categories: New Projects / Resale ---------- */
-.np-spot { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.9rem 1.25rem; background: var(--navy); border: 1px solid var(--gold); padding: 1rem 1.5rem; margin-bottom: 2rem; cursor: pointer; text-align: center; transition: background .2s; }
-.np-spot:hover { background: var(--navy-mid); }
+.np-spot { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.75rem 1rem; background: var(--navy); border: 1px solid var(--gold); padding: 0.9rem 1.25rem; margin-bottom: 2rem; text-align: center; }
+.np-spot-item { display: inline-flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 0.6rem 0.9rem; padding: 0.45rem 0.9rem; border: 1px solid transparent; text-decoration: none; transition: background .2s, border-color .2s; }
+.np-spot-item:hover, .np-spot-item:focus-visible { background: var(--navy-mid); border-color: var(--border-gold); outline: none; }
+.np-spot-item + .np-spot-item { border-left-color: var(--border-gold); }
 .np-spot-live { display: inline-flex; align-items: center; gap: 8px; font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #fff; background: #C62828; padding: 6px 12px; }
 .np-spot-live i { width: 7px; height: 7px; border-radius: 50%; background: #fff; animation: npPulse 1.4s infinite; }
 @keyframes npPulse { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
@@ -565,6 +567,8 @@ footer { background: #04101E; border-top: 1px solid var(--border-gold); padding:
 .pd-fact { padding: 0.9rem 1rem; border-bottom: 1px solid rgba(201,168,76,0.18); }
 .pd-fact:nth-child(odd) { border-right: 1px solid rgba(201,168,76,0.18); }
 .pd-fact:nth-last-child(-n+2) { border-bottom: none; }
+.pd-fact:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: none; }
+.pd-fact:nth-last-child(2):nth-child(even) { border-bottom: 1px solid rgba(201,168,76,0.18); }
 .pd-fact dt { font-family: 'Cinzel', serif; font-size: 9.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
 .pd-fact dd { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.45; }
 .pd-card .np-hl { margin-bottom: 0; }
@@ -612,6 +616,17 @@ footer { background: #04101E; border-top: 1px solid var(--border-gold); padding:
   .np-tile-loc, .np-tile-cfg { font-size: 11.5px; }
   .np-tile-go { font-size: 9px; letter-spacing: 1.5px; }
 }
+.np-cap { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: 28px 12px 12px; background: linear-gradient(transparent, rgba(4,16,30,0.75)); color: #fff; font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; }
+.pd-amen { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 14px; }
+.pd-amen li { position: relative; padding: 0.55rem 0.7rem 0.55rem 1.6rem; background: var(--cream); border: 1px solid rgba(201,168,76,0.12); font-size: 13.5px; color: var(--text); line-height: 1.4; }
+.pd-amen li::before { content: ''; position: absolute; left: 0.7rem; top: 50%; width: 6px; height: 6px; margin-top: -3px; background: var(--gold); transform: rotate(45deg); }
+.pd-layout { border: 1px solid var(--border-gold); background: #fff; padding: 0.5rem; }
+.pd-layout img { width: 100%; height: auto; display: block; }
+.pd-near { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-bottom: 1.25rem; }
+.pd-near div { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 0.6rem 0.8rem; background: var(--cream); border: 1px solid rgba(201,168,76,0.12); font-size: 13px; color: var(--text); }
+.pd-near b { flex: 0 0 auto; font-size: 11px; font-weight: 700; color: var(--navy); background: var(--gold-pale); padding: 3px 7px; }
+@media (max-width: 1024px) { .pd-amen, .pd-near { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .pd-amen, .pd-near { grid-template-columns: 1fr; } .np-spot-item + .np-spot-item { border-left-color: transparent; border-top: 1px solid var(--border-gold); } }
 /* Enquiry form modal */
 .np-modal { display: none; position: fixed; inset: 0; z-index: 2100; background: rgba(4,16,30,0.78); align-items: center; justify-content: center; padding: 1rem; }
 .np-modal.open { display: flex; }
@@ -1315,13 +1330,8 @@ footer { padding-bottom: 6rem; }
   <div class="listings-content">
     <div class="listings-inner">
 
-      <!-- Featured highlight (top of listings) -->
-      <div class="np-spot" role="button" tabindex="0" onclick="openProject('AAL-NP-001')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProject('AAL-NP-001');}">
-        <span class="np-spot-live"><i></i>New Launch</span>
-        <span class="np-spot-text">House of Hiranandani &middot; Borivali West</span>
-        <span class="np-code"><small>CODE</small>AAL-NP-001</span>
-        <span class="np-spot-go">View Project &#8594;</span>
-      </div>
+      <!-- Featured highlight (top of listings) — built from NEW_PROJECTS -->
+      <div class="np-spot" id="np-spot"></div>
 
       <!-- Listing categories -->
       <div class="cat-tabs" role="tablist">
@@ -3667,6 +3677,11 @@ var NEW_PROJECTS = [
     headline: 'NEW LAUNCH by HOUSE OF HIRANANDANI in BORIVALI WEST 🚨',
     intro: 'We’re coming up with an exciting new project in Borivali West! 🌆✨',
     openLine: 'Exclusive Pre Launch Booking window is now open!!',
+    facts: [['Property Code', 'AAL-NP-001'], ['Developer', 'House of Hiranandani'],
+            ['Project Type', 'New Launch · Residential'], ['Configuration', 'Luxury 2 & 3 BHK Deck Apartments'],
+            ['Location', 'Gorai, Borivali West'], ['Project Status', 'Pre-Launch – booking window open'],
+            ['Towers', 'Tallest towers in the vicinity'], ['Payment Plan', '20×16[5] – Pay 20% now, nothing in 2027'],
+            ['Pricing', 'Pre-Launch Prices – on enquiry'], ['MahaRERA No.', 'PR1180002602042']],
     highlights: [
       ['🏙️', 'Tallest Towers', 'in the vicinity'],
       ['🌊', 'Upcoming Coastal Road Infrastructure', '– strategically located in close proximity'],
@@ -3674,25 +3689,81 @@ var NEW_PROJECTS = [
       ['✨', 'Unobstructed Lifetime View', 'of Mangroves and Gorai Creek'],
       ['🔑', 'Pre Launch Offers', '– Priority Unit Selection with Exclusive 20×16[5] payment plan. Pay 20% now and nothing in 2027 for limited inventory!!!']
     ],
-    offer: { plan: '20×16[5]', planLabel: 'Exclusive Payment Plan',
+    band: { title: 'Pre-Launch Offer', big: '20×16[5]', bigLabel: 'Exclusive Payment Plan',
       points: [['🔑', '<strong>Priority Unit Selection</strong> for pre-launch bookings'],
                ['💰', '<strong>Pay 20% now</strong> and nothing in 2027'],
-               ['⏳', '<strong>Limited inventory</strong> on the pre-launch offer']] },
-    opportunity: 'This is your opportunity to get early access to one of the upcoming landmark developments in Borivali West!!',
-    chips: ['Limited inventory', 'Priority allocation', 'Premium residences', 'Pre-Launch Prices', 'Pre-Launch Payment Plan'],
+               ['⏳', '<strong>Limited inventory</strong> on the pre-launch offer']],
+      chips: ['Limited inventory', 'Priority allocation', 'Premium residences', 'Pre-Launch Prices', 'Pre-Launch Payment Plan'] },
     locationPoints: [['📍', '<strong>Site Location:</strong> Gorai, Borivali West, Mumbai'],
                      ['🌊', '<strong>Upcoming Coastal Road</strong> infrastructure – strategically located in close proximity'],
                      ['🌿', '<strong>Unobstructed lifetime view</strong> of Mangroves and Gorai Creek']],
     mapQuery: 'Gorai, Borivali West, Mumbai',
-    facts: [['Property Code', 'AAL-NP-001'], ['Developer', 'House of Hiranandani'],
-            ['Project Type', 'New Launch · Residential'], ['Configuration', 'Luxury 2 & 3 BHK Deck Apartments'],
-            ['Location', 'Gorai, Borivali West'], ['Project Status', 'Pre-Launch – booking window open'],
-            ['Towers', 'Tallest towers in the vicinity'], ['Payment Plan', '20×16[5] – Pay 20% now, nothing in 2027'],
-            ['Pricing', 'Pre-Launch Prices – on enquiry'], ['MahaRERA No.', 'PR1180002602042']],
+    mapNote: 'Map shows the Gorai, Borivali West area. The exact site address is shared on enquiry.',
+    opportunity: 'This is your opportunity to get early access to one of the upcoming landmark developments in Borivali West!!',
+    ctaChips: ['Limited inventory', 'Priority allocation', 'Pre-Launch Prices'],
     rera: 'PR1180002602042',
-    reraEntity: 'Shoden Developers Private Limited of HOH',
+    reraNote: 'The project is registered as “Shoden Developers Private Limited of HOH” under MahaRERA registration no. PR1180002602042.',
     media: { dir: 'assets/listings/AAL-NP-001/', tile: 'tile.jpg', video: 'video.mp4', poster: 'poster.jpg',
-             photos: [['photo-1.jpg', 'Welcome Coastal Road'], ['photo-2.jpg', 'Hello Mangroves']] }
+             photos: [['photo-1.jpg', 'Welcome Coastal Road', 'PHOTO'], ['photo-2.jpg', 'Hello Mangroves', 'PHOTO']] }
+  },
+  {
+    code: 'AAL-NP-002',
+    developer: 'Sunteck Realty',
+    name: 'Sunteck SkyPark',
+    area: 'Mira Road (E)',
+    location: 'Beverly Park Road, Mira Road (E)',
+    config: 'Higher-Floor 2 & 3 Bed SkyDeck Residences',
+    status: 'The Higher League',
+    headline: 'NEW LAUNCH by SUNTECK REALTY in MIRA ROAD EAST 🚨',
+    intro: 'Introducing THE HIGHER LEAGUE – Higher Floor Residences at the Tallest Towers of Sunteck SkyPark! 🌆✨',
+    openLine: 'Higher Floor Residences are now launching!!',
+    facts: [['Property Code', 'AAL-NP-002'], ['Developer', 'Sunteck Realty'],
+            ['Project Type', 'New Launch · Residential'], ['Configuration', 'Higher-floor 2 & 3 Bed SkyDeck Residences'],
+            ['Location', 'Beverly Park Road, Mira Road (E)'], ['Project Status', 'Launching higher floor residences'],
+            ['Towers', 'Tallest towers in Mira-Bhayandar*'], ['Layout', '4 towers (3 registered with MahaRERA)'],
+            ['Infinity Pool', 'Approx. 50 ft above ground level'], ['Retail', 'G+2 European-inspired retail avenue'],
+            ['Pricing', 'On enquiry'], ['MahaRERA No.', 'P51700050167 | P51700050166 | P51700055703']],
+    highlights: [
+      ['🏙️', 'Tallest Towers', 'in the Mira-Bhayandar locality*'],
+      ['🏡', 'Higher-Floor 2 & 3 Bed SkyDeck Residences', 'with expansive interiors and signature SkyDecks'],
+      ['🌊', 'Uninterrupted Vistas', 'of the Arabian Sea, Sanjay Gandhi National Park and the Vipassana Pagoda'],
+      ['🏊', 'Infinity Pool', 'approx. 50 ft above ground level'],
+      ['🛍️', 'G+2 European-inspired Retail Avenue', '– fashion, lifestyle, gourmet dining and boutique cafés at your doorstep'],
+      ['🚇', 'Upcoming Infrastructure', '– Metro Line 7A, Dahisar–Bhayandar Link Road and Coastal Road']
+    ],
+    residences: 'A rare collection of higher-floor 2 & 3 Bed SkyDeck Residences with uninterrupted views of the Arabian Sea, Sanjay Gandhi National Park and the Vipassana Pagoda. Expansive interiors open onto signature SkyDecks, bringing together sculpted design and breezy outdoor living.',
+    band: { title: 'Life for the Rare', big: '2 & 3 Bed', bigLabel: 'Higher-Floor SkyDeck Residences',
+      points: [['🌆', '<strong>Expansive city views</strong> that stretch as far as your aspirations'],
+               ['☀️', '<strong>Light-filled living</strong> – sunlit spaces through the day'],
+               ['🍃', '<strong>Enhanced ventilation</strong> – fresh air that flows naturally'],
+               ['🔒', '<strong>Valuable privacy</strong> – exclusivity in every quiet moment'],
+               ['🏢', '<strong>Skyline arrival</strong> – come home to stature, every day'],
+               ['🌿', '<strong>Open deck spaces</strong> for everyday celebrations']],
+      chips: ['Tallest Towers', 'Higher Floors', 'SkyDeck Residences', 'Infinity Pool', 'Retail Avenue', 'Grand Clubhouse'] },
+    amenities: ['Infinity Pool & Pool Deck', 'Kids’ Pool', 'Grand Clubhouse', 'Gymnasium', 'Spa & Wellness Rooms', 'Mini Theatre',
+                'Multi-Purpose Hall', 'Indoor Games & Sports Lounge', 'CrossFit Training Deck', 'Multi-Sports Court',
+                'Yoga / Meditation Area', 'Party Lawn & Deck', 'Amphitheatre', 'Kids’ Play Area & Sand Pit', 'Power Walk Path',
+                'Flower Garden', 'Therapeutic Garden', 'Senior Citizens’ Area', 'Barbeque Area', 'Cabana & Shaded Seating',
+                'Jain / Hindu Temple', 'G+2 Retail Avenue'],
+    layout: { img: 'layout.jpg', caption: 'Master layout plan – Towers 1, 2 & 3 with podium amenities and future development. Indicative only; subject to approvals.' },
+    locationPoints: [['📍', '<strong>Site Address:</strong> Sunteck SkyPark, Beverly Park Road, Mira Road (E) – 401 107'],
+                     ['🚇', '<strong>Metro Line 7A</strong> to link Mira Road with the airport (CSMIA), connecting Metro Lines 3, 8 &amp; 9'],
+                     ['🛣️', '<strong>Dahisar–Bhayandar Link Road</strong> to the Western Express Highway, and the <strong>Coastal Road</strong> from Dahisar to Mira-Bhayandar'],
+                     ['🚇', '<strong>Borivali–Thane Tunnel</strong> (11.84 km) and the planned signal-free <strong>MMR Ring Road</strong>']],
+    nearby: [['D-Mart', '3 mins'], ['Western Express Highway', '5 mins'], ['Mira Road Railway Station', '5 mins'],
+             ['Kanakia RBK School', '5 mins'], ['Bhaktivedanta Hospital', '7 mins'], ['Seven Eleven Club', '7 mins'],
+             ['Bhayandar East-West Flyover', '10 mins'], ['Thakur Mall', '15 mins'], ['Ghodbunder – Thane Road', '20 mins']],
+    mapQuery: 'Sunteck SkyPark, Beverly Park Road, Mira Road East',
+    mapNote: 'Drive times are approximate and depend on traffic.',
+    about: { name: 'Sunteck Realty', text: 'One of India’s leading luxury real-estate developers, with a city-centric portfolio of about 50 million sq ft across 32 projects – including Signature Island at BKC, SunteckCity at ODC Goregaon (W) and SunteckWorld at Naigaon.' },
+    opportunity: 'This is your opportunity to own a higher-floor SkyDeck residence at the tallest towers of Mira-Bhayandar!!',
+    ctaChips: ['Higher Floors', 'SkyDeck Residences', 'Tallest Towers'],
+    rera: 'P51700050167 | P51700050166 | P51700055703',
+    reraNote: 'Sunteck SkyPark 1, 2 and 3 are being developed by Sunteck Lifespace Private Limited (promoter) in a phase-wise manner and are registered with MahaRERA vide P51700050167 | P51700050166 | P51700055703. *Tallest towers within the Mira-Bhayandar locality based on a market survey by Propequity. Sunteck SkyPark is a layout of 4 towers, of which 3 are currently registered with MahaRERA. Layout, amenities and specifications are indicative and subject to approvals.',
+    media: { dir: 'assets/listings/AAL-NP-002/', tile: 'tile.jpg',
+             photos: [['photo-1.jpg', 'The Tallest Towers', 'RENDERED IMAGE'], ['photo-2.jpg', 'Infinity Pool & Clubhouse', 'RENDERED IMAGE'],
+                      ['photo-3.jpg', 'SkyDeck Residences', 'RENDERED IMAGE'], ['photo-4.jpg', 'Retail Avenue', 'RENDERED IMAGE'],
+                      ['photo-5.jpg', 'Higher-floor living', 'REFERENCE IMAGE']] }
   }
 ];
 
@@ -3720,9 +3791,18 @@ function renderProjectTiles() {
   }).join('');
   var c = document.getElementById('np-count');
   if (c) c.textContent = NEW_PROJECTS.length;
+  var spot = document.getElementById('np-spot');
+  if (spot) spot.innerHTML = '<span class="np-spot-live"><i></i>New Launch' + (NEW_PROJECTS.length > 1 ? 'es' : '') + '</span>' +
+    NEW_PROJECTS.map(function(p) {
+      return '<a class="np-spot-item" href="#project/' + p.code + '" onclick="openProject(\'' + p.code + '\');return false;">' +
+        '<span class="np-spot-text">' + npEsc(p.name) + ' &middot; ' + npEsc(p.area) + '</span>' +
+        '<span class="np-code"><small>CODE</small>' + p.code + '</span><span class="np-spot-go">View &#8594;</span></a>';
+    }).join('');
 }
 
-// NEW PROJECT: full detail page
+// NEW PROJECT: full detail page — identical layout for every project.
+// Section order: Announcement · Key Details · Highlights · Residences* · Feature band ·
+// Amenities* · Master Layout* · Location & Connectivity · Developer* · CTA · RERA   (*only if provided)
 function renderProjectPage(p) {
   var m = p.media;
   var slides = [], thumbs = [];
@@ -3732,13 +3812,17 @@ function renderProjectPage(p) {
     thumbs.push('<button class="pd-thumb" type="button" aria-label="Show video"><img src="' + m.dir + m.poster + '" alt=""><span class="pd-play">▶</span></button>');
   }
   m.photos.forEach(function(ph, i) {
-    slides.push('<div class="np-slide"><span class="np-kind">PHOTO</span><img src="' + m.dir + ph[0] + '" alt="' + npEsc(p.name + ' ' + p.area + ' – ' + ph[1]) + '" loading="lazy"></div>');
-    thumbs.push('<button class="pd-thumb" type="button" aria-label="Show photo ' + (i + 1) + '"><img src="' + m.dir + ph[0] + '" alt="" loading="lazy"></button>');
+    slides.push('<div class="np-slide"><span class="np-kind">' + npEsc(ph[2] || 'PHOTO') + '</span><img src="' + m.dir + ph[0] + '" alt="' + npEsc(p.name + ' ' + p.area + ' – ' + ph[1]) + '" loading="lazy">' +
+                '<span class="np-cap">' + npEsc(ph[1]) + '</span></div>');
+    thumbs.push('<button class="pd-thumb" type="button" aria-label="Show ' + npEsc(ph[1]) + '"><img src="' + m.dir + ph[0] + '" alt="" loading="lazy"></button>');
   });
   var mapSrc = 'https://maps.google.com/maps?q=' + encodeURIComponent(p.mapQuery) + '&z=14&output=embed';
   var enquire = 'openEnquiry(\'' + p.code + '\',\'' + npEsc(p.name + ' – New Launch, ' + p.area).replace(/'/g, "\\'") + '\')';
+  var chips = function(list) { return list.map(function(c) { return '<span>' + npEsc(c) + '</span>'; }).join(''); };
+  var sec = function(title, body, cls) { return '<section class="pd-card' + (cls ? ' ' + cls : '') + '"><h3>' + title + '</h3>' + body + '</section>'; };
+  var b = p.band;
 
-  document.getElementById('project-root').innerHTML =
+  var html =
     '<div class="page-header" style="padding-top:8rem;">' +
       '<div class="pd-crumb"><a onclick="showPage(\'listings\')">Listings</a> &nbsp;›&nbsp; <a onclick="backToNewProjects()">New Projects</a> &nbsp;›&nbsp; ' + p.code + '</div>' +
       '<span class="section-tag-light">New Launch · ' + npEsc(p.status) + '</span>' +
@@ -3752,33 +3836,35 @@ function renderProjectPage(p) {
       '<aside class="pd-media"><div class="np-reel" data-reel><div class="np-track">' + slides.join('') + '</div>' +
         '<button class="np-arrow prev" type="button" aria-label="Previous">&#8249;</button><button class="np-arrow next" type="button" aria-label="Next">&#8250;</button></div>' +
         '<div class="np-dots"></div><div class="pd-thumbs">' + thumbs.join('') + '</div>' +
-        '<div class="pd-media-note">Swipe or tap to view video &amp; photos</div></aside>' +
+        '<div class="pd-media-note">Swipe or tap to view ' + (m.video ? 'video &amp; photos' : 'photos') + '</div></aside>' +
       '<div class="pd-main">' +
         '<section class="pd-card"><h2>' + npEsc(p.headline) + '</h2><p class="pd-lead">' + npEsc(p.intro) + '</p><div class="np-open">' + npEsc(p.openLine) + '</div></section>' +
-        '<section class="pd-card"><h3>Key Details</h3><dl class="pd-facts">' +
-          p.facts.map(function(f) { return '<div class="pd-fact"><dt>' + npEsc(f[0]) + '</dt><dd>' + npEsc(f[1]) + '</dd></div>'; }).join('') + '</dl></section>' +
-        '<section class="pd-card"><h3>✨ Project Highlights</h3><ul class="np-hl">' +
-          p.highlights.map(function(h) { return '<li><span class="ic">' + h[0] + '</span><span><strong>' + npEsc(h[1]) + '</strong> ' + npEsc(h[2]) + '</span></li>'; }).join('') + '</ul></section>' +
-        '<section class="pd-card pd-offer"><h3>Pre-Launch Offer</h3><div class="pd-offer-row">' +
-          '<div class="pd-offer-big"><b>' + npEsc(p.offer.plan) + '</b><span>' + npEsc(p.offer.planLabel) + '</span></div>' +
-          '<div class="pd-offer-steps">' + p.offer.points.map(function(o) { return '<div><span>' + o[0] + '</span><span>' + o[1] + '</span></div>'; }).join('') + '</div></div>' +
-          '<div class="np-chips">' + p.chips.map(function(c) { return '<span>' + npEsc(c) + '</span>'; }).join('') + '</div></section>' +
-        '<section class="pd-card"><h3>Location &amp; Connectivity</h3><ul class="pd-loc-list">' +
-          p.locationPoints.map(function(l) { return '<li><span>' + l[0] + '</span><span>' + l[1] + '</span></li>'; }).join('') + '</ul>' +
+        sec('Key Details', '<dl class="pd-facts">' + p.facts.map(function(f) { return '<div class="pd-fact"><dt>' + npEsc(f[0]) + '</dt><dd>' + npEsc(f[1]) + '</dd></div>'; }).join('') + '</dl>') +
+        sec('✨ Project Highlights', '<ul class="np-hl">' + p.highlights.map(function(h) { return '<li><span class="ic">' + h[0] + '</span><span><strong>' + npEsc(h[1]) + '</strong> ' + npEsc(h[2]) + '</span></li>'; }).join('') + '</ul>') +
+        (p.residences ? sec('The Residences', '<p class="pd-lead">' + npEsc(p.residences) + '</p>') : '') +
+        (b ? sec(npEsc(b.title), '<div class="pd-offer-row"><div class="pd-offer-big"><b>' + npEsc(b.big) + '</b><span>' + npEsc(b.bigLabel) + '</span></div>' +
+              '<div class="pd-offer-steps">' + b.points.map(function(o) { return '<div><span>' + o[0] + '</span><span>' + o[1] + '</span></div>'; }).join('') + '</div></div>' +
+              '<div class="np-chips">' + chips(b.chips) + '</div>', 'pd-offer') : '') +
+        (p.amenities ? sec('Amenities', '<ul class="pd-amen">' + p.amenities.map(function(a) { return '<li>' + npEsc(a) + '</li>'; }).join('') + '</ul>') : '') +
+        (p.layout ? sec('Master Layout', '<div class="pd-layout"><img src="' + m.dir + p.layout.img + '" alt="' + npEsc(p.name) + ' master layout plan" loading="lazy"></div><p class="pd-map-note">' + npEsc(p.layout.caption) + '</p>') : '') +
+        sec('Location &amp; Connectivity', '<ul class="pd-loc-list">' + p.locationPoints.map(function(l) { return '<li><span>' + l[0] + '</span><span>' + l[1] + '</span></li>'; }).join('') + '</ul>' +
+          (p.nearby ? '<div class="pd-near">' + p.nearby.map(function(n) { return '<div><span>' + npEsc(n[0]) + '</span><b>' + npEsc(n[1]) + '</b></div>'; }).join('') + '</div>' : '') +
           '<div class="pd-map"><iframe src="' + mapSrc + '" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map – ' + npEsc(p.location) + '"></iframe></div>' +
-          '<p class="pd-map-note">Map shows the ' + npEsc(p.location) + ' area. The exact site address is shared on enquiry.</p></section>' +
+          '<p class="pd-map-note">' + npEsc(p.mapNote) + '</p>') +
+        (p.about ? sec('About the Developer', '<p class="pd-lead"><strong style="color:var(--navy);">' + npEsc(p.about.name) + '</strong> – ' + npEsc(p.about.text) + '</p>') : '') +
         '<section class="pd-cta"><p>' + npEsc(p.opportunity) + '</p>' +
-          '<div class="np-chips" style="justify-content:center;">' + ['Limited inventory', 'Priority allocation', 'Pre-Launch Prices'].map(function(c) { return '<span>' + c + '</span>'; }).join('') + '</div>' +
+          '<div class="np-chips" style="justify-content:center;">' + chips(p.ctaChips) + '</div>' +
           '<p style="font-family:Inter,sans-serif;font-style:normal;font-size:14px;color:var(--muted);margin-bottom:1.1rem;">📲 Connect with us to know more &amp; secure your preferred unit.</p>' +
           '<div class="pd-cta-btns"><button class="np-enquire" type="button" onclick="' + enquire + '">&#128242; Enquire Now</button>' +
           '<button class="pd-btn-line" type="button" onclick="shareProject(\'' + p.code + '\')">Share Project</button></div></section>' +
-        '<div class="np-rera"><strong>MAHA RERA NO: ' + p.rera + '</strong><br>' +
-          'The project is registered as “' + npEsc(p.reraEntity) + '” under MahaRERA registration no. ' + p.rera + ', available at <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener">maharera.maharashtra.gov.in</a>. ' +
-          'Images are illustrative. Project particulars are subject to the developer’s terms; buyers are advised to verify all details independently. All trademarks and logos belong to their respective owners.</div>' +
+        '<div class="np-rera"><strong>MAHA RERA NO: ' + p.rera + '</strong><br>' + npEsc(p.reraNote) +
+          ' Details at <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener">maharera.maharashtra.gov.in</a>. ' +
+          'Images are rendered / reference images for illustration. Project particulars are subject to the developer’s terms; buyers are advised to verify all details independently. All trademarks and logos belong to their respective owners.</div>' +
       '</div>' +
     '</div>' +
     '<div class="pd-back"><button class="pd-btn-line" type="button" onclick="backToNewProjects()">← All New Projects</button></div></div>';
 
+  document.getElementById('project-root').innerHTML = html;
   initReel(document.querySelector('#project-root [data-reel]'));
 }
 
@@ -3789,7 +3875,7 @@ function openProject(code) {
   showPage('project');
   document.title = p.name + ' New Launch, ' + p.area + ' (' + p.code + ') | A&A Landgate';
   var md = document.querySelector('meta[name="description"]');
-  if (md) md.setAttribute('content', p.name + ' – ' + p.config + ' at ' + p.location + '. ' + p.status + ' booking open. MahaRERA ' + p.rera + '. Enquire with A&A Landgate.');
+  if (md) md.setAttribute('content', p.name + ' by ' + p.developer + ' – ' + p.config + ' at ' + p.location + '. New launch. MahaRERA ' + p.rera + '. Enquire with A&A Landgate.');
   if (history.replaceState) history.replaceState(null, '', '#project/' + p.code);
 }
 function backToNewProjects() { showPage('listings'); showListingCat('new'); }
@@ -4211,6 +4297,7 @@ var SEARCH_INDEX = [
   { tag: 'Page', title: 'FAQ', sub: 'Brokerage, process, NRI, documents, timelines', page: 'faq' },
   { tag: 'Page', title: 'Contact Us', sub: 'Call, WhatsApp, or fill enquiry form', page: 'contact' },
   { tag: 'New Project', title: 'House of Hiranandani – New Launch (AAL-NP-001)', sub: 'Gorai, Borivali West · Luxury 2 & 3 BHK Deck Apartments · Pre-Launch', page: 'project/AAL-NP-001' },
+  { tag: 'New Project', title: 'Sunteck SkyPark – The Higher League (AAL-NP-002)', sub: 'Beverly Park Road, Mira Road (E) · Higher-floor 2 & 3 Bed SkyDeck Residences', page: 'project/AAL-NP-002' },
   { tag: 'Listing', title: 'Spacious 2 BHK Apartment', sub: 'Thane West · Residential', page: 'listings' },
   { tag: 'Listing', title: 'Cosy 1 BHK Starter Home', sub: 'Mira Road · Residential', page: 'listings' },
   { tag: 'Listing', title: 'Premium 3 BHK Family Residence', sub: 'Kharghar, Navi Mumbai · Residential', page: 'listings' },
