@@ -24,6 +24,8 @@ To add or update a property listing, edit `index.html` — look for the `<!-- LI
 
 **To replace placeholder images:** swap the SVG in `.listing-media-placeholder` with an `<img>` tag pointing to your image URL.
 
+**Categories & property codes:** the Listings page has two tabs — **New Projects** (`#cat-new`, `.np-card`, codes `AAL-NP-###`) and **Resale** (`#cat-resale`, `.listing-card`, codes `AAL-RS-###`). Update the tab counts when adding a listing. Media for each listing lives in `assets/listings/<CODE>/` and is shown in a 9:16 reel frame (photos 1080×1920, videos vertical 9:16). Every **Enquire Now** button calls `openEnquiry('<CODE>','<Property name>')`, which opens the form (code, name, contact number, email) and sends it to WhatsApp 9653236410 (and to the Google Sheet once `LEAD_ENDPOINT` is set).
+
 ## Weekly Blog
 Blog articles are added every Sunday automatically via a Claude scheduled task.
 

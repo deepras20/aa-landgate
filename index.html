@@ -470,6 +470,98 @@ footer { background: #04101E; border-top: 1px solid var(--border-gold); padding:
 .video-modal-inner video { width: 100%; max-height: 80vh; }
 .video-modal-close { position: absolute; top: -40px; right: 0; color: #fff; font-size: 28px; cursor: pointer; background: none; border: none; line-height: 1; }
 @media (max-width: 768px) { .listings-grid { grid-template-columns: 1fr; } .listings-controls { gap: 0.5rem; } .filter-btn { font-size: 9px; padding: 7px 12px; } }
+/* ---------- Listing categories: New Projects / Resale ---------- */
+.np-spot { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.9rem 1.25rem; background: var(--navy); border: 1px solid var(--gold); padding: 1rem 1.5rem; margin-bottom: 2rem; cursor: pointer; text-align: center; transition: background .2s; }
+.np-spot:hover { background: var(--navy-mid); }
+.np-spot-live { display: inline-flex; align-items: center; gap: 8px; font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #fff; background: #C62828; padding: 6px 12px; }
+.np-spot-live i { width: 7px; height: 7px; border-radius: 50%; background: #fff; animation: npPulse 1.4s infinite; }
+@keyframes npPulse { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+.np-spot-text { font-family: 'Cinzel', serif; font-size: 0.95rem; color: #fff; letter-spacing: 1px; }
+.np-spot-go { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-light); white-space: nowrap; }
+.np-code { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); color: var(--navy); font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; padding: 7px 13px; }
+.np-code small { font-family: 'Cinzel', serif; font-size: 8.5px; letter-spacing: 2px; opacity: .8; font-weight: 700; }
+.cat-tabs { display: flex; justify-content: center; gap: 0; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border-gold); }
+.cat-tab { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; padding: 1rem 2.25rem; background: transparent; color: var(--muted); border: none; border-bottom: 3px solid transparent; margin-bottom: -1px; cursor: pointer; transition: color .2s, border-color .2s; }
+.cat-tab:hover { color: var(--navy); }
+.cat-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
+.cat-tab-count { display: inline-block; min-width: 22px; margin-left: 8px; padding: 3px 7px; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0; background: var(--cream); color: var(--navy); }
+.cat-tab.active .cat-tab-count { background: var(--navy); color: var(--gold); }
+.cat-panel[hidden] { display: none; }
+.np-card { position: relative; display: grid; grid-template-columns: minmax(280px, 360px) 1fr; background: #fff; border: 1px solid var(--gold); box-shadow: 0 16px 48px rgba(11,31,58,0.08); scroll-margin-top: 140px; }
+.np-ribbon { position: absolute; top: 18px; left: -1px; z-index: 3; background: #C62828; color: #fff; font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 2.5px; padding: 7px 14px; }
+.np-media { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+/* Reel frame — video and photos share the identical 9:16 frame */
+.np-reel { position: relative; width: 100%; max-width: 310px; aspect-ratio: 9 / 16; overflow: hidden; background: #000; border: 1px solid var(--border-gold); box-shadow: 0 12px 32px rgba(0,0,0,0.35); touch-action: pan-y; }
+.np-track { display: flex; height: 100%; transition: transform .45s cubic-bezier(.2,.7,.2,1); }
+.np-slide { position: relative; flex: 0 0 100%; height: 100%; }
+.np-slide img, .np-slide video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.np-kind { position: absolute; top: 10px; left: 10px; z-index: 2; background: rgba(11,31,58,0.75); color: var(--gold-light); font-family: 'Cinzel', serif; font-size: 8.5px; letter-spacing: 2px; padding: 5px 8px; }
+.np-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; width: 34px; height: 34px; border: none; background: rgba(255,255,255,0.9); color: var(--navy); font-size: 20px; line-height: 1; cursor: pointer; }
+.np-arrow.prev { left: 8px; } .np-arrow.next { right: 8px; }
+.np-sound { position: absolute; right: 10px; bottom: 10px; z-index: 2; border: none; background: rgba(0,0,0,0.6); color: #fff; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; padding: 6px 10px; cursor: pointer; }
+.np-dots { display: flex; gap: 8px; margin-top: 1rem; }
+.np-dot { width: 8px; height: 8px; padding: 0; border: 1px solid var(--gold); background: transparent; cursor: pointer; transition: all .25s; }
+.np-dot.on { width: 24px; background: var(--gold); }
+.np-body { padding: 2.25rem 2.5rem; }
+.np-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 1.25rem; }
+.np-tag { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); border: 1px solid var(--border-gold); padding: 6px 10px; }
+.np-title { font-family: 'Cinzel', serif; font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-weight: 600; line-height: 1.35; color: var(--navy); margin-bottom: 0.9rem; }
+.np-lead { font-size: 15px; line-height: 1.7; color: var(--text); }
+.np-open { display: inline-block; margin: 0.9rem 0 1.5rem; padding: 0.7rem 1rem; background: var(--gold-pale); border-left: 3px solid var(--gold); font-weight: 600; color: var(--navy); font-size: 14.5px; }
+.np-sub { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); margin-bottom: 0.8rem; }
+.np-hl { list-style: none; display: grid; gap: 8px; margin-bottom: 1.4rem; }
+.np-hl li { display: flex; align-items: flex-start; gap: 12px; padding: 0.7rem 0.9rem; background: var(--cream); border: 1px solid rgba(201,168,76,0.12); font-size: 14.5px; line-height: 1.55; color: var(--text); }
+.np-hl .ic { font-size: 17px; line-height: 1.35; flex: 0 0 auto; }
+.np-hl strong { color: var(--navy); font-weight: 600; }
+.np-p { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; line-height: 1.6; color: var(--navy); margin-bottom: 0.9rem; }
+.np-loc { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 1.1rem; }
+.np-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.6rem; }
+.np-chips span { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); background: var(--navy); padding: 6px 11px; }
+.np-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-bottom: 1.4rem; }
+.np-enquire { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 15px 30px; background: var(--gold); color: var(--navy); border: 1px solid var(--gold); cursor: pointer; transition: all .2s; }
+.np-enquire:hover { background: var(--navy); color: var(--gold); border-color: var(--navy); }
+.np-cta-note { font-size: 13px; color: var(--muted); }
+.np-rera { border-top: 1px solid rgba(201,168,76,0.18); padding-top: 1rem; font-size: 12px; line-height: 1.7; color: var(--muted); }
+.np-rera strong { color: var(--navy); letter-spacing: 1px; }
+.np-rera a { color: var(--navy-light); }
+.listing-ref strong { color: var(--navy); letter-spacing: 1.5px; }
+/* Enquiry form modal */
+.np-modal { display: none; position: fixed; inset: 0; z-index: 2100; background: rgba(4,16,30,0.78); align-items: center; justify-content: center; padding: 1rem; }
+.np-modal.open { display: flex; }
+.np-dialog { width: 100%; max-width: 440px; max-height: 94vh; overflow-y: auto; background: #fff; border: 1px solid var(--gold); box-shadow: 0 24px 64px rgba(0,0,0,0.45); }
+.np-dhead { position: relative; background: var(--navy); padding: 1.4rem 1.6rem; border-bottom: 2px solid var(--gold); }
+.np-dhead h3 { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 600; color: #fff; letter-spacing: 1px; }
+.np-dhead p { font-size: 12.5px; color: rgba(255,255,255,0.75); margin-top: 4px; line-height: 1.5; }
+.np-close { position: absolute; top: 10px; right: 14px; background: none; border: none; color: #fff; font-size: 26px; line-height: 1; cursor: pointer; }
+.np-form { padding: 1.5rem 1.6rem 1.6rem; }
+.np-form .form-group input[readonly] { background: var(--gold-pale); border-color: var(--gold); color: var(--navy); font-weight: 700; letter-spacing: 1.5px; }
+.np-form .np-prop { font-size: 12px; color: var(--muted); margin: -0.5rem 0 1rem; }
+.np-phone { display: flex; }
+.np-phone span { display: flex; align-items: center; padding: 0 12px; border: 1px solid rgba(0,0,0,0.12); border-right: none; background: var(--cream); font-size: 13px; font-weight: 600; color: var(--navy); }
+.np-err { display: none; margin-top: 0.25rem; padding: 0.6rem 0.8rem; background: #fdecea; color: #a12622; font-size: 12.5px; }
+.np-form .submit-btn { background: #25D366; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.np-form .submit-btn:hover { background: #1ebe5a; }
+.np-fine { font-size: 11.5px; color: var(--muted); text-align: center; line-height: 1.6; margin-top: 0.9rem; }
+.np-done { display: none; padding: 2rem 1.6rem; text-align: center; }
+.np-done h4 { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--navy); margin: 0.6rem 0 0.5rem; }
+.np-done p { font-size: 13.5px; color: var(--muted); line-height: 1.6; margin-bottom: 1.2rem; }
+.np-done a { display: inline-block; text-decoration: none; background: #25D366; color: #fff; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 13px 24px; }
+@media (max-width: 1024px) { .np-card { grid-template-columns: minmax(250px, 310px) 1fr; } .np-body { padding: 1.75rem 1.75rem; } }
+@media (max-width: 768px) {
+  .np-card { grid-template-columns: 1fr; }
+  .np-media { padding: 3.75rem 1rem 1.25rem; }
+  .np-body { padding: 1.5rem 1.25rem; }
+  .cat-tab { padding: 0.9rem 1.25rem; font-size: 11.5px; letter-spacing: 1.5px; }
+  .np-spot { padding: 0.9rem 1rem; }
+  .np-enquire { width: 100%; }
+}
+@media (max-width: 420px) {
+  .cat-tab { padding: 0.85rem 0.8rem; font-size: 10.5px; letter-spacing: 1px; }
+  .cat-tab-count { margin-left: 5px; }
+  .np-reel { max-width: 270px; }
+  .np-hl li { font-size: 13.5px; }
+  .np-spot-text { font-size: 0.85rem; }
+}
 
 /* ==================== BROKERAGE PAGE ==================== */
 .page-header { background: var(--navy); padding: 5rem 3rem 3rem; text-align: center; border-bottom: 1px solid var(--border-gold); }
@@ -1140,6 +1232,77 @@ footer { padding-bottom: 6rem; }
   <div class="listings-content">
     <div class="listings-inner">
 
+      <!-- Featured highlight (top of listings) -->
+      <div class="np-spot" role="button" tabindex="0" onclick="goToListing('AAL-NP-001')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToListing('AAL-NP-001');}">
+        <span class="np-spot-live"><i></i>New Launch</span>
+        <span class="np-spot-text">House of Hiranandani &middot; Borivali West</span>
+        <span class="np-code"><small>CODE</small>AAL-NP-001</span>
+        <span class="np-spot-go">View Project &#8594;</span>
+      </div>
+
+      <!-- Listing categories -->
+      <div class="cat-tabs" role="tablist">
+        <button class="cat-tab active" id="cat-tab-new" role="tab" aria-selected="true" aria-controls="cat-new" onclick="showListingCat('new')">New Projects<span class="cat-tab-count">1</span></button>
+        <button class="cat-tab" id="cat-tab-resale" role="tab" aria-selected="false" aria-controls="cat-resale" onclick="showListingCat('resale')">Resale<span class="cat-tab-count">6</span></button>
+      </div>
+
+      <!-- ================= NEW PROJECTS ================= -->
+      <div class="cat-panel" id="cat-new" role="tabpanel" aria-labelledby="cat-tab-new">
+
+        <!-- New Project: AAL-NP-001 — House of Hiranandani, Borivali West -->
+        <article class="np-card" id="AAL-NP-001">
+          <span class="np-ribbon">NEW LAUNCH &#128680;</span>
+          <div class="np-media">
+            <div class="np-reel" data-reel>
+              <div class="np-track">
+                <div class="np-slide"><span class="np-kind">VIDEO</span>
+                  <video src="assets/listings/AAL-NP-001/video.mp4" poster="assets/listings/AAL-NP-001/poster.jpg" muted loop playsinline preload="metadata"></video>
+                  <button class="np-sound" type="button">&#128263; Tap for sound</button>
+                </div>
+                <div class="np-slide"><span class="np-kind">PHOTO</span><img src="assets/listings/AAL-NP-001/photo-1.jpg" alt="House of Hiranandani Borivali West – Welcome Coastal Road" loading="lazy"></div>
+                <div class="np-slide"><span class="np-kind">PHOTO</span><img src="assets/listings/AAL-NP-001/photo-2.jpg" alt="House of Hiranandani Borivali West – Hello Mangroves" loading="lazy"></div>
+              </div>
+              <button class="np-arrow prev" type="button" aria-label="Previous">&#8249;</button>
+              <button class="np-arrow next" type="button" aria-label="Next">&#8250;</button>
+            </div>
+            <div class="np-dots"></div>
+          </div>
+          <div class="np-body">
+            <div class="np-meta">
+              <span class="np-code"><small>PROPERTY CODE</small>AAL-NP-001</span>
+              <span class="np-tag">New Project</span>
+              <span class="np-tag">Pre-Launch</span>
+            </div>
+            <h3 class="np-title">NEW LAUNCH by HOUSE OF HIRANANDANI in BORIVALI WEST &#128680;</h3>
+            <p class="np-lead">We’re coming up with an exciting new project in Borivali West! &#127750;&#10024;</p>
+            <div class="np-open">Exclusive Pre Launch Booking window is now open!!</div>
+            <div class="np-sub">&#10024; Project Highlights</div>
+            <ul class="np-hl">
+              <li><span class="ic">&#127961;&#65039;</span><span><strong>Tallest Towers</strong> in the vicinity</span></li>
+              <li><span class="ic">&#127754;</span><span><strong>Upcoming Coastal Road Infrastructure</strong> – strategically located in close proximity</span></li>
+              <li><span class="ic">&#127969;</span><span><strong>Luxury 2 &amp; 3 BHK Deck Apartments</strong></span></li>
+              <li><span class="ic">&#10024;</span><span><strong>Unobstructed Lifetime View</strong> of Mangroves and Gorai Creek</span></li>
+              <li><span class="ic">&#128273;</span><span><strong>Pre Launch Offers</strong> – Priority Unit Selection with Exclusive 20×16[5] payment plan. Pay 20% now and nothing in 2027 for limited inventory!!!</span></li>
+            </ul>
+            <p class="np-p">This is your opportunity to get early access to one of the upcoming landmark developments in Borivali West!!</p>
+            <div class="np-loc">&#128205; Site Location: Gorai, Borivali West</div>
+            <div class="np-chips"><span>Limited inventory</span><span>Priority allocation</span><span>Premium residences</span><span>Pre-Launch Prices</span><span>Pre-Launch Payment Plan</span></div>
+            <div class="np-cta">
+              <button class="np-enquire" type="button" onclick="openEnquiry('AAL-NP-001','House of Hiranandani – New Launch, Borivali West')">&#128242; Enquire Now</button>
+              <span class="np-cta-note">Connect with us to know more &amp; secure your preferred unit.</span>
+            </div>
+            <div class="np-rera">
+              <strong>MAHA RERA NO: PR1180002602042</strong><br>
+              Details at <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener">maharera.maharashtra.gov.in</a>. Images are illustrative. Project particulars are subject to the developer’s terms; buyers are advised to verify all details independently.
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /cat-new -->
+
+      <!-- ================= RESALE ================= -->
+      <div class="cat-panel" id="cat-resale" role="tabpanel" aria-labelledby="cat-tab-resale" hidden>
+
       <!-- Filters -->
       <div class="listings-controls">
         <span style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-right:0.5rem;">Filter By:</span>
@@ -1190,8 +1353,8 @@ footer { padding-bottom: 6rem; }
               <span class="listing-feature">Gym &amp; Pool</span>
             </div>
             <div class="listing-footer">
-              <span class="listing-ref">Ref: AAL-001</span>
-              <button class="listing-enquire-btn" onclick="enquireListing('Spacious 2 BHK Apartment, Thane West')">Enquire Now &#8594;</button>
+              <span class="listing-ref">Code: <strong>AAL-RS-001</strong></span>
+              <button class="listing-enquire-btn" onclick="openEnquiry('AAL-RS-001','Spacious 2 BHK Apartment, Thane West')">Enquire Now &#8594;</button>
             </div>
           </div>
         </div>
@@ -1230,8 +1393,8 @@ footer { padding-bottom: 6rem; }
               <span class="listing-feature">Virar–Dahanu Line</span>
             </div>
             <div class="listing-footer">
-              <span class="listing-ref">Ref: AAL-002</span>
-              <button class="listing-enquire-btn" onclick="enquireListing('Cosy 1 BHK Starter Home, Mira Road')">Enquire Now &#8594;</button>
+              <span class="listing-ref">Code: <strong>AAL-RS-002</strong></span>
+              <button class="listing-enquire-btn" onclick="openEnquiry('AAL-RS-002','Cosy 1 BHK Starter Home, Mira Road')">Enquire Now &#8594;</button>
             </div>
           </div>
         </div>
@@ -1271,8 +1434,8 @@ footer { padding-bottom: 6rem; }
               <span class="listing-feature">Clubhouse</span>
             </div>
             <div class="listing-footer">
-              <span class="listing-ref">Ref: AAL-003</span>
-              <button class="listing-enquire-btn" onclick="enquireListing('Premium 3 BHK Family Residence, Kharghar')">Enquire Now &#8594;</button>
+              <span class="listing-ref">Code: <strong>AAL-RS-003</strong></span>
+              <button class="listing-enquire-btn" onclick="openEnquiry('AAL-RS-003','Premium 3 BHK Family Residence, Kharghar')">Enquire Now &#8594;</button>
             </div>
           </div>
         </div>
@@ -1314,8 +1477,8 @@ footer { padding-bottom: 6rem; }
               <span class="listing-feature">Power Backup</span>
             </div>
             <div class="listing-footer">
-              <span class="listing-ref">Ref: AAL-004</span>
-              <button class="listing-enquire-btn" onclick="enquireListing('Prime Commercial Office Space, Andheri East')">Enquire Now &#8594;</button>
+              <span class="listing-ref">Code: <strong>AAL-RS-004</strong></span>
+              <button class="listing-enquire-btn" onclick="openEnquiry('AAL-RS-004','Prime Commercial Office Space, Andheri East')">Enquire Now &#8594;</button>
             </div>
           </div>
         </div>
@@ -1354,8 +1517,8 @@ footer { padding-bottom: 6rem; }
               <span class="listing-feature">Near Beach</span>
             </div>
             <div class="listing-footer">
-              <span class="listing-ref">Ref: AAL-005</span>
-              <button class="listing-enquire-btn" onclick="enquireListing('Residential Plot, Alibaug Coastal Zone')">Enquire Now &#8594;</button>
+              <span class="listing-ref">Code: <strong>AAL-RS-005</strong></span>
+              <button class="listing-enquire-btn" onclick="openEnquiry('AAL-RS-005','Residential Plot, Alibaug Coastal Zone')">Enquire Now &#8594;</button>
             </div>
           </div>
         </div>
@@ -1397,13 +1560,15 @@ footer { padding-bottom: 6rem; }
               <span class="listing-feature">2 Car Parks</span>
             </div>
             <div class="listing-footer">
-              <span class="listing-ref">Ref: AAL-006</span>
-              <button class="listing-enquire-btn" onclick="enquireListing('Luxury 4 BHK Penthouse, Powai')">Enquire Now &#8594;</button>
+              <span class="listing-ref">Code: <strong>AAL-RS-006</strong></span>
+              <button class="listing-enquire-btn" onclick="openEnquiry('AAL-RS-006','Luxury 4 BHK Penthouse, Powai')">Enquire Now &#8594;</button>
             </div>
           </div>
         </div>
 
       </div><!-- /listings-grid -->
+
+      </div><!-- /cat-resale -->
 
       <!-- Add Listing CTA for admin -->
       <div style="text-align:center;margin-top:3rem;padding:2.5rem;background:#fff;border:1px solid var(--border-gold);">
@@ -3225,6 +3390,34 @@ footer { padding-bottom: 6rem; }
 </footer>
 
 <!-- Floating WhatsApp button -->
+<!-- ==================== LISTING ENQUIRY FORM (modal) ==================== -->
+<div class="np-modal" id="np-modal" aria-hidden="true" onclick="if(event.target===this)closeEnquiry()">
+  <div class="np-dialog" role="dialog" aria-modal="true" aria-labelledby="np-modal-title">
+    <div class="np-dhead">
+      <h3 id="np-modal-title">Property Enquiry</h3>
+      <p>Share your details and our consultant will connect with you shortly.</p>
+      <button class="np-close" type="button" aria-label="Close" onclick="closeEnquiry()">&times;</button>
+    </div>
+    <form class="np-form" id="np-form" novalidate onsubmit="return submitListingEnquiry(event)">
+      <div class="form-group"><label for="np-code">Property Listing Code</label><input id="np-code" readonly></div>
+      <div class="np-prop" id="np-prop"></div>
+      <div class="form-group"><label for="np-name">Full Name *</label><input id="np-name" autocomplete="name" placeholder="Your full name"></div>
+      <div class="form-group"><label for="np-phone">Contact Number *</label><div class="np-phone"><span>+91</span><input id="np-phone" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel-national" placeholder="10-digit mobile number" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)"></div></div>
+      <div class="form-group"><label for="np-email">Email Address *</label><input id="np-email" type="email" autocomplete="email" placeholder="you@example.com"></div>
+      <input type="text" id="np-website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true">
+      <div class="np-err" id="np-err"></div>
+      <button class="submit-btn" type="submit"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1.9 2 1.2 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2z"/></svg>Submit</button>
+      <p class="np-fine">On submit, WhatsApp opens with your enquiry filled in &mdash; tap <strong>Send</strong> to deliver it to A&amp;A Landgate.</p>
+    </form>
+    <div class="np-done" id="np-done">
+      <div style="font-size:38px;">&#9989;</div>
+      <h4>Thank You!</h4>
+      <p>Your enquiry for <strong id="np-done-code"></strong> is ready in WhatsApp. If it didn’t open, tap below.</p>
+      <a id="np-done-wa" href="#" target="_blank" rel="noopener">Open WhatsApp</a>
+    </div>
+  </div>
+</div>
+
 <a class="wa-float" href="https://wa.me/919653236410?text=Hello%20A%26A%20Landgate%2C%20I%20would%20like%20to%20know%20more." target="_blank" rel="noopener" aria-label="Chat with A&amp;A Landgate on WhatsApp">
   <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3z"/></svg>
   <span>WhatsApp</span>
@@ -3415,6 +3608,146 @@ function filterListings(type, btn) {
 function enquireListing(propertyRef) {
   var text = '*Property Enquiry — A&A Landgate*\n─────────────────────\n*Property:* ' + propertyRef + '\n\nHello, I am interested in this property. Please get in touch with me.\n─────────────────────\n_Via www.aalandgate.com_';
   window.open('https://wa.me/' + WHATSAPP_FALLBACK + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
+}
+
+// LISTINGS: New Projects / Resale categories
+function showListingCat(cat) {
+  ['new', 'resale'].forEach(function(c) {
+    var on = (c === cat);
+    var tab = document.getElementById('cat-tab-' + c);
+    tab.classList.toggle('active', on);
+    tab.setAttribute('aria-selected', on);
+    document.getElementById('cat-' + c).hidden = !on;
+  });
+  playVisibleReels();
+}
+
+// LISTINGS: jump from the highlight strip to a listing
+function goToListing(code) {
+  showListingCat(/^AAL-RS-/.test(code) ? 'resale' : 'new');
+  var el = document.getElementById(code);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// LISTINGS: 9:16 reel carousel (video + photos)
+function playVisibleReels() {
+  document.querySelectorAll('[data-reel]').forEach(function(r) { if (r._go) r._go(r._i || 0); });
+}
+(function initReels() {
+  document.querySelectorAll('[data-reel]').forEach(function(reel) {
+    var track = reel.querySelector('.np-track'), slides = track.children, n = slides.length;
+    var dots = reel.parentNode.querySelector('.np-dots');
+    for (var k = 0; k < n; k++) {
+      var d = document.createElement('button');
+      d.type = 'button'; d.className = 'np-dot'; d.setAttribute('aria-label', 'Show slide ' + (k + 1));
+      d.onclick = (function(k) { return function() { go(k); }; })(k);
+      dots.appendChild(d);
+    }
+    function go(j) {
+      var i = reel._i = (j + n) % n;
+      track.style.transform = 'translateX(' + (-100 * i) + '%)';
+      Array.prototype.forEach.call(dots.children, function(d, k) { d.classList.toggle('on', k === i); });
+      var visible = reel.offsetParent !== null;
+      Array.prototype.forEach.call(slides, function(s, k) {
+        var v = s.querySelector('video');
+        if (!v) return;
+        if (k === i && visible) { var p = v.play(); if (p && p.catch) p.catch(function(){}); } else { v.pause(); }
+      });
+    }
+    reel._go = go;
+    reel.querySelector('.np-arrow.prev').onclick = function() { go(reel._i - 1); };
+    reel.querySelector('.np-arrow.next').onclick = function() { go(reel._i + 1); };
+    var x0 = null;
+    reel.addEventListener('touchstart', function(e) { x0 = e.touches[0].clientX; }, { passive: true });
+    reel.addEventListener('touchend', function(e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) go(reel._i + (dx < 0 ? 1 : -1));
+      x0 = null;
+    });
+    var snd = reel.querySelector('.np-sound');
+    if (snd) snd.onclick = function() {
+      var v = reel.querySelector('video');
+      v.muted = !v.muted;
+      if (!v.muted) v.play();
+      snd.innerHTML = v.muted ? '&#128263; Tap for sound' : '&#128266; Sound on';
+    };
+    go(0);
+  });
+  // start/stop the reel video when the Listings page is opened or left
+  var lp = document.getElementById('listings-page');
+  if (lp && window.MutationObserver) new MutationObserver(playVisibleReels).observe(lp, { attributes: true, attributeFilter: ['class'] });
+})();
+
+// LISTINGS: enquiry form (code + name + contact + email) → WhatsApp
+function openEnquiry(code, propertyName) {
+  var form = document.getElementById('np-form');
+  form.reset();
+  form.style.display = '';
+  document.getElementById('np-done').style.display = 'none';
+  document.getElementById('np-err').style.display = 'none';
+  form.querySelectorAll('input').forEach(function(el) { el.classList.remove('invalid'); });
+  document.getElementById('np-code').value = code;
+  document.getElementById('np-prop').textContent = propertyName || '';
+  var m = document.getElementById('np-modal');
+  m.classList.add('open'); m.setAttribute('aria-hidden', 'false');
+  setTimeout(function() { document.getElementById('np-name').focus(); }, 60);
+}
+function closeEnquiry() {
+  var m = document.getElementById('np-modal');
+  m.classList.remove('open'); m.setAttribute('aria-hidden', 'true');
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeEnquiry(); });
+['np-name', 'np-phone', 'np-email'].forEach(function(id) {
+  var el = document.getElementById(id);
+  if (el) el.addEventListener('input', function() { el.classList.remove('invalid'); document.getElementById('np-err').style.display = 'none'; });
+});
+
+function submitListingEnquiry(evt) {
+  if (evt) evt.preventDefault();
+  if (val('np-website')) return false;   // spam trap
+  var err = document.getElementById('np-err');
+  err.style.display = 'none';
+  var code = val('np-code'), prop = document.getElementById('np-prop').textContent;
+  var name = val('np-name'), phone = val('np-phone').replace(/\D/g, ''), email = val('np-email');
+  var checks = [['np-name', name.length >= 2, 'Please enter your full name.'],
+                ['np-phone', /^[6-9]\d{9}$/.test(phone), 'Please enter a valid 10-digit mobile number.'],
+                ['np-email', /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email), 'Please enter a valid email address.']];
+  var firstBad = null;
+  checks.forEach(function(c) {
+    document.getElementById(c[0]).classList.toggle('invalid', !c[1]);
+    if (!c[1] && !firstBad) firstBad = c;
+  });
+  if (firstBad) { document.getElementById(firstBad[0]).focus(); return showErr(err, firstBad[2]); }
+
+  var lines = [
+    '*New Listing Enquiry — A&A Landgate Website*',
+    '─────────────────────',
+    '*Property Code:* ' + code,
+    prop ? '*Property:* ' + prop : null,
+    '*Name:* ' + name,
+    '*Contact:* +91 ' + phone,
+    '*Email:* ' + email,
+    '─────────────────────',
+    '_Submitted via www.aalandgate.com_'
+  ].filter(Boolean);
+  var wa = 'https://wa.me/' + WHATSAPP_FALLBACK + '?text=' + encodeURIComponent(lines.join('\n'));
+
+  // Also log to Google Sheet once the Apps Script URL is set (see Leads Setup Guide)
+  if (LEAD_ENDPOINT && LEAD_ENDPOINT.indexOf('http') === 0) {
+    try {
+      fetch(LEAD_ENDPOINT, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ leadType: 'Listing Enquiry', propertyCode: code, property: prop, firstName: name,
+          phone: phone, email: email, page: 'Listings', submittedAt: new Date().toISOString() }) });
+    } catch (e) {}
+  }
+
+  document.getElementById('np-done-code').textContent = code;
+  document.getElementById('np-done-wa').href = wa;
+  document.getElementById('np-form').style.display = 'none';
+  document.getElementById('np-done').style.display = 'block';
+  window.open(wa, '_blank', 'noopener');
+  return false;
 }
 
 /* ============================================================ FREE TOOLS CALCULATORS ============================================================ */
@@ -3684,6 +4017,7 @@ var SEARCH_INDEX = [
   { tag: 'Page', title: 'Blog & Insights', sub: 'Mumbai market trends, stamp duty, NRI guide', page: 'blog' },
   { tag: 'Page', title: 'FAQ', sub: 'Brokerage, process, NRI, documents, timelines', page: 'faq' },
   { tag: 'Page', title: 'Contact Us', sub: 'Call, WhatsApp, or fill enquiry form', page: 'contact' },
+  { tag: 'New Project', title: 'House of Hiranandani – New Launch (AAL-NP-001)', sub: 'Gorai, Borivali West · Luxury 2 & 3 BHK Deck Apartments · Pre-Launch', page: 'listings' },
   { tag: 'Listing', title: 'Spacious 2 BHK Apartment', sub: 'Thane West · Residential', page: 'listings' },
   { tag: 'Listing', title: 'Cosy 1 BHK Starter Home', sub: 'Mira Road · Residential', page: 'listings' },
   { tag: 'Listing', title: 'Premium 3 BHK Family Residence', sub: 'Kharghar, Navi Mumbai · Residential', page: 'listings' },
@@ -3877,7 +4211,7 @@ window.addEventListener('load', function() { setTimeout(initChart, 200); });
   // Never touch these (handled by CSS, interactive, or updated by scripts)
   var SKIP = '.hero, .page-header, nav, #search-overlay, .video-modal, form, .calc-result-panel, ' +
              '.form-row, .form-row3, .form-group, .checkbox-grid, .search-box, .broadcast-banner, .wa-float, ' +
-             '#services-page > div:first-child';
+             '#services-page > div:first-child, .np-modal';
 
   function skipped(el){ return !!(el.closest && el.closest(SKIP)); }
 
