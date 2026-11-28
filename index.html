@@ -487,9 +487,6 @@ footer { background: #04101E; border-top: 1px solid var(--border-gold); padding:
 .cat-tab-count { display: inline-block; min-width: 22px; margin-left: 8px; padding: 3px 7px; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0; background: var(--cream); color: var(--navy); }
 .cat-tab.active .cat-tab-count { background: var(--navy); color: var(--gold); }
 .cat-panel[hidden] { display: none; }
-.np-card { position: relative; display: grid; grid-template-columns: minmax(280px, 360px) 1fr; background: #fff; border: 1px solid var(--gold); box-shadow: 0 16px 48px rgba(11,31,58,0.08); scroll-margin-top: 140px; }
-.np-ribbon { position: absolute; top: 18px; left: -1px; z-index: 3; background: #C62828; color: #fff; font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 2.5px; padding: 7px 14px; }
-.np-media { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 /* Reel frame — video and photos share the identical 9:16 frame */
 .np-reel { position: relative; width: 100%; max-width: 310px; aspect-ratio: 9 / 16; overflow: hidden; background: #000; border: 1px solid var(--border-gold); box-shadow: 0 12px 32px rgba(0,0,0,0.35); touch-action: pan-y; }
 .np-track { display: flex; height: 100%; transition: transform .45s cubic-bezier(.2,.7,.2,1); }
@@ -502,11 +499,7 @@ footer { background: #04101E; border-top: 1px solid var(--border-gold); padding:
 .np-dots { display: flex; gap: 8px; margin-top: 1rem; }
 .np-dot { width: 8px; height: 8px; padding: 0; border: 1px solid var(--gold); background: transparent; cursor: pointer; transition: all .25s; }
 .np-dot.on { width: 24px; background: var(--gold); }
-.np-body { padding: 2.25rem 2.5rem; }
-.np-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 1.25rem; }
 .np-tag { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); border: 1px solid var(--border-gold); padding: 6px 10px; }
-.np-title { font-family: 'Cinzel', serif; font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-weight: 600; line-height: 1.35; color: var(--navy); margin-bottom: 0.9rem; }
-.np-lead { font-size: 15px; line-height: 1.7; color: var(--text); }
 .np-open { display: inline-block; margin: 0.9rem 0 1.5rem; padding: 0.7rem 1rem; background: var(--gold-pale); border-left: 3px solid var(--gold); font-weight: 600; color: var(--navy); font-size: 14.5px; }
 .np-sub { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); margin-bottom: 0.8rem; }
 .np-hl { list-style: none; display: grid; gap: 8px; margin-bottom: 1.4rem; }
@@ -525,6 +518,100 @@ footer { background: #04101E; border-top: 1px solid var(--border-gold); padding:
 .np-rera strong { color: var(--navy); letter-spacing: 1px; }
 .np-rera a { color: var(--navy-light); }
 .listing-ref strong { color: var(--navy); letter-spacing: 1.5px; }
+/* ---------- New Project tiles (icons) ---------- */
+.np-intro { text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--muted); margin: -1rem 0 2rem; }
+.np-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 270px)); justify-content: center; gap: 1.75rem; }
+.np-tile { display: flex; flex-direction: column; background: #fff; border: 1px solid rgba(201,168,76,0.35); text-decoration: none; color: inherit; cursor: pointer; transition: transform .25s, box-shadow .25s, border-color .25s; }
+.np-tile:hover, .np-tile:focus-visible { transform: translateY(-6px); box-shadow: 0 18px 44px rgba(11,31,58,0.16); border-color: var(--gold); outline: none; }
+.np-tile-img { position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden; background: var(--navy); }
+.np-tile-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.np-tile:hover .np-tile-img img { transform: scale(1.06); }
+.np-tile-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.np-tile-badge { background: #C62828; color: #fff; font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 2px; padding: 6px 9px; }
+.np-tile-mediacount { font-size: 11.5px; color: var(--muted); }
+.np-tile-info { display: flex; flex-direction: column; gap: 6px; padding: 1rem 1.1rem 1.1rem; flex: 1; }
+.np-tile-info .np-code { font-size: 11.5px; padding: 5px 10px; }
+.np-tile-name { font-family: 'Cinzel', serif; font-size: 1.02rem; font-weight: 600; color: var(--navy); line-height: 1.3; margin-top: 4px; }
+.np-tile-loc { font-size: 12.5px; color: var(--muted); }
+.np-tile-cfg { font-size: 12.5px; color: var(--text); font-weight: 600; }
+.np-tile-go { margin-top: auto; padding-top: 0.75rem; border-top: 1px solid rgba(201,168,76,0.18); font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+.np-tile:hover .np-tile-go { color: var(--navy); }
+/* ---------- New Project detail page ---------- */
+.pd-crumb { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 1.1rem; }
+.pd-crumb a { color: var(--gold-light); cursor: pointer; text-decoration: none; }
+.pd-crumb a:hover { text-decoration: underline; }
+.pd-hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 1.25rem; }
+.pd-pill { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; color: #fff; border: 1px solid var(--border-gold); padding: 7px 12px; }
+.pd-hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 1.5rem; }
+.pd-btn-ghost { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 15px 26px; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.45); cursor: pointer; transition: all .2s; }
+.pd-btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+.pd-wrap { background: var(--cream2); padding: 3.5rem 3rem 4.5rem; }
+.pd-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: minmax(280px, 360px) 1fr; gap: 2.5rem; align-items: start; }
+.pd-media { position: sticky; top: 130px; display: flex; flex-direction: column; align-items: center; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 1.75rem 1.5rem 1.5rem; border: 1px solid var(--border-gold); }
+.pd-thumbs { display: flex; gap: 10px; margin-top: 1rem; }
+.pd-thumb { position: relative; width: 56px; aspect-ratio: 9 / 16; padding: 0; border: 2px solid transparent; background: #000; cursor: pointer; overflow: hidden; opacity: .65; transition: all .2s; }
+.pd-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pd-thumb.on { border-color: var(--gold); opacity: 1; }
+.pd-thumb .pd-play { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font-size: 16px; text-shadow: 0 1px 4px rgba(0,0,0,.6); }
+.pd-media-note { margin-top: 0.8rem; font-size: 10.5px; letter-spacing: 1px; color: rgba(255,255,255,0.55); text-align: center; }
+.pd-main { display: flex; flex-direction: column; gap: 1.5rem; min-width: 0; }
+.pd-card { background: #fff; border: 1px solid rgba(201,168,76,0.2); padding: 1.9rem 2.1rem; }
+.pd-card h2 { font-family: 'Cinzel', serif; font-size: clamp(1.2rem, 2.2vw, 1.55rem); font-weight: 600; line-height: 1.35; color: var(--navy); margin-bottom: 0.9rem; }
+.pd-card h3 { display: flex; align-items: center; gap: 0.75rem; font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); margin-bottom: 1.2rem; }
+.pd-card h3::after { content: ''; flex: 1; height: 1px; background: var(--border-gold); }
+.pd-lead { font-size: 15.5px; line-height: 1.7; color: var(--text); }
+.pd-card .np-open { margin-bottom: 0; }
+.pd-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; border: 1px solid rgba(201,168,76,0.18); }
+.pd-fact { padding: 0.9rem 1rem; border-bottom: 1px solid rgba(201,168,76,0.18); }
+.pd-fact:nth-child(odd) { border-right: 1px solid rgba(201,168,76,0.18); }
+.pd-fact:nth-last-child(-n+2) { border-bottom: none; }
+.pd-fact dt { font-family: 'Cinzel', serif; font-size: 9.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.pd-fact dd { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.45; }
+.pd-card .np-hl { margin-bottom: 0; }
+.pd-offer { background: var(--navy); border-color: var(--gold); color: #fff; }
+.pd-offer h3 { color: var(--gold); }
+.pd-offer-row { display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: center; }
+.pd-offer-big { text-align: center; border: 1px solid var(--gold); padding: 1rem 1.4rem; }
+.pd-offer-big b { display: block; font-family: 'Cinzel', serif; font-size: 1.9rem; color: var(--gold); letter-spacing: 1px; }
+.pd-offer-big span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+.pd-offer-steps { display: grid; gap: 8px; }
+.pd-offer-steps div { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; line-height: 1.5; color: rgba(255,255,255,0.92); }
+.pd-offer-steps strong { color: var(--gold-light); }
+.pd-offer .np-chips { margin: 1.4rem 0 0; }
+.pd-offer .np-chips span { background: transparent; border: 1px solid var(--border-gold); color: var(--gold-light); }
+.pd-loc-list { list-style: none; display: grid; gap: 10px; margin-bottom: 1.25rem; }
+.pd-loc-list li { display: flex; gap: 12px; font-size: 14.5px; line-height: 1.55; color: var(--text); }
+.pd-map { position: relative; width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--border-gold); background: var(--cream); }
+.pd-map iframe { width: 100%; height: 100%; border: 0; display: block; }
+.pd-map-note { font-size: 12px; color: var(--muted); margin-top: 0.6rem; }
+.pd-cta { background: var(--gold-pale); border: 1px solid var(--gold); text-align: center; padding: 2rem 1.5rem; }
+.pd-cta p { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; color: var(--navy); margin-bottom: 1.1rem; }
+.pd-cta-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.pd-btn-line { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 15px 26px; background: transparent; color: var(--navy); border: 1px solid var(--navy); cursor: pointer; transition: all .2s; }
+.pd-btn-line:hover { background: var(--navy); color: var(--gold); }
+.pd-back { max-width: 1200px; margin: 2.5rem auto 0; text-align: center; }
+@media (max-width: 1024px) { .pd-grid { grid-template-columns: minmax(250px, 310px) 1fr; gap: 1.75rem; } .pd-wrap { padding: 3rem 1.5rem 4rem; } }
+@media (max-width: 768px) {
+  .pd-wrap { padding: 2rem 1rem 3rem; }
+  .pd-grid { grid-template-columns: 1fr; }
+  .pd-media { position: static; padding: 1.5rem 1rem 1.25rem; }
+  .pd-card { padding: 1.4rem 1.2rem; }
+  .pd-facts { grid-template-columns: 1fr; }
+  .pd-fact:nth-child(odd) { border-right: none; }
+  .pd-fact:nth-last-child(2) { border-bottom: 1px solid rgba(201,168,76,0.18); }
+  .pd-offer-row { grid-template-columns: 1fr; gap: 1rem; }
+  .np-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .np-tile-info { padding: 0.8rem 0.8rem 0.9rem; }
+  .np-tile-name { font-size: 0.9rem; }
+  .pd-hero-cta .np-enquire, .pd-hero-cta .pd-btn-ghost { flex: 1 1 100%; }
+}
+@media (max-width: 420px) {
+  .np-tiles { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .np-tile-info .np-code { font-size: 10px; padding: 4px 7px; }
+  .np-tile-info .np-code small, .np-tile-badge { display: none; }
+  .np-tile-loc, .np-tile-cfg { font-size: 11.5px; }
+  .np-tile-go { font-size: 9px; letter-spacing: 1.5px; }
+}
 /* Enquiry form modal */
 .np-modal { display: none; position: fixed; inset: 0; z-index: 2100; background: rgba(4,16,30,0.78); align-items: center; justify-content: center; padding: 1rem; }
 .np-modal.open { display: flex; }
@@ -546,11 +633,7 @@ footer { background: #04101E; border-top: 1px solid var(--border-gold); padding:
 .np-done h4 { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--navy); margin: 0.6rem 0 0.5rem; }
 .np-done p { font-size: 13.5px; color: var(--muted); line-height: 1.6; margin-bottom: 1.2rem; }
 .np-done a { display: inline-block; text-decoration: none; background: #25D366; color: #fff; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 13px 24px; }
-@media (max-width: 1024px) { .np-card { grid-template-columns: minmax(250px, 310px) 1fr; } .np-body { padding: 1.75rem 1.75rem; } }
 @media (max-width: 768px) {
-  .np-card { grid-template-columns: 1fr; }
-  .np-media { padding: 3.75rem 1rem 1.25rem; }
-  .np-body { padding: 1.5rem 1.25rem; }
   .cat-tab { padding: 0.9rem 1.25rem; font-size: 11.5px; letter-spacing: 1.5px; }
   .np-spot { padding: 0.9rem 1rem; }
   .np-enquire { width: 100%; }
@@ -1233,7 +1316,7 @@ footer { padding-bottom: 6rem; }
     <div class="listings-inner">
 
       <!-- Featured highlight (top of listings) -->
-      <div class="np-spot" role="button" tabindex="0" onclick="goToListing('AAL-NP-001')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToListing('AAL-NP-001');}">
+      <div class="np-spot" role="button" tabindex="0" onclick="openProject('AAL-NP-001')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProject('AAL-NP-001');}">
         <span class="np-spot-live"><i></i>New Launch</span>
         <span class="np-spot-text">House of Hiranandani &middot; Borivali West</span>
         <span class="np-code"><small>CODE</small>AAL-NP-001</span>
@@ -1242,62 +1325,16 @@ footer { padding-bottom: 6rem; }
 
       <!-- Listing categories -->
       <div class="cat-tabs" role="tablist">
-        <button class="cat-tab active" id="cat-tab-new" role="tab" aria-selected="true" aria-controls="cat-new" onclick="showListingCat('new')">New Projects<span class="cat-tab-count">1</span></button>
+        <button class="cat-tab active" id="cat-tab-new" role="tab" aria-selected="true" aria-controls="cat-new" onclick="showListingCat('new')">New Projects<span class="cat-tab-count" id="np-count">1</span></button>
         <button class="cat-tab" id="cat-tab-resale" role="tab" aria-selected="false" aria-controls="cat-resale" onclick="showListingCat('resale')">Resale<span class="cat-tab-count">6</span></button>
       </div>
 
-      <!-- ================= NEW PROJECTS ================= -->
+      <!-- ================= NEW PROJECTS =================
+           Tiles are generated from NEW_PROJECTS (see script: "NEW PROJECTS DATA").
+           To add a project: add one entry there + its media folder assets/listings/<CODE>/ -->
       <div class="cat-panel" id="cat-new" role="tabpanel" aria-labelledby="cat-tab-new">
-
-        <!-- New Project: AAL-NP-001 — House of Hiranandani, Borivali West -->
-        <article class="np-card" id="AAL-NP-001">
-          <span class="np-ribbon">NEW LAUNCH &#128680;</span>
-          <div class="np-media">
-            <div class="np-reel" data-reel>
-              <div class="np-track">
-                <div class="np-slide"><span class="np-kind">VIDEO</span>
-                  <video src="assets/listings/AAL-NP-001/video.mp4" poster="assets/listings/AAL-NP-001/poster.jpg" muted loop playsinline preload="metadata"></video>
-                  <button class="np-sound" type="button">&#128263; Tap for sound</button>
-                </div>
-                <div class="np-slide"><span class="np-kind">PHOTO</span><img src="assets/listings/AAL-NP-001/photo-1.jpg" alt="House of Hiranandani Borivali West – Welcome Coastal Road" loading="lazy"></div>
-                <div class="np-slide"><span class="np-kind">PHOTO</span><img src="assets/listings/AAL-NP-001/photo-2.jpg" alt="House of Hiranandani Borivali West – Hello Mangroves" loading="lazy"></div>
-              </div>
-              <button class="np-arrow prev" type="button" aria-label="Previous">&#8249;</button>
-              <button class="np-arrow next" type="button" aria-label="Next">&#8250;</button>
-            </div>
-            <div class="np-dots"></div>
-          </div>
-          <div class="np-body">
-            <div class="np-meta">
-              <span class="np-code"><small>PROPERTY CODE</small>AAL-NP-001</span>
-              <span class="np-tag">New Project</span>
-              <span class="np-tag">Pre-Launch</span>
-            </div>
-            <h3 class="np-title">NEW LAUNCH by HOUSE OF HIRANANDANI in BORIVALI WEST &#128680;</h3>
-            <p class="np-lead">We’re coming up with an exciting new project in Borivali West! &#127750;&#10024;</p>
-            <div class="np-open">Exclusive Pre Launch Booking window is now open!!</div>
-            <div class="np-sub">&#10024; Project Highlights</div>
-            <ul class="np-hl">
-              <li><span class="ic">&#127961;&#65039;</span><span><strong>Tallest Towers</strong> in the vicinity</span></li>
-              <li><span class="ic">&#127754;</span><span><strong>Upcoming Coastal Road Infrastructure</strong> – strategically located in close proximity</span></li>
-              <li><span class="ic">&#127969;</span><span><strong>Luxury 2 &amp; 3 BHK Deck Apartments</strong></span></li>
-              <li><span class="ic">&#10024;</span><span><strong>Unobstructed Lifetime View</strong> of Mangroves and Gorai Creek</span></li>
-              <li><span class="ic">&#128273;</span><span><strong>Pre Launch Offers</strong> – Priority Unit Selection with Exclusive 20×16[5] payment plan. Pay 20% now and nothing in 2027 for limited inventory!!!</span></li>
-            </ul>
-            <p class="np-p">This is your opportunity to get early access to one of the upcoming landmark developments in Borivali West!!</p>
-            <div class="np-loc">&#128205; Site Location: Gorai, Borivali West</div>
-            <div class="np-chips"><span>Limited inventory</span><span>Priority allocation</span><span>Premium residences</span><span>Pre-Launch Prices</span><span>Pre-Launch Payment Plan</span></div>
-            <div class="np-cta">
-              <button class="np-enquire" type="button" onclick="openEnquiry('AAL-NP-001','House of Hiranandani – New Launch, Borivali West')">&#128242; Enquire Now</button>
-              <span class="np-cta-note">Connect with us to know more &amp; secure your preferred unit.</span>
-            </div>
-            <div class="np-rera">
-              <strong>MAHA RERA NO: PR1180002602042</strong><br>
-              Details at <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener">maharera.maharashtra.gov.in</a>. Images are illustrative. Project particulars are subject to the developer’s terms; buyers are advised to verify all details independently.
-            </div>
-          </div>
-        </article>
-
+        <p class="np-intro">Tap a project to view complete details, photos &amp; video.</p>
+        <div class="np-tiles" id="np-tiles"></div>
       </div><!-- /cat-new -->
 
       <!-- ================= RESALE ================= -->
@@ -1583,6 +1620,10 @@ footer { padding-bottom: 6rem; }
 
   <!-- Footer injected via JS -->
 </div><!-- /listings-page -->
+
+<!-- ============================================================ NEW PROJECT DETAIL PAGE ============================================================
+     Rendered from NEW_PROJECTS by openProject('<CODE>'). Direct link: www.aalandgate.com/#project/<CODE> -->
+<div id="project-page" class="page"><div id="project-root"></div></div><!-- /project-page -->
 
 <!-- ============================================================ ABOUT US PAGE ============================================================ -->
 <div id="about-page" class="page">
@@ -3425,7 +3466,7 @@ footer { padding-bottom: 6rem; }
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
 <script>
-var navMap = {home:0, listings:1, about:2, sell:3, services:4, blog:5, tools:6, faq:7, contact:8};
+var navMap = {home:0, listings:1, project:1, about:2, sell:3, services:4, blog:5, tools:6, faq:7, contact:8};
 var blogPages = ['b1','b2','b3','b4','b5','b6'];
 
 function toggleMenu(btn) {
@@ -3442,6 +3483,7 @@ function closeMobileMenu() {
 
 function showPage(name) {
   closeMobileMenu();
+  if (name !== 'project' && location.hash.indexOf('#project/') === 0 && history.replaceState) history.replaceState(null, '', location.pathname + location.search);
   var titles = {
     home: 'A&A Landgate | Real Estate Consultants in Mumbai, Thane & Navi Mumbai | Maharashtra',
     listings: 'Property Listings in Mumbai, Thane & Navi Mumbai | A&A Landgate',
@@ -3610,6 +3652,156 @@ function enquireListing(propertyRef) {
   window.open('https://wa.me/' + WHATSAPP_FALLBACK + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
 }
 
+// ==================== NEW PROJECTS DATA ====================
+// One entry per new project. The tile on the Listings page and the full
+// detail page (www.aalandgate.com/#project/<code>) are both built from this.
+var NEW_PROJECTS = [
+  {
+    code: 'AAL-NP-001',
+    developer: 'House of Hiranandani',
+    name: 'House of Hiranandani',
+    area: 'Borivali West',
+    location: 'Gorai, Borivali West',
+    config: 'Luxury 2 & 3 BHK Deck Apartments',
+    status: 'Pre-Launch',
+    headline: 'NEW LAUNCH by HOUSE OF HIRANANDANI in BORIVALI WEST 🚨',
+    intro: 'We’re coming up with an exciting new project in Borivali West! 🌆✨',
+    openLine: 'Exclusive Pre Launch Booking window is now open!!',
+    highlights: [
+      ['🏙️', 'Tallest Towers', 'in the vicinity'],
+      ['🌊', 'Upcoming Coastal Road Infrastructure', '– strategically located in close proximity'],
+      ['🏡', 'Luxury 2 & 3 BHK Deck Apartments', ''],
+      ['✨', 'Unobstructed Lifetime View', 'of Mangroves and Gorai Creek'],
+      ['🔑', 'Pre Launch Offers', '– Priority Unit Selection with Exclusive 20×16[5] payment plan. Pay 20% now and nothing in 2027 for limited inventory!!!']
+    ],
+    offer: { plan: '20×16[5]', planLabel: 'Exclusive Payment Plan',
+      points: [['🔑', '<strong>Priority Unit Selection</strong> for pre-launch bookings'],
+               ['💰', '<strong>Pay 20% now</strong> and nothing in 2027'],
+               ['⏳', '<strong>Limited inventory</strong> on the pre-launch offer']] },
+    opportunity: 'This is your opportunity to get early access to one of the upcoming landmark developments in Borivali West!!',
+    chips: ['Limited inventory', 'Priority allocation', 'Premium residences', 'Pre-Launch Prices', 'Pre-Launch Payment Plan'],
+    locationPoints: [['📍', '<strong>Site Location:</strong> Gorai, Borivali West, Mumbai'],
+                     ['🌊', '<strong>Upcoming Coastal Road</strong> infrastructure – strategically located in close proximity'],
+                     ['🌿', '<strong>Unobstructed lifetime view</strong> of Mangroves and Gorai Creek']],
+    mapQuery: 'Gorai, Borivali West, Mumbai',
+    facts: [['Property Code', 'AAL-NP-001'], ['Developer', 'House of Hiranandani'],
+            ['Project Type', 'New Launch · Residential'], ['Configuration', 'Luxury 2 & 3 BHK Deck Apartments'],
+            ['Location', 'Gorai, Borivali West'], ['Project Status', 'Pre-Launch – booking window open'],
+            ['Towers', 'Tallest towers in the vicinity'], ['Payment Plan', '20×16[5] – Pay 20% now, nothing in 2027'],
+            ['Pricing', 'Pre-Launch Prices – on enquiry'], ['MahaRERA No.', 'PR1180002602042']],
+    rera: 'PR1180002602042',
+    reraEntity: 'Shoden Developers Private Limited of HOH',
+    media: { dir: 'assets/listings/AAL-NP-001/', tile: 'tile.jpg', video: 'video.mp4', poster: 'poster.jpg',
+             photos: [['photo-1.jpg', 'Welcome Coastal Road'], ['photo-2.jpg', 'Hello Mangroves']] }
+  }
+];
+
+function findProject(code) {
+  for (var i = 0; i < NEW_PROJECTS.length; i++) if (NEW_PROJECTS[i].code === code) return NEW_PROJECTS[i];
+  return null;
+}
+function npEsc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+
+// LISTINGS: New Projects tiles ("icons")
+function renderProjectTiles() {
+  var box = document.getElementById('np-tiles');
+  if (!box) return;
+  box.innerHTML = NEW_PROJECTS.map(function(p) {
+    var m = p.media, n = (m.video ? 1 : 0), ph = m.photos.length;
+    return '<a class="np-tile" href="#project/' + p.code + '" onclick="openProject(\'' + p.code + '\');return false;" aria-label="' + npEsc(p.name + ', ' + p.location + ' – view project') + '">' +
+      '<span class="np-tile-img"><img src="' + m.dir + m.tile + '" alt="' + npEsc(p.name + ' ' + p.area) + '" loading="lazy">' +
+      '</span>' +
+      '<span class="np-tile-info"><span class="np-tile-tags"><span class="np-tile-badge">NEW LAUNCH</span><span class="np-code"><small>CODE</small>' + p.code + '</span></span>' +
+      '<span class="np-tile-name">' + npEsc(p.name) + '</span>' +
+      '<span class="np-tile-loc">📍 ' + npEsc(p.location) + '</span>' +
+      '<span class="np-tile-cfg">' + npEsc(p.config) + '</span>' +
+      '<span class="np-tile-mediacount">' + (n ? '▶ ' + n + ' Video · ' : '') + ph + ' Photos</span>' +
+      '<span class="np-tile-go">View Project →</span></span></a>';
+  }).join('');
+  var c = document.getElementById('np-count');
+  if (c) c.textContent = NEW_PROJECTS.length;
+}
+
+// NEW PROJECT: full detail page
+function renderProjectPage(p) {
+  var m = p.media;
+  var slides = [], thumbs = [];
+  if (m.video) {
+    slides.push('<div class="np-slide"><span class="np-kind">VIDEO</span><video src="' + m.dir + m.video + '" poster="' + m.dir + m.poster + '" muted loop playsinline preload="metadata"></video>' +
+                '<button class="np-sound" type="button">&#128263; Tap for sound</button></div>');
+    thumbs.push('<button class="pd-thumb" type="button" aria-label="Show video"><img src="' + m.dir + m.poster + '" alt=""><span class="pd-play">▶</span></button>');
+  }
+  m.photos.forEach(function(ph, i) {
+    slides.push('<div class="np-slide"><span class="np-kind">PHOTO</span><img src="' + m.dir + ph[0] + '" alt="' + npEsc(p.name + ' ' + p.area + ' – ' + ph[1]) + '" loading="lazy"></div>');
+    thumbs.push('<button class="pd-thumb" type="button" aria-label="Show photo ' + (i + 1) + '"><img src="' + m.dir + ph[0] + '" alt="" loading="lazy"></button>');
+  });
+  var mapSrc = 'https://maps.google.com/maps?q=' + encodeURIComponent(p.mapQuery) + '&z=14&output=embed';
+  var enquire = 'openEnquiry(\'' + p.code + '\',\'' + npEsc(p.name + ' – New Launch, ' + p.area).replace(/'/g, "\\'") + '\')';
+
+  document.getElementById('project-root').innerHTML =
+    '<div class="page-header" style="padding-top:8rem;">' +
+      '<div class="pd-crumb"><a onclick="showPage(\'listings\')">Listings</a> &nbsp;›&nbsp; <a onclick="backToNewProjects()">New Projects</a> &nbsp;›&nbsp; ' + p.code + '</div>' +
+      '<span class="section-tag-light">New Launch · ' + npEsc(p.status) + '</span>' +
+      '<h1>' + npEsc(p.name) + '</h1>' +
+      '<p>' + npEsc(p.config) + ' · ' + npEsc(p.location) + '</p>' +
+      '<div class="pd-hero-meta"><span class="np-code"><small>PROPERTY CODE</small>' + p.code + '</span><span class="pd-pill">MahaRERA ' + p.rera + '</span></div>' +
+      '<div class="pd-hero-cta"><button class="np-enquire" type="button" onclick="' + enquire + '">&#128242; Enquire Now</button>' +
+      '<button class="pd-btn-ghost" type="button" onclick="shareProject(\'' + p.code + '\')">Share Project</button></div>' +
+    '</div>' +
+    '<div class="pd-wrap"><div class="pd-grid">' +
+      '<aside class="pd-media"><div class="np-reel" data-reel><div class="np-track">' + slides.join('') + '</div>' +
+        '<button class="np-arrow prev" type="button" aria-label="Previous">&#8249;</button><button class="np-arrow next" type="button" aria-label="Next">&#8250;</button></div>' +
+        '<div class="np-dots"></div><div class="pd-thumbs">' + thumbs.join('') + '</div>' +
+        '<div class="pd-media-note">Swipe or tap to view video &amp; photos</div></aside>' +
+      '<div class="pd-main">' +
+        '<section class="pd-card"><h2>' + npEsc(p.headline) + '</h2><p class="pd-lead">' + npEsc(p.intro) + '</p><div class="np-open">' + npEsc(p.openLine) + '</div></section>' +
+        '<section class="pd-card"><h3>Key Details</h3><dl class="pd-facts">' +
+          p.facts.map(function(f) { return '<div class="pd-fact"><dt>' + npEsc(f[0]) + '</dt><dd>' + npEsc(f[1]) + '</dd></div>'; }).join('') + '</dl></section>' +
+        '<section class="pd-card"><h3>✨ Project Highlights</h3><ul class="np-hl">' +
+          p.highlights.map(function(h) { return '<li><span class="ic">' + h[0] + '</span><span><strong>' + npEsc(h[1]) + '</strong> ' + npEsc(h[2]) + '</span></li>'; }).join('') + '</ul></section>' +
+        '<section class="pd-card pd-offer"><h3>Pre-Launch Offer</h3><div class="pd-offer-row">' +
+          '<div class="pd-offer-big"><b>' + npEsc(p.offer.plan) + '</b><span>' + npEsc(p.offer.planLabel) + '</span></div>' +
+          '<div class="pd-offer-steps">' + p.offer.points.map(function(o) { return '<div><span>' + o[0] + '</span><span>' + o[1] + '</span></div>'; }).join('') + '</div></div>' +
+          '<div class="np-chips">' + p.chips.map(function(c) { return '<span>' + npEsc(c) + '</span>'; }).join('') + '</div></section>' +
+        '<section class="pd-card"><h3>Location &amp; Connectivity</h3><ul class="pd-loc-list">' +
+          p.locationPoints.map(function(l) { return '<li><span>' + l[0] + '</span><span>' + l[1] + '</span></li>'; }).join('') + '</ul>' +
+          '<div class="pd-map"><iframe src="' + mapSrc + '" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map – ' + npEsc(p.location) + '"></iframe></div>' +
+          '<p class="pd-map-note">Map shows the ' + npEsc(p.location) + ' area. The exact site address is shared on enquiry.</p></section>' +
+        '<section class="pd-cta"><p>' + npEsc(p.opportunity) + '</p>' +
+          '<div class="np-chips" style="justify-content:center;">' + ['Limited inventory', 'Priority allocation', 'Pre-Launch Prices'].map(function(c) { return '<span>' + c + '</span>'; }).join('') + '</div>' +
+          '<p style="font-family:Inter,sans-serif;font-style:normal;font-size:14px;color:var(--muted);margin-bottom:1.1rem;">📲 Connect with us to know more &amp; secure your preferred unit.</p>' +
+          '<div class="pd-cta-btns"><button class="np-enquire" type="button" onclick="' + enquire + '">&#128242; Enquire Now</button>' +
+          '<button class="pd-btn-line" type="button" onclick="shareProject(\'' + p.code + '\')">Share Project</button></div></section>' +
+        '<div class="np-rera"><strong>MAHA RERA NO: ' + p.rera + '</strong><br>' +
+          'The project is registered as “' + npEsc(p.reraEntity) + '” under MahaRERA registration no. ' + p.rera + ', available at <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener">maharera.maharashtra.gov.in</a>. ' +
+          'Images are illustrative. Project particulars are subject to the developer’s terms; buyers are advised to verify all details independently. All trademarks and logos belong to their respective owners.</div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="pd-back"><button class="pd-btn-line" type="button" onclick="backToNewProjects()">← All New Projects</button></div></div>';
+
+  initReel(document.querySelector('#project-root [data-reel]'));
+}
+
+function openProject(code) {
+  var p = findProject(code);
+  if (!p) { showPage('listings'); showListingCat('new'); return; }
+  renderProjectPage(p);
+  showPage('project');
+  document.title = p.name + ' New Launch, ' + p.area + ' (' + p.code + ') | A&A Landgate';
+  var md = document.querySelector('meta[name="description"]');
+  if (md) md.setAttribute('content', p.name + ' – ' + p.config + ' at ' + p.location + '. ' + p.status + ' booking open. MahaRERA ' + p.rera + '. Enquire with A&A Landgate.');
+  if (history.replaceState) history.replaceState(null, '', '#project/' + p.code);
+}
+function backToNewProjects() { showPage('listings'); showListingCat('new'); }
+
+function shareProject(code) {
+  var p = findProject(code); if (!p) return;
+  var url = location.origin + location.pathname + '#project/' + code;
+  var text = p.name + ' – New Launch, ' + p.location + ' (' + code + ')';
+  if (navigator.share) { navigator.share({ title: text, text: text, url: url }).catch(function(){}); }
+  else { window.open('https://wa.me/?text=' + encodeURIComponent(text + '\n' + url), '_blank', 'noopener'); }
+}
+
 // LISTINGS: New Projects / Resale categories
 function showListingCat(cat) {
   ['new', 'resale'].forEach(function(c) {
@@ -3619,64 +3811,65 @@ function showListingCat(cat) {
     tab.setAttribute('aria-selected', on);
     document.getElementById('cat-' + c).hidden = !on;
   });
-  playVisibleReels();
 }
 
-// LISTINGS: jump from the highlight strip to a listing
-function goToListing(code) {
-  showListingCat(/^AAL-RS-/.test(code) ? 'resale' : 'new');
-  var el = document.getElementById(code);
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-// LISTINGS: 9:16 reel carousel (video + photos)
+// 9:16 reel carousel (video + photos in an identical frame)
 function playVisibleReels() {
   document.querySelectorAll('[data-reel]').forEach(function(r) { if (r._go) r._go(r._i || 0); });
 }
-(function initReels() {
-  document.querySelectorAll('[data-reel]').forEach(function(reel) {
-    var track = reel.querySelector('.np-track'), slides = track.children, n = slides.length;
-    var dots = reel.parentNode.querySelector('.np-dots');
-    for (var k = 0; k < n; k++) {
-      var d = document.createElement('button');
-      d.type = 'button'; d.className = 'np-dot'; d.setAttribute('aria-label', 'Show slide ' + (k + 1));
-      d.onclick = (function(k) { return function() { go(k); }; })(k);
-      dots.appendChild(d);
-    }
-    function go(j) {
-      var i = reel._i = (j + n) % n;
-      track.style.transform = 'translateX(' + (-100 * i) + '%)';
-      Array.prototype.forEach.call(dots.children, function(d, k) { d.classList.toggle('on', k === i); });
-      var visible = reel.offsetParent !== null;
-      Array.prototype.forEach.call(slides, function(s, k) {
-        var v = s.querySelector('video');
-        if (!v) return;
-        if (k === i && visible) { var p = v.play(); if (p && p.catch) p.catch(function(){}); } else { v.pause(); }
-      });
-    }
-    reel._go = go;
-    reel.querySelector('.np-arrow.prev').onclick = function() { go(reel._i - 1); };
-    reel.querySelector('.np-arrow.next').onclick = function() { go(reel._i + 1); };
-    var x0 = null;
-    reel.addEventListener('touchstart', function(e) { x0 = e.touches[0].clientX; }, { passive: true });
-    reel.addEventListener('touchend', function(e) {
-      if (x0 === null) return;
-      var dx = e.changedTouches[0].clientX - x0;
-      if (Math.abs(dx) > 40) go(reel._i + (dx < 0 ? 1 : -1));
-      x0 = null;
+function initReel(reel) {
+  if (!reel) return;
+  var track = reel.querySelector('.np-track'), slides = track.children, n = slides.length;
+  var dots = reel.parentNode.querySelector('.np-dots');
+  var thumbs = reel.parentNode.querySelectorAll('.pd-thumb');
+  for (var k = 0; k < n; k++) {
+    var d = document.createElement('button');
+    d.type = 'button'; d.className = 'np-dot'; d.setAttribute('aria-label', 'Show slide ' + (k + 1));
+    d.onclick = (function(k) { return function() { go(k); }; })(k);
+    dots.appendChild(d);
+  }
+  Array.prototype.forEach.call(thumbs, function(t, k) { t.onclick = function() { go(k); }; });
+  function go(j) {
+    var i = reel._i = (j + n) % n;
+    track.style.transform = 'translateX(' + (-100 * i) + '%)';
+    Array.prototype.forEach.call(dots.children, function(d, k) { d.classList.toggle('on', k === i); });
+    Array.prototype.forEach.call(thumbs, function(t, k) { t.classList.toggle('on', k === i); });
+    var visible = reel.offsetParent !== null;
+    Array.prototype.forEach.call(slides, function(s, k) {
+      var v = s.querySelector('video');
+      if (!v) return;
+      if (k === i && visible) { var pr = v.play(); if (pr && pr.catch) pr.catch(function(){}); } else { v.pause(); }
     });
-    var snd = reel.querySelector('.np-sound');
-    if (snd) snd.onclick = function() {
-      var v = reel.querySelector('video');
-      v.muted = !v.muted;
-      if (!v.muted) v.play();
-      snd.innerHTML = v.muted ? '&#128263; Tap for sound' : '&#128266; Sound on';
-    };
-    go(0);
+  }
+  reel._go = go;
+  reel.querySelector('.np-arrow.prev').onclick = function() { go(reel._i - 1); };
+  reel.querySelector('.np-arrow.next').onclick = function() { go(reel._i + 1); };
+  var x0 = null;
+  reel.addEventListener('touchstart', function(e) { x0 = e.touches[0].clientX; }, { passive: true });
+  reel.addEventListener('touchend', function(e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) go(reel._i + (dx < 0 ? 1 : -1));
+    x0 = null;
   });
-  // start/stop the reel video when the Listings page is opened or left
-  var lp = document.getElementById('listings-page');
-  if (lp && window.MutationObserver) new MutationObserver(playVisibleReels).observe(lp, { attributes: true, attributeFilter: ['class'] });
+  var snd = reel.querySelector('.np-sound');
+  if (snd) snd.onclick = function() {
+    var v = reel.querySelector('video');
+    v.muted = !v.muted;
+    if (!v.muted) v.play();
+    snd.innerHTML = v.muted ? '&#128263; Tap for sound' : '&#128266; Sound on';
+  };
+  go(0);
+}
+(function initNewProjects() {
+  renderProjectTiles();
+  // start/stop reel video when its page is opened or left
+  var pp = document.getElementById('project-page');
+  if (pp && window.MutationObserver) new MutationObserver(playVisibleReels).observe(pp, { attributes: true, attributeFilter: ['class'] });
+  window.addEventListener('hashchange', function() {
+    var h = location.hash;
+    if (h.indexOf('#project/') === 0) openProject(decodeURIComponent(h.substring(9)));
+  });
 })();
 
 // LISTINGS: enquiry form (code + name + contact + email) → WhatsApp
@@ -4017,7 +4210,7 @@ var SEARCH_INDEX = [
   { tag: 'Page', title: 'Blog & Insights', sub: 'Mumbai market trends, stamp duty, NRI guide', page: 'blog' },
   { tag: 'Page', title: 'FAQ', sub: 'Brokerage, process, NRI, documents, timelines', page: 'faq' },
   { tag: 'Page', title: 'Contact Us', sub: 'Call, WhatsApp, or fill enquiry form', page: 'contact' },
-  { tag: 'New Project', title: 'House of Hiranandani – New Launch (AAL-NP-001)', sub: 'Gorai, Borivali West · Luxury 2 & 3 BHK Deck Apartments · Pre-Launch', page: 'listings' },
+  { tag: 'New Project', title: 'House of Hiranandani – New Launch (AAL-NP-001)', sub: 'Gorai, Borivali West · Luxury 2 & 3 BHK Deck Apartments · Pre-Launch', page: 'project/AAL-NP-001' },
   { tag: 'Listing', title: 'Spacious 2 BHK Apartment', sub: 'Thane West · Residential', page: 'listings' },
   { tag: 'Listing', title: 'Cosy 1 BHK Starter Home', sub: 'Mira Road · Residential', page: 'listings' },
   { tag: 'Listing', title: 'Premium 3 BHK Family Residence', sub: 'Kharghar, Navi Mumbai · Residential', page: 'listings' },
@@ -4098,6 +4291,7 @@ function runSearch(q) {
 }
 function searchGo(page) {
   closeSearch();
+  if (page.indexOf('project/') === 0) { openProject(page.substring(8)); return; }
   showPage(page);
 }
 
@@ -4189,6 +4383,7 @@ window.addEventListener('load', function() { setTimeout(initChart, 200); });
   var hash = window.location.hash;
   if (hash && hash.length > 1) {
     var page = hash.substring(1); // strip the #
+    if (page.indexOf('project/') === 0) { openProject(decodeURIComponent(page.substring(8))); return; }
     var validPages = ['home','listings','about','sell','blog','faq','contact','services','tools'];
     if (validPages.indexOf(page) !== -1) {
       showPage(page);
